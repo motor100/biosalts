@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./includes/fonts/Roboto-Light.woff2');
+  src: url('./includes/fonts/Roboto-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Uni';
+  src: url('./includes/fonts/UniNeueLight.woff2');
+  src: url('./includes/fonts/UniNeueLight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
