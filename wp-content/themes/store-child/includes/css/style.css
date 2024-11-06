@@ -556,6 +556,66 @@ a {
   text-align: center;
 }
 
+/* personal select section */
+.personal-select-section {
+  padding: 0 0 80px 0;
+}
+.personal-select-section .select-item {
+  position: relative;
+  height: 320px;
+  padding: 40px;
+  border-radius: 15px;
+  overflow: hidden;
+  color: var(--nero-color);
+}
+.personal-select-section .select-item-darkblue {
+  background-color: var(--darkblue-color);
+}
+.personal-select-section .select-item-darkblue .select-item__title {
+  margin: 0 0 20px 0;
+  font-family: 'Roboto-CondensedBold';
+  font-size: 42px;
+  line-height: 1.1;
+  text-transform: uppercase;  
+}
+.personal-select-section .select-item-darkblue .select-item__text {
+  font-family: 'Roboto-Light';
+  font-size: 32px;
+}
+.personal-select-section .select-item-darkblue .select-item__image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 202px;
+  z-index: 1;
+}
+.personal-select-section .select-item-darkblue .select-item__image img {
+  width: 100%;
+}
+.personal-select-section .select-item-burgundy {
+  background-color: var(--burgundy-color);
+}
+.personal-select-section .select-item-burgundy .select-item__text {
+  font-size: 20px;
+}
+.personal-select-section .select-item-burgundy .example-btn {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  display: block;
+  width: 350px;
+  height: 60px;
+  padding: 18px 0;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--nero-color);
+  font-family: 'Roboto-Light';
+  font-size: 18px;
+  color: var(--burgundy-color);
+  text-align: center;
+  cursor: pointer;
+}
+
 
 
 

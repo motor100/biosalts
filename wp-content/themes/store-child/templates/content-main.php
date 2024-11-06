@@ -148,3 +148,26 @@
     </div>
   </div>
 </div>
+
+<div class="personal-select-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="select-item select-item-darkblue">
+          <div class="select-item__title">Персональный подбор<br>солей Шюсслера</div>
+          <div class="select-item__text">online</div>
+          <div class="select-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/personal-select.png" alt="">
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="select-item select-item-burgundy">
+          <div class="select-item__text">Текст про персональный подбор</div>
+          <div class="example-btn">Посмотреть пример заключения</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
