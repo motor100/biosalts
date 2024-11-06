@@ -197,3 +197,60 @@
     </div>    
   </div>
 </div>
+
+<div class="manufacture-section">
+  <div class="manufacture-title">
+    <div class="container">
+      <div class="title">Производство</div>
+      <div class="subtitle">made and owned</div>
+    </div>
+  </div>
+  <div class="manufacture-content">
+    <div class="container">
+      <div class="flex-container">
+        <div class="video">
+          <img src="/wp-content/themes/store-child/includes/images/video-test.jpg" alt="">
+        </div>
+        <div class="content">
+          <div class="description">
+            <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>
+            <p class="text">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
+          </div>
+          <div class="view-more-btn">подробнее</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hz-section">
+  <div class="container">
+    <div class="grid-container">
+      <div class="image">
+        <img src="/wp-content/themes/store-child/includes/images/hz-1.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="/wp-content/themes/store-child/includes/images/hz-2.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="/wp-content/themes/store-child/includes/images/hz-3.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="/wp-content/themes/store-child/includes/images/hz-4.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="club-section">
+  <div class="club-title">
+    <div class="container">
+      <div class="title">Станьте участниками</div>
+      <div class="name">NaturaClub</div>
+      <div class="text">и пользуйтесь привилегиями</div>
+    </div>
+  </div>
+  <div class="club-content">
+    <div class="container"></div>
+  </div>
+</div>
