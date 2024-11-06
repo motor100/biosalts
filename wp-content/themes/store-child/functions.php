@@ -29,7 +29,7 @@ function sf_child_theme_dequeue_style() {
 * $temp_debug = false добавляется версия wp
 */
 
-$temp_debug = false;
+$temp_debug = true;
 $ver = '';
 if ($temp_debug) {
   $ver = date('dis');

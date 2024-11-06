@@ -518,10 +518,43 @@ a {
 }
 
 
-
-
-
-
+/* category section */
+.category-section {
+  padding: 80px 0;
+}
+.category-section .category-item {
+  position: relative;
+  height: 190px;
+}
+.category-section .category-item__image {
+  height: 160px;
+  border-radius: 15px 15px 0 0;
+}
+.category-section .category-item__image img {
+  width: 100%;
+}
+.category-section .category-item__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 100%;
+  height: 84px;
+  border: 1px solid var(--darkblue-color);
+  border-radius: 15px;
+  background-color: var(--nero-color);
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.category-section .category-item__title .text {
+  font-family: 'Roboto-Medium';
+  font-size: 20px;
+  color: var(--darkblue-color);
+  line-height: 1.1;
+  text-align: center;
+}
 
 
 

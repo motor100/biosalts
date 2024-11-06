@@ -75,3 +75,76 @@
     </div>
   </div>
 </div>
+
+<div class="category-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Соли Шюсслера 1-12</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Соли Шюсслера 13-27</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Комплексы</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Детские соли</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Спреи</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="category-item">
+          <div class="category-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+          </div>
+          <div class="category-item__title">
+            <span class="text">Космецевтика</span>
+          </div>
+          <a href="#" class="full-link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
