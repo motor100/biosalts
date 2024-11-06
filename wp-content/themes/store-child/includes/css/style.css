@@ -617,6 +617,69 @@ a {
 }
 
 
+/* description section */
+.description-section {
+  padding: 50px 0;
+  background-color: var(--darkblue-color);
+  color: var(--nero-color);
+}
+.description-section .description-image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.description-section .description-image img {
+  width: 100%;
+}
+.description-section .title-wrapper {
+  display: flex;
+  margin: 0 0 30px 0;
+  align-items: center;
+}
+.description-section .title-wrapper .image {
+  width: 48px;
+}
+.description-section .title-wrapper .number {
+  margin: 0 20px 0 40px;
+  font-family: 'Roboto-Light';
+  font-size: 100px;
+  line-height: 1;
+}
+.description-section .title-wrapper .text {
+  font-family: 'Roboto-Light';
+  font-size: 32px;
+  line-height: 1;
+}
+.description-section .description-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.description-section .description .text {
+  font-family: 'Roboto-Light';
+  font-size: 20px;
+  line-height: 1.2;
+}
+.description-section .view-more-btn {
+  display: block;
+  width: 160px;
+  height: 55px;
+  padding: 15px 0;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--burgundy-color);
+  font-family: 'Roboto-Light';
+  font-size: 18px;
+  color: var(--nero-color);
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+
+
+
 
 
 .woo-customs {

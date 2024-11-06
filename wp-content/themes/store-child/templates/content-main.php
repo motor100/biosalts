@@ -171,3 +171,29 @@
     </div>
   </div>
 </div>
+
+<div class="description-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="description-image">
+          <img src="/wp-content/themes/store-child/includes/images/shyussler.jpg" alt="">
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="description-content">
+          <div class="title-wrapper">
+            <img src="/wp-content/themes/store-child/includes/images/ball-blue.png" class="image" alt="">
+            <div class="number">151</div>
+            <div class="text">год сканевой<br>биохимической<br>терапии</div>
+          </div>
+          <div class="description">
+            <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>
+            <p class="text">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
+          </div>
+          <div class="view-more-btn">подробнее</div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>

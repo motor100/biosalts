@@ -10,7 +10,7 @@
 
 ?>
 
-</div><!-- #content -->
+</div>
 
 <footer>
 	<div class="container">
@@ -74,7 +74,7 @@
 </footer>
 
 
-</div><!-- #page -->
+</div>
 
 <?php wp_footer(); ?>
 
