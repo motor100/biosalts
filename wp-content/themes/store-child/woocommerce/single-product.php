@@ -16,47 +16,41 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+  exit; // Exit if accessed directly
 }
 
 get_header( 'shop' ); ?>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+  <?php
+    /**
+     * woocommerce_before_main_content hook.
+     *
+     * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+     * @hooked woocommerce_breadcrumb - 20
+     */
+    do_action( 'woocommerce_before_main_content' );
+  ?>
 
-<section class="single__prod">
-	<div class="catalog inside">
-		<div class="title">Каталог</div>
-		<div class="curved violet v2">
-			<div class="one"></div>
-			<div class="two"></div>
-			<div class="three"></div>
-		</div>
-		<div class="catalog_inside title">
-			<? //echo woocommerce_page_title();?>
-		</div>
-	</div>
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
-		<?php endwhile; // end of the loop. ?>
-</section>
+<div class="single-product">
+  <div class="catalog-section-title">Каталог</div>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
+  <div class="single-product-content">
+    <?php while ( have_posts() ) : ?>
+      <?php the_post(); ?>
+      <?php wc_get_template_part( 'content', 'single-product' ); ?>
+    <?php endwhile; ?>
+  </div>
+
+</div>
+
+  <?php
+    /**
+     * woocommerce_after_main_content hook.
+     *
+     * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+     */
+    do_action( 'woocommerce_after_main_content' );
+  ?>
 
 <?php
 get_footer( 'shop' );
