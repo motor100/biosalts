@@ -223,7 +223,7 @@
   </div>
 </div>
 
-<div class="hz-section">
+<div class="image-section">
   <div class="container">
     <div class="grid-container">
       <div class="image">
@@ -251,6 +251,53 @@
     </div>
   </div>
   <div class="club-content">
-    <div class="container"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="club-item">
+            <div class="flex-container">
+              <div class="image">
+                <img src="/wp-content/themes/store-child/includes/images/percent-sale.png" alt="">
+              </div>
+              <div class="title">Скидки</div>
+            </div>
+            <div class="club-item__text">Участники получают до 20% скидки на предложения недели</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="club-item">
+            <div class="flex-container">
+              <div class="image">
+                <img src="/wp-content/themes/store-child/includes/images/car-delivery.png" alt="">
+              </div>
+              <div class="title">Бесплатные<br>доставки</div>
+            </div>
+            <div class="club-item__text">Вы получаете бесплатную доставку по России при использовании сервиса подбора или покупке на сумму больше 10 000 руб.</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="club-item">
+            <div class="flex-container">
+              <div class="image">
+                <img src="/wp-content/themes/store-child/includes/images/free-select.png" alt="">
+              </div>
+              <div class="title">Бесплатный<br>подбор</div>
+            </div>
+            <div class="club-item__text">Вы получаете бесплатный подбор персонального курса при покупке набора солей Шюсслера в деревянной коробке по 200 таб.</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="club-item">
+            <div class="flex-container">
+              <div class="image">
+                <img src="/wp-content/themes/store-child/includes/images/chemicals.png" alt="">
+              </div>
+              <div class="title">Скидки на<br>персональные<br>лекарства</div>
+            </div>
+            <div class="club-item__text">Вы получаете купон на скидку для обслуживания в производственной аптеке NaturaPharma в каждом заказе</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
