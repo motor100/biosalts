@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li id="a-<?echo $product->id;?>" data-category="<?php echo mb_strtolower(mb_substr($product->name, 0, 1)); ?>" <?php wc_product_class( mb_strtolower(mb_substr($product->name, 0, 1)) , $product); ?>>
+<li id="a-<?echo $product->get_id();?>" data-category="<?php echo mb_strtolower(mb_substr($product->get_name(), 0, 1)); ?>" <?php wc_product_class( mb_strtolower(mb_substr($product->get_name(), 0, 1)) , $product); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

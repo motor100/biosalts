@@ -12,6 +12,12 @@
 
 get_header(); ?>
 
+<div class="container">
+	<div class="row">
+		<?php //the_content(); ?>
+	</div>
+</div>
+
 <?php
 while ( have_posts() ) :
   the_post();

@@ -69,7 +69,7 @@
                   <div class="underlogo-text">since 1873</div>
                 </a>
               </div>
-              <a href="/catalog" class="catalog-btn header-content-btn">
+              <a href="/catalog/product-category/soli-schuesslera/" class="catalog-btn header-content-btn">
                 <img src="/wp-content/themes/store-child/includes/images/svg/catalog-rectangle.svg" class="catalog-btn__image" alt="">
                 <span class="catalog-btn__text">Каталог</span>
               </a>

@@ -9,7 +9,7 @@
  * If you don't plan to dequeue the Storefront Core CSS you can remove the subsequent line and as well
  * as the sf_child_theme_dequeue_style() function declaration.
  */
-//add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
+add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
 
 /**
  * Dequeue the Storefront Parent theme core CSS
@@ -22,6 +22,12 @@ function sf_child_theme_dequeue_style() {
 /**
  * Note: DO NOT! alter or remove the code above this text and only add your custom PHP functions below this text.
  */
+
+add_action( 'wp_enqueue_scripts', 'my_dequeue_style', 99 );
+
+function my_dequeue_style(){
+    wp_dequeue_style( 'storefront-child-style' ); // отключение файла /store-child/style.css
+}
 
 // Добавление версии в css и js
 /*
@@ -54,7 +60,14 @@ function add_scripts() {
     wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/includes/js/main.js','',$ver);
 	
 	wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/includes/js/_custom.js');
+
+    // включение файла admin-ajax.php для front
     wp_localize_script('custom-script', 'my_ajax_obj', array(
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ));
+
+    // включение файла admin-ajax.php для front
+    wp_localize_script('main', 'Myscrt', array(
         'ajaxurl' => admin_url('admin-ajax.php')
     ));
 }
@@ -184,46 +197,42 @@ function render_catalog() {
 
 //Каталог продукции r.kolobaev
 function render__catalog($id_gr) {
-  $taxonomy     = 'product_cat';
-  $orderby      = 'ID';
-  $show_count   = 0;
-  $pad_counts   = 0;
-  $hierarchical = 1;
-  $title        = '';
-  $empty        = 0;
-  $args = array(
-    'taxonomy'     => $taxonomy,
-    'orderby'      => $orderby,
-    'show_count'   => $show_count,
-	'parent'       => $id_gr,
-    'pad_counts'   => $pad_counts,
-    'hierarchical' => $hierarchical,
-    'title_li'     => $title,
-    'exclude'      => '15',
-    'hide_empty'   => $empty
-  );
-  $all_categories = get_categories( $args );
-  foreach ($all_categories as $cat) { ?>
-          <?php
-          $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-          if ($id_gr == '96') {
-			$css_w = 'w110px';
-			}
-			else {
-			$css_w = 'ww100';
-		 }
-		 $image = wp_get_attachment_url( $thumbnail_id ); 
-          ?>
-			<div class="children__item">
-                <div class="children__image">
-                    <a href="<?php echo get_term_link($cat->term_id); ?>">
-                        <img class="<?echo $css_w?>" src="<?php echo $image ?>" alt="<?php echo $cat->name ?>">
-                    </a>
-                </div>
-                <a class="subcat__link" href="<?php echo get_term_link($cat->term_id); ?>"><?php echo $cat->name ?></a>
-            </div>
-    <?php
-  }
+    $taxonomy     = 'product_cat';
+    $orderby      = 'ID';
+    $show_count   = 0;
+    $pad_counts   = 0;
+    $hierarchical = 1;
+    $title        = '';
+    $empty        = 0;
+    $args = array(
+        'taxonomy'     => $taxonomy,
+        'orderby'      => $orderby,
+        'show_count'   => $show_count,
+        'parent'       => $id_gr,
+        'pad_counts'   => $pad_counts,
+        'hierarchical' => $hierarchical,
+        'title_li'     => $title,
+        'exclude'      => '15',
+        'hide_empty'   => $empty
+    );
+    $all_categories = get_categories( $args );
+    foreach ($all_categories as $cat) {
+        $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+        if ($id_gr == '96') {
+            $css_w = 'w110px';
+        } else {
+            $css_w = 'img';
+        }
+        $image = wp_get_attachment_url( $thumbnail_id );
+        echo '<div class="children__item">';
+        echo '<div class="children__image">';
+        echo '<a href="' . get_term_link($cat->term_id) . '">';
+        echo '<img class="' . $css_w . '" src="' . $image . '" alt="' . $cat->name . '">';
+        echo '</a>';
+        echo '</div>';
+        echo '<a class="children__title" href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a>';
+        echo '</div>';
+    }
 }
 
 // обертка для категорий
@@ -827,3 +836,58 @@ add_action('wp_ajax_handle_questionnaire_completion', 'handle_questionnaire_comp
 add_action('wp_ajax_nopriv_handle_questionnaire_completion', 'handle_questionnaire_completion');
 
 
+// Замена символа рубля на букву Р
+function woocommerce_change_rub_symbol( $valyuta_symbol, $valyuta_code ) {
+    if( $valyuta_code === 'RUB' ) {
+        return 'Р';
+    }
+    return $valyuta_symbol;
+}
+add_filter('woocommerce_currency_symbol', 'woocommerce_change_rub_symbol', 9999, 2);
+
+
+// AJAX получить товары из подкатегории на странице Соли Щюсслера
+add_action( 'wp_ajax_get_subcat', 'get_subcat_products' ); // хук wp_ajax
+add_action( 'wp_ajax_nopriv_get_subcat', 'get_subcat_products' ); // хук wp_ajax для незалогиненных пользователей
+
+function get_subcat_products() {
+
+    // Получение id подкатегории из запроса
+    $subcat_id = ! empty( $_POST['subcat_id'] ) ? esc_attr( $_POST['subcat_id'] ) : false;
+
+    // Получение подкатегории
+    $subcat = get_term_by( 'id', $subcat_id, 'product_cat' );
+
+    // Если нет подкатегории, то return false
+    if ( ! $subcat ) {
+        return false;
+    }
+
+    // Запрос
+    $query = new WP_Query( array (
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'posts_per_page' => '-1',
+        'tax_query' => array( array (
+                'taxonomy' => 'product_cat',
+                'field'    => 'term_id',
+                'terms'    => $subcat_id,
+        ) ),
+    ) );
+
+    // Вывод записей
+    if ( $query->have_posts() ) {
+
+        while ( $query->have_posts() ) {
+            $query->the_post();
+
+            // Подключение шаблона product loop
+            require ( get_stylesheet_directory() . '/woocommerce/content-product.php' );
+        }
+
+        wp_reset_postdata();
+
+    }
+    
+    wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего (0), только то что возвращает функция
+}
