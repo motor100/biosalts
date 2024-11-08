@@ -99,10 +99,11 @@ Text Domain:  storefront
   --pink-color: #E7E6E2;
   --olive-color: #819C84;
   --lightgreen-color: #BADAD5;
-  --white-rock-color: #EDE8D9;
+  --whiterock-color: #EDE8D9;
   --mineshaft-color: #222222;
   --shark-color: #212529;
   --terracota-color: #E06752;
+  --voodoo-color: #43314B;
 }
 
 body {
@@ -1110,7 +1111,7 @@ ul.products li.product .woocommerce-placeholder {
   height: 297px;
   margin: 0 0 20px 0;
   border-radius: 30px;
-  border: 2px solid var(--white-rock-color);
+  border: 2px solid var(--whiterock-color);
   object-fit: contain;
   transition: border .3s;
 }
@@ -1956,6 +1957,135 @@ a.remove {
   color: var(--text-color);
   text-decoration: underline;
 }
+
+
+/* custom page */
+.custom-page .page-title {
+  margin: 0 0 40px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 56px;
+  color: var(--darkblue-color);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+
+/* expert system */
+.expert-system-page .pay-now-btn {
+  width: 277px;
+  height: 76px;
+  padding: 18px 0;
+  border-radius: 38px;
+  background-color: var(--burgundy-color);
+  font-family: "Roboto-Condensed";
+  font-size: 28px;
+  color: var(--nero-color);
+  text-align: center;
+}
+.expert-system-page .about-expert-system-section {
+  padding: 40px 0 80px 0;
+}
+.expert-system-page .about-expert-system-section .text {
+  font-family: "Roboto-Medium";
+  font-size: 24px;
+  line-height: 1.3;
+}
+.expert-system-page .advantages-section {
+  margin: 0 0 20px 0;
+}
+.expert-system-page .advantages-section .section-title {
+  margin: 0 0 20px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 28px;
+  color: var(--voodoo-color);
+  text-transform: uppercase;
+}
+.expert-system-page .advantages-section .advantages-item {
+  height: 159px;
+  margin: 0 0 20px 0;
+  padding: 30px;
+  border: 2px solid var(--whiterock-color);
+  border-radius: 30px;
+}
+.expert-system-page .advantages-section .advantages-item__title {
+  margin: 0 0 20px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 20px;
+  color: var(--voodoo-color);
+  text-transform: uppercase;
+}
+.expert-system-page .advantages-section .advantages-item__text {
+  font-size: 18px;
+  color: var(--mineshaft-color);
+  line-height: 1.3;
+}
+.expert-system-page .diagnostics-section .flex-container {
+  display: flex;
+  border-radius: 30px;
+  background-color: var(--darkblue-color);
+  font-size: 18px;
+  color: var(--nero-color);
+}
+.expert-system-page .diagnostics-section {
+  margin: 0 0 40px 0;
+}
+.expert-system-page .diagnostics-section .left {
+  padding: 40px;
+  width: 50%;
+}
+.expert-system-page .diagnostics-section .right {
+  padding: 40px;
+  border-radius: 30px;
+  background-color: var(--burgundy-color);
+  width: 50%;
+}
+.expert-system-page .diagnostics-section .right .title {
+  margin: 0 0 18px 0;
+}
+.expert-system-page .diagnostics-section .right .frame {
+  padding: 40px;
+  border: 1px solid var(--nero-color);
+  border-radius: 30px;
+}
+.expert-system-page .diagnostics-section .right .frame .list {
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+.expert-system-page .diagnostics-section .right .frame .list-item {
+  margin: 0 0 10px 0;
+}
+.expert-system-page .doctor-section {
+  margin: 0 0 10px 0;
+}
+.expert-system-page .doctor-section .text {
+  font-family: "Roboto-Medium";
+  font-size: 24px;
+  color: var(--mineshaft-color);
+}
+.expert-system-page .copyright-section {
+  margin: 0 0 80px 0;
+}
+.expert-system-page .copyright-section .copyright {
+  font-size: 24px;
+  color: var(--burgundy-color);
+  font-style: italic;
+}
+.expert-system-page .buy-section .buy-btn {
+  width: 250px;
+  height: 66px;
+  margin: 0 auto;
+  padding: 18px 0;
+  border-radius: 33px;
+  background-color: var(--burgundy-color);
+  font-family: "Roboto-Condensed";
+  font-size: 20px;
+  color: var(--nero-color);
+  text-align: center;
+}
+
+
+
+
 
 
 .woo-customs {
@@ -2989,351 +3119,7 @@ ul.clear {
   align-items: flex-end;
 }
 
-/*
-.advantages {
-  background: #c2d279 url("/wp-content/uploads/advantages-bg.jpg") 50% 50%;
-  background-size: cover;
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-position-y: -525px;
-  margin: 100px 0;
-  position: relative;
-}
-.advantages .title {
-  text-align: center;
-  color: #4f424f;
-  font-family: Akrobat;
-  font-size: 65px;
-  line-height: 1;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-.advantages .items {
-  margin: 100px 0;
-  display: flex;
-  justify-content: space-between;
-  color: #4f424f;
-}
-.advantages .items > div {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  padding: 0 15px;
-  text-align: center;
-}
-.advantages .advantage-title {
-  font-family: Akrobat;
-  padding: 20px 0;
-  font-size: 1.8em;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1.2;
-  min-height: 180px;
-}
-.advantages .advantage-n {
-  padding-bottom: 20px;
-  margin: 20px 0;
-}
-.advantages .advantage-n i {
-  background: #fff;
-  border-radius: 50%;
-  font-family: "Akrobat";
-  font-size: 45px;
-  font-style: normal;
-  font-weight: 500;
-  width: 60px;
-  height: 60px;
-  display: block;
-  line-height: 55px;
-}
-.advantages .advantage-desc {
-  font-size: 1.2em;
-  font-weight: 500;
-  line-height: 1;
-}
-.banner .title {
-  font-family: "Chianti";
-  text-align: center;
-  font-size: 3em;
-  font-style: italic;
-  color: #294060;
-  margin-bottom: 20px;
-}
-.banner .all-ban {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 42% 58%;
-  background: #c2d279;
-}
-.banner .var-banner {
-  background: #c2d279 url(/wp-content/uploads/banner-bg.jpg) 150% 0% no-repeat;
-  background-blend-mode: multiply;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position-y: -120px;
-}
-.banner .var-banner .bn {
-  margin: 0 auto;
-  width: 100%;
-}
-.banner .img img {
-  margin: 0 auto;
-}
-.banner .name {
-  display: none;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #4f424f;
-  font-size: 2.2em;
-  font-family: "Akrobat";
-}
-.banner .about {
-  position: absolute;
-  right: 0;
-  width: 60%;
-  text-align: center;
-  padding: 60px;
-  background: #ede8d9;
-  -webkit-border-bottom-right-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.banner .about .v1 {
-  font-family: "Akrobat";
-  text-transform: uppercase;
-  font-size: 3em;
-  color: #4f424f;
-}
-.banner .about .v2 {
-  font-family: "Chianti";
-  font-size: 2.5em;
-  font-style: italic;
-  color: #4f424f;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-.banner .about .btm-img {
-  background: #ede8d9 url(/wp-content/uploads/about-bg.jpg) 100% 0% no-repeat;
-  min-height: 350px;
-  background-blend-mode: multiply;
-  background-size: cover;
-  margin: 0px -60px -60px -60px;
-  -webkit-border-bottom-right-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.offer .title {
-  background: #c2d279;
-  padding: 10px 0;
-  font-size: 65px;
-  color: #4f424f;
-  text-align: center;
-  font-family: "Akrobat";
-  text-transform: uppercase;
-}
-.offer .favorite {
-  background: #c2d279 url(../images/svg/favorite.svg) 50% 50% no-repeat;
-  position: absolute;
-  z-index: 999;
-  right: 0;
-  bottom: 0;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-size: contain;
-  display: none;
-}
-.offer .item .favorite {
-  right: -55px;
-  top: -7px;
-}
-.offer .all-offer {
-  display: flex;
-}
-.offer .all-offer .children__item {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-.offer .all-offer .children__item > a {
-  flex: 1;
-}
-.offer .all-offer .items {
-  padding: 20px;
-  padding-left: 0;
-  padding-bottom: 0;
-  flex: 50%;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-}
-.offer .all-offer .item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  padding-bottom: 0;
-  flex: 50%;
-  background: rgb(237, 232, 217);
-  background: linear-gradient(
-    0deg,
-    rgba(237, 232, 217, 1) 0%,
-    rgba(243, 240, 231, 1) 100%
-  );
-  -webkit-border-bottom-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
-  -moz-border-radius-bottomright: 20px;
-  -moz-border-radius-bottomleft: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-.offer .all-offer .items img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.offer .all-offer .item:hover {
-  outline: 3px solid #c2d279;
-  outline-offset: -15px;
-}
-.offer .all-offer .item img {
-  margin: 0 auto;
-  mix-blend-mode: multiply;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.offer .all-offer .item .info {
-  width: 42%;
-  background: #c2d279;
-  margin: 0 auto;
-  padding: 50px 0;
-  text-align: center;
-  -webkit-border-top-left-radius: 50px;
-  -webkit-border-top-right-radius: 50px;
-  -moz-border-radius-topleft: 50px;
-  -moz-border-radius-topright: 50px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-}
-.all-offer .full_price {
-  line-height: 1;
-}
-.all-offer .full_price span {
-  opacity: 0.5;
-  font-weight: 400;
-  font-size: 0.8em;
-  text-decoration: line-through;
-}
-.all-offer .price {
-  position: relative;
-  margin-top: 10px;
-  font-weight: 600;
-}
-.all-offer .price span {
-  background: #c2d279;
-  position: relative;
-  padding: 0 10px;
-}
-.all-offer .price:before {
-  content: "";
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #fff;
-}
-.all-offer .price.black span {
-  background: #fff;
-}
-.all-offer .price.black:before {
-  background: #000;
-}
-.all-offer .children__image:hover,
-.catalog .children__image:hover {
-  outline: 3px solid #294060;
-}
-.catalog {
-  margin: 100px 0;
-}
-.catalog .title {
-  background: #294060;
-  font-size: 65px;
-  color: #fff;
-  text-align: center;
-  font-family: "Akrobat";
-  text-transform: uppercase;
-}
-.catalog .groups {
-  background: #c2d279;
-}
-.catalog-tabs ul {
-  margin: 30px 0;
-}
-.catalog-tabs ul li {
-  width: 25%;
-  padding: 0 30px;
-  float: left;
-  font-size: 28px;
-  text-align: center;
-  font-family: "Akrobat";
-}
-.catalog-tabs ul li a:focus {
-  outline: none;
-}
-.catalog-tabs .img {
-  background: #fff;
-  padding: 80px 0;
-  border-radius: 50px;
-  -webkit-box-shadow: -5px 5px 15px -10px rgba(34, 60, 80, 0.5);
-  -moz-box-shadow: -5px 5px 15px -10px rgba(34, 60, 80, 0.5);
-  box-shadow: -5px 5px 15px -10px rgba(34, 60, 80, 0.5);
-  transition: 1s;
-}
-.catalog-tabs ul li:hover .img {
-  background: #294060;
-  outline: 2px solid #fff;
-}
-.catalog-tabs ul li:hover .img img {
-  mix-blend-mode: luminosity;
-}
-.catalog-tabs li.ui-tabs-active .img {
-  border-radius: 50%;
-  background: #294060;
-  outline: 2px solid #fff;
-}
-.catalog-tabs ul li.ui-tabs-active .img img {
-  mix-blend-mode: luminosity;
-}
-.catalog.inside {
-  margin: 0;
-}
-.catalog.inside .two {
-  background: #c2d279 url(../images/green_leaves.png);
-}
-.catalog_inside.title {
-  background: #c2d279 url(../images/green_leaves.png);
-  color: #4f424f;
-  font-size: 36px;
-  padding: 0px 0px 30px;
-}
-.catalog_inside.desc {
-  background: #c2d279;
-  margin-top: 10px;
-  padding: 30px 15%;
-  color: #4f424f;
-}
-*/
+
 /*
 ul.products {
   padding-left: 0;
@@ -3409,9 +3195,6 @@ ul.products li.product .button {
   .catalog-tabs .img {
     padding: 58px 0;
   }
-  .advantages .advantage-title {
-    font-size: 1.6em;
-  }
   /*footer .menu .menu-item a {
     font-size: 16px;
   }*/
@@ -3425,10 +3208,6 @@ ul.products li.product .button {
   }
   .catalog-tabs ul li {
     font-size: 26px;
-  }
-  .advantages .advantage-title {
-    font-size: 1.4em;
-    min-height: 150px;
   }
   /*footer .menu .menu-item a {
     font-size: 14px;
@@ -3568,30 +3347,7 @@ ul.products li.product .button {
     flex-direction: column-reverse;
   }
 
-  .advantages {
-    margin: 0;
-    background-size: auto;
-  }
-  .advantages .title {
-    font-size: 35px;
-  }
-  .advantages .items {
-    margin: 50px 0;
-    flex-direction: column;
-  }
-  .advantages .items > div {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  .advantages .items > div:last-child {
-    margin-bottom: 0;
-  }
-  .advantages .advantage-title {
-    min-height: auto;
-  }
-  .advantages .advantage-n {
-    margin: 0;
-  }
+  
   /*
   footer {
     margin-top: 50px;

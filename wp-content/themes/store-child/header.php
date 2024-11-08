@@ -73,7 +73,7 @@
                 <img src="/wp-content/themes/store-child/includes/images/svg/catalog-rectangle.svg" class="catalog-btn__image" alt="">
                 <span class="catalog-btn__text">Каталог</span>
               </a>
-              <a href="/salts_questionnaire" class="select-salt-btn header-content-btn">
+              <a href="/expert-system" class="select-salt-btn header-content-btn">
                 <img src="/wp-content/themes/store-child/includes/images/svg/magic-wand.svg" class="catalog-btn__image" alt="">
                 <span class="catalog-btn__text">Подбор солей</span>
               </a>
