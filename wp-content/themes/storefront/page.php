@@ -33,8 +33,8 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
 do_action( 'storefront_sidebar' );

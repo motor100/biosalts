@@ -92,6 +92,42 @@ function add_styles() {
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/includes/css/style.css','',$ver );
 }
 
+
+// Удалить атрибут type у scripts
+add_filter('script_loader_tag', 'clean_script_tag');
+function clean_script_tag($src) {
+  return str_replace("type='text/javascript'", '', $src);
+}
+
+// Удалить атрибут type у style
+add_filter('style_loader_tag', 'clean_css_tag', 10, 2);
+function clean_css_tag($tag, $handle) {
+  return preg_replace( "/type=['\"]text\/(css)['\"]/", '', $tag );
+}
+
+// Disable the emoji's
+function disable_emojis() {
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+  if ( 'dns-prefetch' == $relation_type ) {
+    /** This filter is documented in wp-includes/formatting.php */
+    $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+    $urls = array_diff( $urls, array( $emoji_svg_url ) );
+  }
+  return $urls;
+}
+
+
 //Каталог продукции
 function render_parents_catalog() {
   $taxonomy     = 'product_cat';
@@ -892,3 +928,148 @@ function get_subcat_products() {
     wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего (0), только то что возвращает функция
 }
 
+
+
+// Отключение скриптов и стилей плагина Contact Form 7
+// На страницах Главная, Каталог, Карточка товара, Блог, Специалисты
+add_action( 'wp_enqueue_scripts', 'disable_contact_form_css_and_js', 999 );
+ 
+function disable_contact_form_css_and_js() {
+ 
+    if( is_home() || 
+        is_front_page() || 
+        is_page( 'contacts' ) || 
+        is_page( 'blog' ) || 
+        is_page( 'specialisty' ) || 
+        is_page( 'catalog' ) ) {
+        
+        wp_dequeue_style( 'contact-form-7' );
+        wp_dequeue_script( 'contact-form-7' );
+    }
+
+    return; 
+}
+
+
+/*WooCommerce - убираем WooC Generator tag, стили, и скрипты для страниц, не относящихся к плагину*/
+add_action( 'wp_enqueue_scripts', 'my_on_woocommerce_scripts', 999 );
+
+function my_on_woocommerce_scripts() {
+    remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) ); //убираем generator meta tag
+    if ( function_exists( 'is_woocommerce' ) ) { //проверяем, активен ли WooCommerce - исключим ошибеи
+        if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) { //отменяем загрузку скриптов/стилей
+            wp_dequeue_style( 'woocommerce_frontend_styles' ); // стили
+            wp_dequeue_style( 'woocommerce_fancybox_styles' );
+            wp_dequeue_style( 'woocommerce_chosen_styles' );
+            wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
+            wp_dequeue_script( 'wc_price_slider' );
+            wp_dequeue_script( 'wc-single-product' );
+            //wp_dequeue_script( 'wc-add-to-cart' ); //этот скрипт ДЛЯ отработки кнопки Добавить в корзину
+            // подключаются: plugins/woocommerce/assets/js/frontend/add-to-cart.min.js И ещё: plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js
+            wp_dequeue_script( 'wc-cart-fragments' );
+            wp_dequeue_script( 'wc-checkout' );
+            wp_dequeue_script( 'wc-add-to-cart-variation' );
+            wp_dequeue_script( 'wc-single-product' );
+            wp_dequeue_script( 'wc-cart' );
+            wp_dequeue_script( 'wc-chosen' );
+            wp_dequeue_script( 'woocommerce' );
+            wp_dequeue_script( 'prettyPhoto' );
+            wp_dequeue_script( 'prettyPhoto-init' );
+            wp_dequeue_script( 'jquery-blockui' );
+            //wp_dequeue_script( 'jquery-placeholder' );
+            wp_dequeue_script( 'fancybox' );
+            wp_dequeue_script( 'jqueryui' );
+        }
+    }
+}
+/*оптимизируем работу Woocommerce*/
+
+
+// Disable global styles
+add_action( 'wp_enqueue_scripts', 'remove_global_styles', 999 );
+
+function remove_global_styles(){
+    wp_dequeue_style( 'global-styles' );
+}
+
+
+// Disable gutenberg frontend styles @ https://m0n.co/15
+function disable_gutenberg_wp_enqueue_scripts() {
+    
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+
+    wp_dequeue_style('wc-block-style'); // disable woocommerce frontend block styles
+    wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
+    
+}
+add_filter('wp_enqueue_scripts', 'disable_gutenberg_wp_enqueue_scripts', 999);
+
+
+// Disable classic theme styles
+add_action( 'wp_enqueue_scripts', 'disable_classic_theme_styles', 999);
+
+function disable_classic_theme_styles() {
+    wp_dequeue_style( 'classic-theme-styles' );
+}
+
+
+// Disable wp blocks
+function disable_wp_blocks() {
+    $wstyles = array(
+        'wp-block-library',
+        'wc-blocks-style',
+        'wc-blocks-style-active-filters',
+        'wc-blocks-style-add-to-cart-form',
+        'wc-blocks-packages-style',
+        'wc-blocks-style-all-products',
+        'wc-blocks-style-all-reviews',
+        'wc-blocks-style-attribute-filter',
+        'wc-blocks-style-breadcrumbs',
+        'wc-blocks-style-catalog-sorting',
+        'wc-blocks-style-customer-account',
+        'wc-blocks-style-featured-category',
+        'wc-blocks-style-featured-product',
+        'wc-blocks-style-mini-cart',
+        'wc-blocks-style-price-filter',
+        'wc-blocks-style-product-add-to-cart',
+        'wc-blocks-style-product-button',
+        'wc-blocks-style-product-categories',
+        'wc-blocks-style-product-image',
+        'wc-blocks-style-product-image-gallery',
+        'wc-blocks-style-product-query',
+        'wc-blocks-style-product-results-count',
+        'wc-blocks-style-product-reviews',
+        'wc-blocks-style-product-sale-badge',
+        'wc-blocks-style-product-search',
+        'wc-blocks-style-product-sku',
+        'wc-blocks-style-product-stock-indicator',
+        'wc-blocks-style-product-summary',
+        'wc-blocks-style-product-title',
+        'wc-blocks-style-rating-filter',
+        'wc-blocks-style-reviews-by-category',
+        'wc-blocks-style-reviews-by-product',
+        'wc-blocks-style-product-details',
+        'wc-blocks-style-single-product',
+        'wc-blocks-style-stock-filter',
+        'wc-blocks-style-cart',
+        'wc-blocks-style-checkout',
+        'wc-blocks-style-mini-cart-contents',
+        'classic-theme-styles-inline'
+    );
+
+    foreach ( $wstyles as $wstyle ) {
+        wp_deregister_style( $wstyle );
+    }
+
+    $wscripts = array(
+        'wc-blocks-middleware',
+        'wc-blocks-data-store'
+    );
+
+    foreach ( $wscripts as $wscript ) {
+        wp_deregister_script( $wscript );  
+    }
+}
+
+add_action( 'init', 'disable_wp_blocks', 100 );

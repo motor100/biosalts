@@ -25,13 +25,13 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 		?>
 
 		<?php if ( wc_terms_and_conditions_checkbox_enabled() ) : ?>
-			<p class="form-row validate-required agreement-text">
-  				<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox custom-checkbox js-required-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> id="terms" onchange="document.getElementById('place_order').disabled = !this.checked;" checked>
-  				<label for="terms" class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox custom-checkbox-label"></label>
-				<span class="woocommerce-terms-and-conditions-checkbox-text">Я прочитал(а) и принимаю <a href="/politika-v-otnoshenii-obrabotki-personalnyh-dannyh/" target="_blank">правила и условия</a> сайта</span>&nbsp;<span class="required">*</span>
-				</span>
+			<p class="form-row validate-required">
+				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+				<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> id="terms" />
+					<span class="woocommerce-terms-and-conditions-checkbox-text"><?php wc_terms_and_conditions_checkbox_text(); ?></span>&nbsp;<span class="required">*</span>
+				</label>
+				<input type="hidden" name="terms-field" value="1" />
 			</p>
-			<input type="hidden" name="terms-field" value="1">
 		<?php endif; ?>
 	</div>
 	<?php

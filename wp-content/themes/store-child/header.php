@@ -82,7 +82,7 @@
               </div>
               <div class="header-cart">
                 <img src="/wp-content/themes/store-child/includes/images/svg/basket.svg" class="header-cart__basket" alt="корзина">
-                <span class="header-cart__counter">0</span>
+                <span class="header-cart__counter"><?php global $woocommerce; echo $woocommerce->cart->get_cart_contents_count(); ?></span>
                 <a href="/cart" class="full-link"></a>
               </div>
             </div>
@@ -111,18 +111,20 @@
 
     <div id="content" class="site-content" tabindex="-1">
 
-      <div class="container">
-        <div class="row">
-          <?php
-          /**
-           * Functions hooked in to storefront_before_content
-           *
-           * @hooked storefront_header_widget_region - 10
-           * @hooked woocommerce_breadcrumb - 10
-           */
-          do_action('storefront_before_content');
-          ?>
+      <?php if (!is_front_page()) { ?>
+        <div class="breadcrumbs-wrapper">
+          <div class="container">
+            <?php
+            /**
+             * Functions hooked in to storefront_before_content
+             *
+             * @hooked storefront_header_widget_region - 10
+             * @hooked woocommerce_breadcrumb - 10
+             */
+            do_action('storefront_before_content');
+            ?>
+          </div>
         </div>
-      </div>
+      <?php } ?>
 
-      <?php do_action('storefront_content_top');
+      <?php //do_action('storefront_content_top');

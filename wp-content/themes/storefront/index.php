@@ -28,8 +28,8 @@ get_header(); ?>
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
 do_action( 'storefront_sidebar' );

@@ -32,7 +32,7 @@ get_header(); ?>
 			do_action( 'homepage' );
 			?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 <?php
 get_footer();

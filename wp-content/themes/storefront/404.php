@@ -78,8 +78,8 @@ get_header(); ?>
 				</div><!-- .page-content -->
 			</div><!-- .error-404 -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
 get_footer();

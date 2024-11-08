@@ -44,8 +44,8 @@ if ( ! function_exists( 'storefront_after_content' ) ) {
 	 */
 	function storefront_after_content() {
 		?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
+			</main>
+		</div>
 
 		<?php
 		do_action( 'storefront_sidebar' );
