@@ -1,5 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // To top кнопка вверх
+  const toTop = document.getElementById("to-top");
+
+  if (toTop) {
+
+    const image = toTop.querySelector('.image');
+    
+    image.onclick = () => {
+      scroll(0, 0);
+    }
+
+    // Показать to-top при скролле
+    window.onscroll = () => {
+      
+      let scrToTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrToTop > 400) {
+        toTop.classList.add('active');
+      } else {
+        toTop.classList.remove('active');
+      }
+
+    }
+
+  }
+
+
   // Swiper slider
   const mainSlider = document.querySelector('.main-slider')
 
@@ -20,6 +47,137 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
+
+
+
+  // Mobile menu
+  const body = document.querySelector('body');
+  const burgerMenuWrapper = document.querySelector('.burger-menu-wrapper');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  function openMobileMenu() {
+    body.classList.add('overflow-hidden');
+    mobileMenu.classList.add('active');
+    burgerMenuWrapper.classList.add('menu-is-open');
+  }
+
+  function closeMobileMenu() {
+    body.classList.remove('overflow-hidden');
+    burgerMenuWrapper.classList.remove('menu-is-open');
+    mobileMenu.classList.remove('active');
+  }
+
+  burgerMenuWrapper.onclick = function() {
+    if (burgerMenuWrapper.classList.contains('menu-is-open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  const listParentClick = document.querySelectorAll('.mobile-menu li.menu-item a');
+
+  for (let i=0; i < listParentClick.length; i++) {
+    listParentClick[i].onclick = function (event) {
+      event.preventDefault();
+      closeMobileMenu();
+      let hrefClick = this.href;
+      setTimeout(function() {
+        location.href = hrefClick
+      }, 500);
+    }
+  }
+
+
+  // Окна
+  const modalWindows = document.querySelectorAll('.modal-window');
+  const callbackFormBtns = document.querySelectorAll('.callback-form-btn');
+  const callbackModal = document.querySelector('#callback-modal');
+  // const callbackBtns = document.querySelectorAll('.js-callback-btn');
+  // const callbackModal = document.querySelector('#callback-modal');
+  // const testimonialsBtn = document.querySelector('.testimonials-btn');
+  // const testimonialsModal = document.querySelector('#testimonials-modal');
+  const modalCloseBtns = document.querySelectorAll('.modal-window .modal-close');
+
+  callbackFormBtns.forEach((item) => {
+    item.onclick = function () {
+      modalWindowOpen(callbackModal);
+    }
+  });
+  
+  /*
+  callbackBtns.forEach((item) => {
+    item.onclick = function () {
+      modalWindowOpen(callbackModal);
+    }
+  });
+
+  if (testimonialsBtn) {
+    testimonialsBtn.onclick = function () {
+      modalWindowOpen(testimonialsModal);
+    }
+  }
+  */
+  
+  function modalWindowOpen(win) {
+    // Закрытие мобильного меню
+    // closeAllMobileMenu();
+
+    // Открытие окна
+    body.classList.add('overflow-hidden');
+    win.classList.add('active');
+    setTimeout(function(){
+      win.childNodes[1].classList.add('active');
+    }, 200);
+  }
+
+  for (let i=0; i < modalCloseBtns.length; i++) {
+    modalCloseBtns[i].onclick = function() {
+      modalWindowClose(modalWindows[i]);
+    }
+  }
+
+  for (let i = 0; i < modalWindows.length; i++) {
+    modalWindows[i].onclick = function(event) {
+      let classList = event.target.classList;
+      for (let j = 0; j < classList.length; j++) {
+        if (classList[j] == "modal" || classList[j] == "modal-wrapper" || classList[j] == "modal-window") {
+          modalWindowClose(modalWindows[i])
+        }
+      }
+    }
+  }
+
+  function modalWindowClose(win) {
+    body.classList.remove('overflow-hidden');
+    win.childNodes[1].classList.remove('active');
+    setTimeout(() => {
+      win.classList.remove('active');
+    }, 300);
+  }
+
+
+  // Input phone mask
+  function inputPhoneMask() {
+    const elementPhone = document.querySelectorAll('.js-input-phone-mask');
+
+    const maskOptionsPhone = {
+      mask: '+{7} (000) 000 00 00'
+    };
+
+    elementPhone.forEach((item) => {
+      const mask = IMask(item, maskOptionsPhone);
+    });
+
+    // Маска номера телефона на странице оформления заказа checkout billing billing_phone
+    const billingPhone = document.getElementById('billing_phone');
+
+    if (billingPhone) {
+      const maskBillingPhone = IMask(billingPhone, maskOptionsPhone);
+    }
+  }
+
+  inputPhoneMask();
 
 
   // Set cookie
@@ -97,5 +255,82 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   });
+
+
+  const callbackForm = document.getElementById('callback-modal-form');
+  const callbackSubmitBtn = document.getElementById('callback-modal-btn');
+
+  function ajaxCallback(form) {
+
+    let arr = [];
+
+    const inputName = form.querySelector('.js-required-name');
+    if (inputName.value.length < 3 || inputName.value.length > 20) {
+      inputName.classList.add('required');
+      arr.push(false);
+    } else {
+      inputName.classList.remove('required');
+    }
+
+    const inputSurname = form.querySelector('.js-required-surname');
+    if (inputSurname.value.length < 3 || inputSurname.value.length > 20) {
+      inputSurname.classList.add('required');
+      arr.push(false);
+    } else {
+      inputSurname.classList.remove('required');
+    }
+
+    const inputPhone = form.querySelector('.js-required-phone');
+    if (inputPhone.value.length != 18) {
+      inputPhone.classList.add('required');
+      arr.push(false);
+    } else {
+      inputPhone.classList.remove('required');
+    }
+
+    const inputEmail = form.querySelector('.js-required-email');
+    if (inputEmail.value.length < 3 || inputEmail.value.length > 30) {
+      inputEmail.classList.add('required');
+      arr.push(false);
+    } else {
+      inputEmail.classList.remove('required');
+    }
+
+    const inputCheckbox = form.querySelector('.js-required-checkbox');
+    if (!inputCheckbox.checked) {
+      arr.push(false);
+    }
+
+    if (arr.length == 0) {
+
+      fetch('/wp-content/themes/store-child/phpmailer/mailer.php', {
+        method: 'POST',
+        cache: 'no-cache',
+        body: new FormData(form)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+      alert("Спасибо. Мы свяжемся с вами.");
+
+      form.reset();
+
+    }
+
+    return false;
+  }
+
+  // if (lfsSubmitBtn) {
+  //   lfsSubmitBtn.onclick = function() {
+  //     ajaxCallback(lfsForm);
+  //   }
+  // }
+
+  if (callbackSubmitBtn) {
+    callbackSubmitBtn.onclick = function() {
+      ajaxCallback(callbackForm);
+    }
+  }
 
 });

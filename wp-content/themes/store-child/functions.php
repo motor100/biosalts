@@ -260,10 +260,11 @@ function render__catalog($id_gr) {
             $css_w = 'img';
         }
         $image = wp_get_attachment_url( $thumbnail_id );
+        $img = $image ? $image : 'http://biosalts.loc/wp-content/uploads/woocommerce-placeholder.png';
         echo '<div class="children__item">';
         echo '<div class="children__image">';
         echo '<a href="' . get_term_link($cat->term_id) . '">';
-        echo '<img class="' . $css_w . '" src="' . $image . '" alt="' . $cat->name . '">';
+        echo '<img class="' . $css_w . '" src="' . $img . '" alt="' . $cat->name . '">';
         echo '</a>';
         echo '</div>';
         echo '<a class="children__title" href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a>';

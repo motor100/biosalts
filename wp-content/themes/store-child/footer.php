@@ -140,6 +140,45 @@
 
 </footer>
 
+<div class="burger-menu-wrapper">
+  <div class="burger-menu">
+    <span class="span"></span>
+  </div>
+</div>
+
+<div class="mobile-menu">
+  <div class="mobile-menu-logo">
+    <img src="/wp-content/themes/store-child/includes/images/logo_header.png" alt="лого">
+  </div>
+  <div class="working-time">Пн-Пт: 10:00 до 20:00, Сб-Вс: выходной</div>
+  <?php
+  wp_nav_menu(
+    array(
+      'menu' => 'header_menu',
+      'menu_id' => 'mobile_menu',
+    )
+  );
+  ?>
+  <div class="phone-wrapper">
+    <a href="#" class="social-icons__link" rel="nofollow noopener" target="_blank">
+      <img src="/wp-content/themes/store-child/includes/images/svg/circle-wa.svg" class="social-icons__image social-icons__wa" alt="ватсап">
+    </a>
+    <a href="tel:+74959274928" class="social-icons__link" rel="nofollow noopener" target="_blank">
+      <img src="/wp-content/themes/store-child/includes/images/svg/circle-call.svg" class="social-icons__image social-icons__call" alt="звонок">
+    </a>
+    <a href="tel:+74959274928" class="phone-text">+7 (495) 927-4-928</a>
+  </div>
+  <div class="feedback-text">Напишите нам</div>
+  <div class="socials-icons">
+    <a href="https://t.me/naturaproff" class="social-icons__link" rel="nofollow noopener" target="_blank">
+      <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
+    </a>
+    <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
+      <img src="/wp-content/themes/store-child/includes/images/svg/circle-vk.svg" class="social-icons__image social-icons__vk" alt="вконтакте">
+    </a>
+  </div>
+  
+</div>
 
 <div class="have-contraindications">
   <div class="have-contraindications__text">ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ. НЕОБХОДИМО ПРОКОНСУЛЬТИРОВАТЬСЯ СО СПЕЦИАЛИСТОМ</div>
@@ -152,6 +191,30 @@
   </div>
 </div>
 
+<div id="callback-modal" class="modal-window callback-modal">
+  <div class="modal-wrapper">
+    <div class="modal-area">
+      <div class="modal-close">
+        <div class="close"></div>
+      </div>
+      <div class="modal-title">Заказать звонок</div>
+      <form id="callback-modal-form" class="form" method="post">
+        <label for="name-callback-modal" class="label">Имя<span class="terracota-color">*</span></label>
+        <input type="text" id="name-callback-modal" class="input-field js-required-name" name="name" required minlength="3" maxlength="20" autocomplete="on" placeholder="">
+        <label for="phone-callback-modal" class="label">Телефон<span class="terracota-color">*</span></label>
+        <input type="text" id="phone-callback-modal" class="input-field js-required-phone js-input-phone-mask" name="phone" required maxlength="18" autocomplete="on">
+        <input type="hidden" name="surname" class="js-required-surname" value="нет">
+        <input type="hidden" name="email" class="js-required-email" value="нет">
+        <input type="button" id="callback-modal-btn" class="submit-btn" value="Отправить">
+        <div class="agreement-text">
+          <input type="checkbox" id="cb-checkbox-input" name="checkbox" class="custom-checkbox js-required-checkbox" checked onchange="document.getElementById('callback-modal-btn').disabled = !this.checked;">
+          <label for="cb-checkbox-input" class="custom-checkbox-label"></label>
+          <span>Нажимая кнопку вы соглашаетесь с <a href="/politika-v-otnoshenii-obrabotki-personalnyh-dannyh">политикой обработки данных</a></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 </div>
 
