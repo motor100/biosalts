@@ -87,7 +87,7 @@
           <div class="category-item__title">
             <span class="text">Соли Шюсслера 1-12</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/soli-schuesslera/salts1_12/" class="full-link"></a>
         </div>
       </div>
       <div class="col-md-2">
@@ -98,7 +98,7 @@
           <div class="category-item__title">
             <span class="text">Соли Шюсслера 13-27</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/soli-schuesslera/salts13_27/" class="full-link"></a>
         </div>
       </div>
       <div class="col-md-2">
@@ -109,7 +109,7 @@
           <div class="category-item__title">
             <span class="text">Комплексы</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/soli-schuesslera/salts_complexes/" class="full-link"></a>
         </div>
       </div>
       <div class="col-md-2">

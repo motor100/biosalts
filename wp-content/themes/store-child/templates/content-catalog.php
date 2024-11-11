@@ -28,7 +28,7 @@
         <div class="container">
           <div class="catalog-tabs-content active" data-id="1">
             <div class="cat-wrapper">
-              <?php render__catalog('25'); ?>
+              <?php echo render__catalog('25'); ?>
             </div>
           </div>
         </div>

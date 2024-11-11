@@ -22,36 +22,8 @@
         <div class="company-info">© Общество с ограниченной <br> ответственностью «Здоровье»</div>
         <div class="company-info company-info-last">ИНН 7724488603</div>
         <div class="footer-bottom-mobile-menu">
-          <ul class="menu">
-            <li class="menu-item">
-              <a href="#">О солях</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Каталог</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Сервис подбора</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Обучение</a>
-            </li>
-          </ul>
-          <?php //echo custom_nav_menu(0, 4); ?>
-          <ul class="menu">
-            <li class="menu-item">
-              <a href="#">Специалисты</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Болезни от А до Я</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Где купить</a>
-            </li>
-            <li class="menu-item">
-              <a href="#">Сервис</a>
-            </li>
-          </ul>
-          <?php //echo custom_nav_menu(5); ?>
+          <?php echo custom_nav_menu(0, 3); ?>
+          <?php echo custom_nav_menu(4); ?>
         </div>
         <div class="footer-phone footer-pe">
           <img src="/wp-content/themes/store-child/includes/images/svg/circle-call.svg" class="footer-phone-image footer-pe-image" alt="phone call">
@@ -78,42 +50,8 @@
         </div>
 
       </div>
-      <div class="col-lg-2 d-lg-block d-none">
-        <ul class="menu">
-          <li class="menu-item">
-            <a href="#">О солях</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Каталог</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Сервис подбора</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Обучение</a>
-          </li>
-        </ul>
-        <?php //echo custom_nav_menu(0, 4); ?>
-          
-        </div>
-      <div class="col-lg-3 d-lg-block d-none">
-        <ul class="menu">
-          <li class="menu-item">
-            <a href="#">Специалисты</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Болезни от А до Я</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Где купить</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Сервис</a>
-          </li>
-        </ul>
-        <?php //echo custom_nav_menu(5); ?>
-          
-        </div>
+      <div class="col-lg-2 d-lg-block d-none"><?php echo custom_nav_menu(0, 3); ?></div>
+      <div class="col-lg-3 d-lg-block d-none"><?php echo custom_nav_menu(4); ?></div>
       <div class="col-lg-3">
         <div class="flex-container">
           <div class="footer-buttons">
