@@ -1377,7 +1377,7 @@ ul.products li.product .added_to_cart:hover {
 }
 .single-product .product .woocommerce-tabs .tabs li.active,
 .single-product .product .woocommerce-tabs .tabs li:hover {
-  background-color: var(--darkblue-color);
+  background-color: var(--burgundy-color);
 }
 .single-product .product .woocommerce-tabs .tabs li a {
   display: block;
@@ -1395,13 +1395,6 @@ ul.products li.product .added_to_cart:hover {
 .single-product .product .woocommerce-tabs .tabs li:hover a {
   color: var(--nero-color);
 }
-/*
-.woocommerce-tabs ul.tabs li.active::after {
-  content: '' !important;
-  display: none !important;
-  opacity: 0 !important;
-}
-*/
 .single-product .related .related-products-title {
   margin: 0 0 40px 0;
   padding: 20px 0;
@@ -2368,7 +2361,6 @@ a.remove {
   margin: 0 0 30px 0;
 }
 
-
 /* text section */
 .text-section {
   padding: 70px 0 0 0;
@@ -2711,8 +2703,31 @@ a.remove {
 }
 */
 
+@media only screen and (max-width : 1550px) {
+  /* to top */
+  .to-top .circle {
+    width: 50px;
+    height: 50px;
+    left: -60px;
+  }
+  .to-top .image {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media only screen and (min-width : 1400px) {
+  /* subcategories фильтр подкатегорий */
+  .subcategories .subcategories-item {
+    height: 53px;
+  }
+}
 
 @media only screen and (max-width : 1400px) {
+  .catalog-section-title {
+    font-size: 52px;
+  }
+
   /* header */
   .header-desktop .header-content .catalog-btn {
     width: 160px;
@@ -2806,10 +2821,55 @@ a.remove {
     font-size: 20px;
   }
 
+  /* products card ul.products */
+  ul.products li.product .button {
+    padding: 11px 20px;
+    font-size: 16px;
+  }
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: 252px;
+  }
 
+  /* about pharmacy */
+  .archive-product .about-pharmacy-section {
+    padding: 70px 0 0 0;
+  }
+  .archive-product .about-pharmacy-section .about-pharmacy-section-subtitle {
+    font-size: 52px;
+  }
+
+  /* text section */
+  .text-section {
+    padding: 60px 0 0 0;
+  }
+  .text-section .text-section-title {
+    font-size: 52px;
+  }
+
+  /* single product page */
+  .single-product .product .product_title {
+    font-size: 30px;
+  }
+  .single-product .product .woocommerce-tabs .tabs li a {
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .single-product .related .related-products-title {
+    padding: 18px 0;
+  }
+  .single-product ul.products li.product .woocommerce-loop-product__title {
+    height: 62px;
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width : 1200px) {
+  .catalog-section-title {
+    font-size: 48px;
+  }
+
   /* header */
   .header-desktop .header-top .header-top__address {
     width: 61%;
@@ -2923,7 +2983,7 @@ a.remove {
     font-size: 16px;
   }
 
-  /* iamge section */
+  /* image section */
   .image-section {
     padding: 30px 0 70px 0;
   }
@@ -2983,6 +3043,85 @@ a.remove {
     font-size: 17px;
   }
 
+  /* products card ul.products */
+  ul.products li.product .woocommerce-loop-product__title {
+    height: 60px;
+    font-size: 15px;
+  }
+  ul.products li.product .price {
+    font-size: 22px;
+  }
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: 207px;
+  }
+
+  /* subcategories фильтр подкатегорий */
+  .subcategories .subcategories-item {
+    height: 47px;
+  }
+
+  /* about pharmacy */
+  .archive-product .about-pharmacy-section .description-section {
+    padding: 60px 0 0 0;
+  }
+  .archive-product .about-pharmacy-section .description-section .about-pharmacy-section-subtitle {
+    font-size: 48px;
+  }
+
+  /* text section */
+  .text-section {
+    padding: 50px 0 0 0;
+  }
+  .text-section .text-section-title {
+    font-size: 48px;
+  }
+  .text-section .text-section-title {
+    margin: 0 0 30px 0;
+  }
+  .text-section .paragraph-wrapper {
+    margin: 0 0 30px 0;
+  }
+  .text-section .p {
+    font-size: 17px;
+  }
+  .text-section .order-phone {
+    font-size: 22px;
+  }
+  .text-section .callback-form-btn {
+    width: 250px;
+  }
+  .text-section .callback-form-btn .callback-form-btn__text {
+    font-size: 18px;
+  }
+  .text-section .detailed-about-us-btn {
+    width: 250px;
+    font-size: 18px;
+  }
+
+  /* single product page */
+  .single-product .product .product_title {
+    font-size: 28px;
+  }
+  .single-product .product .price {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+  }
+  .single-product .product .product_meta .meta-subtitle {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+  }
+  .single-product .product .sku_wrapper,
+  .single-product .product .posted_in {
+    font-size: 18px;
+  }
+  .single-product .product .woocommerce-tabs .tabs li a {
+    font-size: 16px;
+  }
+  .single-product .related .related-products-title {
+    padding: 16px 0;
+    font-size: 50px;
+  }
 
   /* we use cookie */
   .we-use-cookie {
@@ -2994,6 +3133,9 @@ a.remove {
 }
 
 @media only screen and (max-width : 992px) {
+  .catalog-section-title {
+    font-size: 44px;
+  }
 
   /* header */
   .header-desktop .header-top .header-top__address {
@@ -3040,7 +3182,6 @@ a.remove {
     line-height: 19px;
     font-size: 14px;
   }
-
 
   /* main section */
   .main-section {
@@ -3159,7 +3300,7 @@ a.remove {
     font-size: 22px;
   }
 
-    /* footer */
+  /* footer */
   .footer {
     margin: 50px 0 0 0;
   }
@@ -3217,6 +3358,107 @@ a.remove {
     margin: 0 auto 20px auto;
   }
 
+  /* products card ul.products */
+  ul.products {
+    gap: 40px 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  ul.products li.product .price {
+    font-size: 20px;
+  }
+  ul.products li.product .button {
+    font-size: 15px;
+  }
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: 215px;
+  }
+  ul.products li.product .woocommerce-loop-product__title {
+    height: 55px;
+    font-size: 14px;
+  }
+
+  /* about pharmacy */
+  .catalog-page .description-section {
+    padding: 50px 0 0 0;
+  }
+  .catalog-page .description-section .about-pharmacy-section-subtitle {
+    font-size: 44px;
+  }
+
+  /* text section */
+  .text-section {
+    padding: 40px 0 0 0;
+  }
+  .text-section .text-section-title {
+    font-size: 44px;
+  }
+  .text-section .p {
+    font-size: 16px;
+  }
+
+  /* single product page */
+  .single-product .product .woocommerce-product-gallery {
+    width: 50%;
+    flex-shrink: 0;
+  }
+  .single-product .product .product_title {
+    font-size: 26px;
+  }
+  .single-product .product .price {
+    margin: 0 0 8px 0;
+    font-size: 26px;
+  }
+  .single-product .product .product_meta .meta-subtitle {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+  }
+  .single-product .product .sku_wrapper,
+  .single-product .product .posted_in {
+    font-size: 16px;
+  }
+  .single-product .product .posted_in a {
+    font-size: 14px;
+  }
+  .single-product ul.products li.product .woocommerce-loop-product__title {
+    height: 55px;
+    font-size: 14px;
+  }
+  .single-product .woocommerce-Tabs-panel--description p {
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+  .single-product .woocommerce-Tabs-panel--description ul {
+    margin: 8px 0;
+  }
+  .single-product .woocommerce-Tabs-panel--description li {
+    line-height: 1.4;
+  }
+  .single-product .product .woocommerce-tabs .tabs {
+    margin: 0 0 10px 0;
+  }
+  .single-product .product .wc-tabs-wrapper {
+    margin: 0 0 40px 0;
+  }
+  .single-product .product .woocommerce-tabs .tabs li a {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .single-product .related .related-products-title {
+    padding: 12px 0;
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  /* subcategories фильтр подкатегорий */
+  .subcategories .subcategories-item {
+    margin: 0 10px 15px 0;
+  }
+
+  /* to top */
+  .to-top {
+    display: none;
+  }
 
   /* we use cookie */
   .we-use-cookie-wrapper {
@@ -3231,6 +3473,10 @@ a.remove {
 
   .hidden-desktop {
     display: block;
+  }
+
+  .catalog-section-title {
+    font-size: 40px;
   }
 
   /* main section */
@@ -3360,6 +3606,75 @@ a.remove {
     display: block;
   }
 
+  /* products card ul.products */
+  ul.products {
+    gap: 40px 12px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ul.products li.product .price {
+    font-size: 18px;
+  }
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: 252px;
+  }
+
+  /* about pharmacy */
+  .archive-product .about-pharmacy-section {
+    padding: 40px 0 0 0;
+  }
+  .archive-product .about-pharmacy-section .about-pharmacy-section-subtitle {
+    font-size: 40px;
+  }
+
+  /* subcategories фильтр подкатегорий */
+  .subcategories {
+    margin: 0;
+  }
+  .subcategories .subcategories-item {
+    height: 40px;
+    margin: 0 10px 10px 0;
+  }
+
+  /* single-product page */
+  .single-product .woocommerce_single_product_wrapper {
+    display: block;
+  }
+  .single-product .product .woocommerce-product-gallery {
+    width: 100%;
+  }
+  .single-product .product .summary .product_title {
+    font-size: 18px;
+  }
+  .single-product .product .price {
+    font-size: 24px;
+  }
+  .single-product .product .summary {
+    margin: 20px 0;
+  }
+  .single-product .product .woocommerce-tabs .tabs {
+    display: block;
+    border-bottom: none;
+  }
+  .single-product .product .woocommerce-tabs .tabs li {
+    border: none;
+    border-radius: 0;
+    background-color: var(--darkblue-color);
+    margin: 0 0 2px 0;
+  }
+   .single-product .product .woocommerce-tabs .tabs li a {
+    color: var(--nero-color);
+  }
+  .single-product .resp-tabs-container {
+    margin: 0 0 20px 0;
+  }
+  .single-product .woocommerce-Tabs-panel--description ul {
+    padding: 0 0 0 20px;
+  }
+  .single-product .related .related-products-title {
+    padding: 8px 10px;
+    font-size: 34px;
+  }
 
   /* have contraindications полоса имеются противопоказания */
   .have-contraindications .have-contraindications__text {
@@ -3367,7 +3682,6 @@ a.remove {
     font-size: 13px;
     line-height: 1.3;
   }
-
 
   /* we use cookie */
   .we-use-cookie {
@@ -3381,7 +3695,6 @@ a.remove {
     font-size: 12px;
   }
 }
-
 
 @media only screen and (max-width : 576px) {
 
@@ -3428,7 +3741,6 @@ a.remove {
   .club-section .club-content {
     padding: 30px 0 15px 0;
   }
-    
 
   /* footer */
   .footer {
@@ -3479,9 +3791,37 @@ a.remove {
   .footer .with-menu-footer {
     order: unset;
   }
+
+  /* products card ul.products */
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: 222px;
+  }
+
+  /* catalog section */
+  .text-section .order-phone {
+    font-size: 20px;
+  }
+  .text-section .flex-container {
+    display: block;
+  }
+  .text-section .callback-form-btn {
+    margin: 0 0 15px 0;
+  }
+
+  /* single product */
+  .single-product .product .woocommerce-Tabs-panel {
+    display: block;
+  }
+  .single-product .related .related-products-title {
+    font-size: 28px;
+  }
 }
 
 @media only screen and (max-width : 480px) {
+  .catalog-section-title {
+    font-size: 36px;
+  }
 
   /* personal select section */
   .personal-select-section .select-item-burgundy .example-btn {
@@ -3506,6 +3846,67 @@ a.remove {
     font-size: 24px;
   }
 
+  /* products card ul.products */
+  ul.products {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  ul.products li.product .attachment-woocommerce_thumbnail,
+  ul.products li.product .woocommerce-placeholder {
+    height: auto;
+  }
+  ul.products li.product .woocommerce-loop-product__title {
+    height: auto;
+    font-size: 15px;
+  }
+
+  /* text section */
+  .text-section {
+    padding: 20px 0 0 0;
+  }
+  .text-section .text-section-title {
+    margin: 0 0 10px 0;
+  }
+  .text-section .callback-form-btn {
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+  }
+  .text-section .detailed-about-us-btn {
+    width: 100%;
+  }
+
+  /* about pharmacy */
+  .archive-product .about-pharmacy-section {
+    padding: 30px 0 0 0;
+  }
+  .archive-product .about-pharmacy-section .about-pharmacy-section-subtitle {
+    font-size: 29px;
+  }
+
+  /* single product */
+  .single-product .product .product_title {
+    font-size: 24px;
+  }
+  .single-product .product .summary .product_title {
+    font-size: 16px;
+  }
+  .single-product .product .price {
+    font-size: 22px;
+  }
+  .single-product .product .product_meta .meta-subtitle {
+    font-size: 18px;
+  }
+  .single-product .product .lbl {
+    font-size: 16px;
+  }
+  .single-product .related .related-products-title {
+    font-size: 24px;
+  }
+  .single-product ul.products li.product .woocommerce-loop-product__title {
+    height: auto;
+    font-size: 15px;
+  }
+
   /* we use cookie */
   .we-use-cookie {
     right: 30%;
@@ -3516,6 +3917,9 @@ a.remove {
 }
 
 @media only screen and (max-width : 360px) {
+  .catalog-section-title {
+    font-size: 32px;
+  }
 
   /* manufacture section */
   .manufacture-section .manufacture-title .title {
@@ -3534,6 +3938,22 @@ a.remove {
   }
   .club-section .club-title .text {
     font-size: 20px;
+  }
+
+  /* subcategories фильтр подкатегорий */
+  .subcategories .subcategories-item {
+    height: 34px;
+  }
+  .subcategories .subcategories-item .subcategories-item__title {
+    font-size: 15px;
+  }
+
+  /* single product */
+  .single-product .product .product_title {
+    font-size: 22px;
+  }
+  .single-product .related .related-products-title {
+    font-size: 22px;
   }
 }
 
@@ -3580,6 +4000,7 @@ a.remove {
 /*.site-content p:not(:last-child) {
   margin-bottom: 20px;
 }*/
+/*
 @media (max-width: 767.98px) {
   .single__prod .col-9 {
     -webkit-box-flex: 0;
@@ -3591,6 +4012,7 @@ a.remove {
     display: none;
   }
 }
+*/
 /*
 .m-select {
   margin-top: 20px;
@@ -4543,7 +4965,7 @@ a:focus {
 }
 */
 
-/* https://stackoverflow.com/questions/14144426/remove-outline-from-active-jquery-ui-tab */
+/*
 .woocommerce .wc-tabs li a:focus,
 .ui-state-focus:focus {
   outline: none !important;
@@ -4558,7 +4980,7 @@ a:focus {
   width: 100%;
   padding: 40px 0;
 }
-
+*/
 
 /*
 ul.products {
@@ -4639,9 +5061,11 @@ ul.products li.product .price del {
 .resp-tabs-container a {
   font-family: "Akrobat";
 }
+/*
 .single__prod .woocommerce-product-details__short-description {
   margin-top: 30px;
 }
+*/
 @media (max-width: 576px) {
   /*
   .related > h2:first-child,
@@ -4685,6 +5109,7 @@ ul.products li.product .price del {
   }
 }
 */
+/*
 .filter-but {
   margin: 50px 0;
   padding: 20px;
@@ -4721,7 +5146,7 @@ ul.products li.product .price del {
   .wpsisac-slide-wrap {
     height: auto;
   }
-}
+}*/
 /*
 table.wpr-shop-table {
   border-spacing: 10px;
