@@ -3123,6 +3123,11 @@ a.remove {
     font-size: 50px;
   }
 
+  /* where buy page */
+  .wherebuy-page .addresses-item {
+    margin: 0 0 30px 0;
+  }
+
   /* we use cookie */
   .we-use-cookie {
     right: 20%;
@@ -3453,6 +3458,11 @@ a.remove {
   /* subcategories фильтр подкатегорий */
   .subcategories .subcategories-item {
     margin: 0 10px 15px 0;
+  }
+
+  /* where buy page */
+  .wherebuy-page .addresses-item__description {
+    min-height: auto;
   }
 
   /* to top */
