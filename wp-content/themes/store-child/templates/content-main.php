@@ -79,7 +79,7 @@
 <div class="category-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -90,7 +90,7 @@
           <a href="/catalog/product-category/soli-schuesslera/salts1_12/" class="full-link"></a>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -101,7 +101,7 @@
           <a href="/catalog/product-category/soli-schuesslera/salts13_27/" class="full-link"></a>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -112,7 +112,7 @@
           <a href="/catalog/product-category/soli-schuesslera/salts_complexes/" class="full-link"></a>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -123,7 +123,7 @@
           <a href="#" class="full-link"></a>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -134,7 +134,7 @@
           <a href="#" class="full-link"></a>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
             <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
@@ -175,12 +175,12 @@
 <div class="description-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-xxl-3 col-md-4">
         <div class="description-image">
           <img src="/wp-content/themes/store-child/includes/images/shyussler.jpg" alt="">
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-xxl-9 col-md-8">
         <div class="description-content">
           <div class="title-wrapper">
             <img src="/wp-content/themes/store-child/includes/images/ball-blue.png" class="image" alt="">
@@ -189,7 +189,7 @@
           </div>
           <div class="description">
             <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>
-            <p class="text">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
+            <p class="text text-last">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
           </div>
           <div class="view-more-btn">подробнее</div>
         </div>
@@ -214,7 +214,7 @@
         <div class="content">
           <div class="description">
             <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>
-            <p class="text">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
+            <p class="text text-last">Основана на доказанной потребности организма в небольших дозах минеральных веществ, которые используются в качестве катализаторов химических реакций в клетках, строительного неорганического матрикса организма. Различные жизненные ситуации, эмоциональные переживания, нагрузки, заболевания приводят к дефициту отдельных минералов, в результате чего нарушаются биохимические процессы и развивается гипоксия тканей.</p>
           </div>
           <div class="view-more-btn">подробнее</div>
         </div>
@@ -253,7 +253,7 @@
   <div class="club-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-sm-6">
           <div class="club-item">
             <div class="flex-container">
               <div class="image">
@@ -264,7 +264,7 @@
             <div class="club-item__text">Участники получают до 20% скидки на предложения недели</div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-sm-6">
           <div class="club-item">
             <div class="flex-container">
               <div class="image">
@@ -275,7 +275,7 @@
             <div class="club-item__text">Вы получаете бесплатную доставку по России при использовании сервиса подбора или покупке на сумму больше 10 000 руб.</div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-sm-6">
           <div class="club-item">
             <div class="flex-container">
               <div class="image">
@@ -286,7 +286,7 @@
             <div class="club-item__text">Вы получаете бесплатный подбор персонального курса при покупке набора солей Шюсслера в деревянной коробке по 200 таб.</div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-sm-6">
           <div class="club-item">
             <div class="flex-container">
               <div class="image">

@@ -106,6 +106,26 @@
           </div>
         </div>
       </div>
+      <div class="header-mobile hidden-desktop">
+        <div class="header-top">
+          <div class="container">
+            <div class="address-text">Московская область, совхоз им Ленина, Техцентр <br> Пн-Пт: 10:00 до 20:00, Сб-Вс: выходной</div>
+          </div>
+        </div>
+        <div class="header-logo">
+          <div class="container">
+            <div class="logo">
+              <img src="/wp-content/themes/store-child/includes/images/logo_header.png" class="header-logo__image" alt="лого">
+              <div class="underlogo-text">since 1873</div>
+            </div>
+          </div>
+        </div>
+        <div class="header-search">
+          <div class="container">
+            <?php echo do_shortcode('[fibosearch]'); ?>
+          </div>
+        </div>
+      </div>
 
     </header>
 
