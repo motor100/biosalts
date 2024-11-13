@@ -324,6 +324,40 @@ function add_close_wrapper_to_product() {
 
 }
 
+// Добавление post_type post в результаты поска 
+add_filter( 'dgwt/wcas/search_query/args', function ( $args ) {
+    if ( current_user_can( 'manage_options' ) ) {
+        $args['post_status'] = [ 'publish' ];
+        $args['post_type'] = [ 'product', 'post' ];
+    }
+   
+   return $args;
+} );
+
+
+// Добавление post_type product в результаты поска
+add_filter( 'pre_get_posts', 'modified_pre_get_posts'); 
+function modified_pre_get_posts( $query ) { 
+  if ( $query->is_search() ) { 
+    $query->set( 'post_type', 'product' ); 
+  }
+  return $query;
+}
+
+
+/**
+ * This function modifies the main WordPress query to include an array of 
+ * post types instead of the default 'post' post type.
+ *
+ * @param object $query The main WordPress query.
+ */
+function tg_include_custom_post_types_in_search_results( $query ) {
+    if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+        $query->set( 'post_type', array( 'post', 'products' ) );
+    }
+}
+add_action( 'pre_get_posts', 'tg_include_custom_post_types_in_search_results' );
+
 
 // откл сортировку
 // add_action( 'wp', 'bbloomer_remove_default_sorting_storefront' );
@@ -922,6 +956,26 @@ function woocommerce_change_rub_symbol( $valyuta_symbol, $valyuta_code ) {
     return $valyuta_symbol;
 }
 add_filter('woocommerce_currency_symbol', 'woocommerce_change_rub_symbol', 9999, 2);
+
+// Ограничение количества выводимых символов в тексте на странице специалисты
+function the_excerpt_max_charlength( $charlength ){
+    $excerpt = get_the_excerpt();
+    $charlength++;
+
+    if ( mb_strlen( $excerpt ) > $charlength ) {
+        $subex = mb_substr( $excerpt, 0, $charlength - 5 );
+        $exwords = explode( ' ', $subex );
+        $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+        if ( $excut < 0 ) {
+            return mb_substr( $subex, 0, $excut );
+        } else {
+            return $subex;
+        }
+        return '...';
+    } else {
+        return $excerpt;
+    }
+}
 
 
 // AJAX получить товары из подкатегории на странице Соли Щюсслера
