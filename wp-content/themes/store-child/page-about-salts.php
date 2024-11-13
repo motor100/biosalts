@@ -1,0 +1,427 @@
+<?php
+/**
+ * About salts page
+ *
+ * @package WordPress
+ * @subpackage Store-Child Theme
+ * @since Store-Child Theme
+ */
+?>
+
+<?php get_header(); ?>
+  
+<div class="about-salts-page custom-page">
+
+  <div class="container">
+    <div class="page-title">О солях</div>
+  </div>
+
+  <div class="history-section section darkblue-bg">
+    <div class="container">
+      <div class="section-title">История</div>
+      <p class="text">Тканевая биохимическая терапия разработана и исследована доктором  Шюсслером, в честь него препараты названы солями Шюсслера.</p>
+      <p class="text">Вильхайм Генрих Шюсслер (Wilhelm Heinrich Schüßler) – выдающимся специалистом в области натуропатической медицины конца XIX века. Доктор Шюсслер родился 21 августа 1821 года в Бад-Цвишенане (Германия). и умер 30 марта 1898 года недалеко от Ольденбурга, где провел много лет своей жизни. Учился в Париже, Берлине, Гиссене и Праге и защитил докторскую диссертацию  по медицине. Основную врачебную практику вел в Ольденбурге.</p>
+      <p class="text">Доктор Шюсслер исследовал влияние дефицита минералов на развитие заболеваний в организме человека. Год за годом он скрупулёзно изучал роль минералов в биохимии клетки. Ему удалось выделить 12 основных неорганических минералов, которые он назвал «тканевыми солями».</p>
+    </div>
+  </div>
+
+  <div class="work-section section white-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text">В 1832 году в архиве журнала Штапфа (Johann Ernst Stapf  «Archiv für Die Homöopathische Heilkunst»)  была опубликована статья, в которой высказывалось предположение, что такие соли являются «важными составными частями человеческого тела».</p>
+          <p class="text">На работы доктора Шюсслера повлияла статья 1852 года голландского физиолога Якоба Молешотта ( Jacob Moleschott)  о необходимости минеральных солей для нормального функционирования клеток.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text">Долгие годы работы привели доктора Шюсслера к нескольким фундаментальным выводам для того времени:</p>
+          <div class="frame">
+            <ul class="list">
+              <li class="list-item">Нормальная активности клетки зависит от оптимального равновесия содержащихся в ней биохимических солей</li>
+              <li class="list-item">Нарушение баланса минеральных солей в клетке приводит к нарушению ее функций и развитию заболевания. Таким образом, болезнь развивается на клеточном уровне</li>
+              <li class="list-item">Для выздоровления и поддержания здоровья необходимо устранить дисбаланс минеральных солей непосредственно в клетке</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="problem-section section pink-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p class="text">Основная проблема заключалась в том, что использование минералов 12 исследованных солей не приводило к каким-то улучшением состояния по простой причине – большинство базовых минеральных солей не растворимы и не могут быть доставлены внутрь клетки. </p>
+          <p class="text">Было необходимо не только выявить взаимосвязи дефицитов минералов, но и разработать технологии, которые позволили бы корректировать эти дефициты.</p>
+          <p class="text">Доктор Шюсслер за помощью обращается к своему другу доктору и ученному Вильмару Швабе, который держал производственную аптеку и специализировался на изготовлении гомеопатических средств.</p>
+          <p class="text">Основную задачу они видели в том, чтобы добиться растворимости солей без нарушения целостности их структуры.</p>
+          <p class="text">Опыты двух ученых оказались удачными и миру была представлена стройная система тканевой биохимической терапии, которая пользуется популярностью во всех странах мира уже более 150 лет. Годом официального ввода солей Шюсслера в клиническую практику считается 1873 год.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="logo">
+            <img src="/wp-content/themes/store-child/includes/images/logo_footer.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-section section white-bg">
+    <div class="flex-container">
+      <div class="photo">
+        <img src="/wp-content/themes/store-child/includes/images/shyussler.jpg" alt="">
+      </div>
+      <div class="description">
+        <div class="name section-title">Вильгельм Генрих Шюсслер</div>
+        <div class="livetime">Родился 21 августа 1821 года<br>Умер  30 марта 1898 года (77 лет)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept-section section burgundy-bg">
+    <div class="container">
+      <div class="section-title">Концепция биохимической терапии</div>
+      <div class="row">
+        <div class="col-md-8">
+          <p class="text">Организм человека содержит 12 жизненно важных минеральных солей, правильный баланс которых необходим для нормального функционирования клеток и поддержания хорошего здоровья. При развитии заболеваний организм тратит определенные соли для коррекции состояния, запасы минерала в организме истощаются и нарушаются биохимические процессы в клетке, развивается гипоксия тканей.</p>
+          <p class="text">Соли Шюсслера – это минеральные соли, изготовленные по специальной технологии многочасовой ступенчатой тритурации, а не высокодозированные минералы, восполняющие дефициты в организме. Это отличает их от биологически активных добавок с минералами. Соли Шюсслера  работают в качестве «ключей» к клеткам организма, чтобы организм мог самостоятельно усваивать и перерабатывать необходимые ему вещества. Соли Шюсслера вводят в организм в микродозах- той концентрации, которая является физиологической для организма.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="image">
+            <img src="/wp-content/themes/store-child/includes/images/concept-image.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="image">
+            <img src="/wp-content/themes/store-child/includes/images/photo-image.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <p class="text">Основы изучения биохимии организма были заложены Рудольфом Вирховым, одним из ведущих ученых современности. Он доказал, что тело человека состоит из отдельных клеток, объединенных в единую систему. Каждая клетка, в свою очередь, состоит из бесконечно малого, но идеально сбалансированного количества веществ: воды, органических и неорганических веществ. Неорганические вещества- минералы, присутствуют в небольшом количестве, но выполняют фундаментальную функцию катализаторов всех химических процессов в клетке. Без них жизнь организма была бы невозможна. Не только дефицит минералов, но и нарушение их соотношения в клетках организма приводит к функциональной и органической патологии.</p>
+          <p class="text">Поскольку минеральные соли, особенно не растворимые, не могут проникнуть внутрь клетки, доктор Шюсслер разработал метод тритурации – длительного, последовательного растирания минерала с инертным веществом (лактозой). С помощью механического растирания до сверхмелкого состояния, удалось добиться растяжения кристаллической решетки минералов. Такие структурные изменения приводят к изменению свойств минерала- он приобретает свойство растворимости и способность проникать внутрь клетки.</p>
+          <p class="text">Поскольку минеральные соли работают внутри клеток, их называют «клеточными солями» или «тканевыми солями».</p>
+        </div>
+      </div>
+      <p class="text">Базовые минералы нашего тела, как правило, содержатся в достаточном количестве в нашем организме и  в продуктах питания, но часто нарушается процесс усвоения, баланса и оптимального использования отдельных катализаторов. Задача тканевой биохимической терапии – мягко, без побочных эффектов, достаточно быстро восполнить дефициты и запустить обменные процессы. Соли Шюсслера назначаются именно для того, чтобы вернуть организм в равновесие, нивелировать гипоксию тканей.</p>
+      <p class="text">Если биохимические процессы протекают адекватно, организм самостоятельно справляется с большинством заболеваний. Самые первые признаки дефицита солей хорошо диагностируются по малым признакам на коже, так как при развитии дефицита организм расходует все доступные ему резервы- первым и самым безопасным источником являются клетки кожи. Организм перераспределяет минералы на нужды внутренних органов. Акне, шелушение, пигментации, морщинки и другие дефекты указывают на дефицит определенной соли. Диагностика по дефициту солей называется сигнатурной диагностикой и включена в экспертную систему подбора.</p>
+    </div>
+  </div>
+
+  <div class="manufacture-section section white-bg">
+    <div class="container">
+      <div class="section-title">Производитель</div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text">Соли Шюсслера производятся в Европе на протяжении 150 лет. За это время биохимическая терапия крепко вошла в обиход практикующих специалистов.</p>
+          <p class="text">В России производителем солей Шюсслера по оригинальной технологии является специализированная натуропатическая производственная аптека NaturaPharma.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text">На протяжении многих лет мы детально изучали  технологии изготовление биохимических солей и работы доктора Вильгельма Генриха Шюсслера. Все соли изготавливаются вручную маленькими партиями по строгим спецификациям автора направления.</p>
+          <p class="text">В аптеке установлены высокие стандарты качества продукции.  За проект по производству солей Шюсслера компания удостоена награды «Лучшие производители России».</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="salts-section section darkblue-bg">
+    <div class="container">
+      <p class="text">Биохимические клеточные соли Шюсслера представляют собой натуральные минералы высокой степени очистки, которые прошли ступенчатую многочасовую тритурацию (растирание). Соли выпускаются непосредственно в тритурациях (порошках), таблетках спреях, формах для наружного применения. Компания NaturaPharma выпускает соли основные -№№1-12, дополнительные №13-27, комплексные, соли для детей, комбинированные спреи для скорой помощи и космецевтику с солями Шюсслера.</p>
+      <p class="text">Наиболее важными клеточными солями являются хорошо известные двенадцать основных клеточных солей. Они были разработаны самим доктором Шюсслером.</p>
+      <p class="text">12 базовых тканевых солей Шюсслера</p>
+      <div class="flex-row">
+        <div class="number">№</div>
+        <div class="title">Состав</div>
+        <div class="function">Функция</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">1</div>
+        <div class="title"><strong>Calcium fluoratum D12</strong><br>Фторид кальция</div>
+        <div class="function">Помогает при проблемах с кожей, ногтями, костям – <strong>эластичность</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">2</div>
+        <div class="title"><strong>Calcium phosphoricum D6</strong><br>Фосфат кальция</div>
+        <div class="function">Способствует заживлению, стимулирует рост – <strong>регенерация</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">3</div>
+        <div class="title"><strong>Ferrum phosphoricum D12</strong><br>Фосфат железа</div>
+        <div class="function">При воспалительных процессах и ранах - <strong>острое воспаление</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">4</div>
+        <div class="title"><strong>Kalium chloratum D6</strong><br>Хлорид калия</div>
+        <div class="function">Для слизистых оболочек – <strong>слизистые оболочки</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">5</div>
+        <div class="title"><strong>Kalium phosphoricum D6</strong><br>Фосфат калия</div>
+        <div class="function">Укрепляет мышцы и нервы – <strong>нервно-мышечная проводимость</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">6</div>
+        <div class="title"><strong>Kalium sulfuricum D6</strong><br>Сульфат калия</div>
+        <div class="function">Хронические воспаления и кожные заболевания – <strong>хроническое воспаление</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">7</div>
+        <div class="title"><strong>Magnesium phosphoricum D6</strong><br>Фосфат магния</div>
+        <div class="function">Помогает при болях и спазмах - <strong>спазмолитик</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">8</div>
+        <div class="title"><strong>Natrium chloratum D6</strong><br>Хлорид натрия</div>
+        <div class="function">Регулирует водный обмен - <strong>водный обмен</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">9</div>
+        <div class="title"><strong>Natrium phosphoricum D6</strong><br>Фосфат натрия</div>
+        <div class="function">Нормализует обмен веществ – <strong>эндокринная система</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">10</div>
+        <div class="title"><strong>Natrium sulfuricum D6</strong><br>Сульфат натрия</div>
+        <div class="function">Стимулирует выделительные процессы - <strong>выделительная система</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">11</div>
+        <div class="title"><strong>Silicea D12</strong><br>Двуокись кремния</div>
+        <div class="function">Укрепляет сухожилия, хрящи, кости - <strong>укрепление структуры</strong></div>
+      </div>
+      <div class="flex-row">
+        <div class="number">12</div>
+        <div class="title"><strong>Calcium sulfuricum D6</strong><br>Сульфат кальция</div>
+        <div class="function">Способствует оттоку гноя - <strong>гнойное воспаление</strong></div>
+      </div>
+      <div class="additional-text">Результаты применения солей Шюсслера завоевали внимание многих специалистов всего мира, и, уже после его смерти, последователи ввели 15 дополнительных солей для тканевой биохимической терапии.</div>
+      <div class="flex-row">
+        <div class="number">№</div>
+        <div class="title">Состав</div>
+        <div class="function">Функция</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">13</div>
+        <div class="title"><strong>Kalium arsenicosum D12</strong><br>Арсенат калия</div>
+        <div class="function">Дополнительная соль для кожи, энергетического баланса и нервной системы.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">14</div>
+        <div class="title"><strong>Kalium bromatum D12</strong><br>Бромат калия</div>
+        <div class="function">Дополнительная соль для вегетативной нервной и эндокринной систем.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">15</div>
+        <div class="title"><strong>Kalium jodatum D12</strong><br>Йодит калия</div>
+        <div class="function">Дополнительная соль для щитовидной железы и обмена веществ.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">16</div>
+        <div class="title"><strong>Lithium chloratum D12</strong><br>Хлорид лития</div>
+        <div class="function">Дополнительная соль для белкового обмена и нарушений метаболизма мочевой кислоты.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">17</div>
+        <div class="title"><strong>Manganum sulfuricum D12</strong><br>Сульфат марганца</div>
+        <div class="function">Дополнительная соль для  метаболических процессов и кроветворения.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">18</div>
+        <div class="title"><strong>Calcium sulfuratum D12</strong><br>Сульфид кальция</div>
+        <div class="function">Дополнительная соль детоксикации и глубокого очищения.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">19</div>
+        <div class="title"><strong>Cuprum arsenicosum D12</strong><br>Арсенат меди</div>
+        <div class="function">Дополнительная соль для нервной системы, кожи и пищеварительной системы.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">20</div>
+        <div class="title"><strong>Kalium-Alumina sulfuricum D12</strong><br>Алюминиево-калиевые квасцы</div>
+        <div class="function">Дополнительная соль для водного баланса.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">21</div>
+        <div class="title"><strong>Zincum chloratum D12</strong><br>Хлорид цинка</div>
+        <div class="function">Дополнительная соль для  иммунной системы и для активации обмена веществ.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">22</div>
+        <div class="title"><strong>Calcium carbonicum D12</strong><br>Карбонат кальция</div>
+        <div class="function">Дополнительная соль для конституциональной поддержки организма.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">23</div>
+        <div class="title"><strong>Natrium bicarbonicum D12</strong><br>Бикарбонат натрия</div>
+        <div class="function">Дополнительная соль для обмена веществ и кислотно-щелочного баланса.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">24</div>
+        <div class="title"><strong>Arsenicum jodatum D12</strong><br>Йодид мышьяка</div>
+        <div class="function">Дополнительная соль для обмена веществ, иммунной системы и легких.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">25</div>
+        <div class="title"><strong>Aurum chloratum natronatum D12</strong><br>Хлорид золота</div>
+        <div class="function">Дополнительная соль для восстановления биоритмов.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">26</div>
+        <div class="title"><strong>Selenium D12</strong><br>Селен</div>
+        <div class="function">Дополнительная соль для обмена веществ.</div>
+      </div>
+      <div class="flex-row">
+        <div class="number">27</div>
+        <div class="title"><strong>Kali bichromicum D12</strong><br>Бихромат калия</div>
+        <div class="function">Дополнительная соль  для регенерации клеток.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="advantages-section section white-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="image">
+            <img src="/wp-content/themes/store-child/includes/images/essence.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Отличная растворимость</div>
+            <div class="advantages-item__text">Соли имеют приятный вкус, в основе высококачественная фармакопейная лактоза европейского производства. Таблетки и тритурации хорошо растворяются и всасываются через слизистую полости рта.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Качественная упаковка</div>
+            <div class="advantages-item__text">Мы выпускаем соли Шюсслера только в высокочаственных стеклянных фармацевтических флаконах. Наши соли защищены от ультрафиолета, паров пластика и пластификаторов. На всех флаконах крышки с контролем первого вскрытия.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Персонализированный выпуск</div>
+            <div class="advantages-item__text">Каждый наш флакон имеет голограмму и индивидуальный номер. Это дает нам возможность отслеживать каждый флакон от момента производства до попадания к пациенту и защищает от подделок.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Экспертный подбор</div>
+            <div class="advantages-item__text">Нашими специалистами разработана экспертная программа подбора персонифицированной схемы применения комбинации солей Шюсслера. Программа позволяет учитывать самые незначительные отклонения в организме для более точного подбора терапии.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Безупречный состав</div>
+            <div class="advantages-item__text">В составе солей Шюсслера только минералы высшей степени очистки, фармакопейная лактоза и самые безопасные компоненты для таблетирования – аэросил А – мелкодисперстный природный кремний и стеарат магния  высшей степени очистки. Мы не используем крахмал, глютен, стабилизатры, консерванты, ароматизаторы и прочие химические вещества. Этим мы гарантируем высокое качество.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="advantages-item">
+            <div class="advantages-item__title section-title">Информационная поддержка</div>
+            <div class="advantages-item__text">На каждом флаконе мы разместили QR код, по которому Вы можете изучить подробное описание каждой соли, режимы дозирования.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="use-section section burgundy-bg">
+    <div class="container">
+      <div class="section-title">Применение</div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text">Клеточные соли доктора Шюсслера обычно используются в низких концентрациях. Низкие концентрации принято обозначать по шкалам разведения как в гомеопатии. Соли Шюсслера маркируют D6 или  D12.</p>
+          <p class="text">Однако, соли Шюсслера не относят к гомеопатическому методу лечения. Данные маркеры указывают количество ступеней трехчасовых тритураций, соответственно 6 и 12 степеней по 3 часа растирания в каждой. Соли водорастворимые используют в потенции  D6, а соли водонерастворимые в потенции D12. Это стандартные концентрации. По индивидуальным рецептам аптека может изготовить другие потенции.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text">Для определения необходимой потенции специалисты руководствуются правилом:</p>
+          <div class="frame">
+            <ul class="list">
+              <li class="list-item">Для лечение хронических заболеваний и психических симптомов следует использовать потенцию D12.</li>
+              <li class="list-item">Для коррекции острых симптомов используют потенции D6.</li>
+              <li class="list-item">Меньшие потенции могут быть использованы только для нетоксичных солей и для локального наружного применения.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+  </div>
+
+  <div class="rule-section section darkblue-bg">
+    <div class="container">
+      <div class="flex-container">
+        <div class="text-medium">Основное правило:</div><div class="text">во время использования солей Шюсслера необходимо пить большое количество чистой питьевой воды.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="storage-section section white-bg">
+    <div class="container">
+      <div class="section-title">Хранение</div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text">Соли Шюсслера легко впитывают запахи, поэтому их всегда следует хранить в герметичных стеклянных банках, в сухих помещениях вдали от источников излучения ( компьютеры, телевизоры, холодильники, микроволновки, другие гаджеты).</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text">Если требуется несколько таблеток отсыпайте их в крышку, никогда не высыпайте на влажную ладонь и не берите соли мокрыми руками, это может привести к появлению плесени из-за влажности.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reaction-section section pink-bg">
+    <div class="container">
+      <div class="section-title">Реакции и эффекты</div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text">Многие люди могут принимать соли Шусслера, не чувствуя никаких заметных реакций. Однако, у некоторых могут наблюдаться временные реакции организма во время приема внутрь. Это происходит только потому, что организм включает механизмы саногенеза (выздоровления).</p>
+          <p class="text">Может усилиться работа органов выделения, и Вы заметите несколько симптомов:</p>
+          <ul class="list">
+            <li class="list-item">учащение мочеотделения и изменение цвета и запаха мочи</li>
+            <li class="list-item">усилится потоотделение</li>
+            <li class="list-item">активизируется работа сальных желез</li>
+            <li class="list-item">очень быстро возникает ощущение легкости и освобождения</li>
+          </ul>
+          <p class="text">В случаях повышенной кислотности организма обостряется:</p>
+          <ul class="list">
+            <li class="list-item">изжога</li>
+            <li class="list-item">могут появиться высыпания на коже</li>
+            <li class="list-item">боли в суставах по типу ревматических</li>
+            <li class="list-item">неконтролируемые приступы голода.</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <p class="text">Это не значит, что Вы не переносите соли Шюсслера. Реакции исчезают через несколько дней. С получением минералов, в которых организм остро нуждается  в качестве катализаторов- межклеточная жидкость, кровь и лимфа очищаются в первую очередь.</p>
+          <p class="text">Иногда Вы можете чувствовать симптомы как во время простуды:</p>
+          <ul class="list">
+            <li class="list-item">насморк</li>
+            <li class="list-item">кашель</li>
+            <li class="list-item">кратковременное повышение температуры</li>
+            <li class="list-item">изменение стула.</li>
+          </ul>
+          <p class="text">При выведении токсических веществ могут беспокоить:</p>
+          <ul class="list">
+            <li class="list-item">отеки конечностей и лица</li>
+            <li class="list-item">зуд</li>
+            <li class="list-item">головные боли.</li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<?php get_footer(); ?>
