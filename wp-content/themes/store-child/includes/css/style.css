@@ -153,6 +153,9 @@ p {
 .hidden-desktop {
   display: none;
 }
+.clear-both {
+  clear: both;
+}
 .full-link {
   position: absolute;
   top: 0;
@@ -1726,13 +1729,30 @@ ul.products li.product .added_to_cart:hover {
   align-items: center;
   color: var(--darkblue-color);
 }
+.about-salts-page .photo-section .photo {
+  width: 300px;
+  margin: 0 10px 0 0;
+}
+.about-salts-page .photo-section .photo img {
+  width: 100%;
+}
 .about-salts-page .photo-section .livetime {
   font-size: 24px;
   line-height: 1.3;
 }
-.about-salts-page .concept-section .image {
+.about-salts-page .image {
+  width: 400px;
+  margin: 0 20px 0 0;
   border-radius: 30px;
   overflow: hidden;
+}
+.about-salts-page .image-right {
+  margin: 0 0 0 20px;
+  float: right;
+}
+.about-salts-page .image-left {
+  margin: 0 20px 0 0;
+  float: left;
 }
 .about-salts-page .salts-section {
   font-size: 18px;
@@ -3526,6 +3546,43 @@ a.remove {
     margin-bottom: 60px;
   }
 
+  /* about salts page */
+  .about-salts-page .section {
+    padding: 30px 0;
+  }
+  .about-salts-page .section-title {
+    font-size: 30px;
+  }
+  .about-salts-page .text {
+    font-size: 20px;
+  }
+  .about-salts-page .frame {
+    padding: 20px;
+  }
+  .about-salts-page .frame .list {
+    margin: 0;
+    padding: 0 0 0 30px;
+  }
+  .about-salts-page .section-title {
+    font-size: 26px;
+  }
+  .about-salts-page .photo-section .livetime {
+    font-size: 22px;
+  }
+  .about-salts-page .salts-section .flex-row .number {
+    width: 65px;
+  }
+  .about-salts-page .salts-section .flex-row .title {
+    width: 300px;
+  }
+  .about-salts-page .salts-section .additional-text {
+    padding: 20px;
+  }
+  .about-salts-page .rule-section .text-medium {
+    font-size: 30px;
+  }
+
+
   /* we use cookie */
   .we-use-cookie {
     right: 20%;
@@ -4002,6 +4059,52 @@ a.remove {
     height: 56px;
   }
 
+  /* about salts page */
+  .about-salts-page .image {
+    width: 300px;
+  }
+  .about-salts-page .section {
+    padding: 20px 0;
+  }
+  .about-salts-page .section-title {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+  }
+  .about-salts-page .text {
+    font-size: 18px;
+  }
+  .about-salts-page .frame {
+    padding: 15px 20px;
+  }
+  .about-salts-page .list-item {
+    margin: 0;
+  }
+
+  .about-salts-page .photo-section .photo {
+    width: 200px;
+  }
+  .about-salts-page .photo-section .livetime {
+    font-size: 18px;
+  }
+  .about-salts-page .advantages-section .advantages-item {
+    margin: 0 0 20px 0;
+  }
+  .about-salts-page .salts-section .flex-row .number {
+    width: 45px;
+  }
+  .about-salts-page .use-section .white-frame-title {
+    font-size: 28px;
+  }
+  .about-salts-page .use-section .list-first {
+    margin: 0 0 20px 0;
+  }
+  .about-salts-page .rule-section .text-medium {
+    font-size: 28px;
+  }
+  .about-salts-page .reaction-section .list-item {
+    font-size: 18px;
+  }
+
   /* to top */
   .to-top {
     display: none;
@@ -4215,7 +4318,7 @@ a.remove {
     background-color: var(--darkblue-color);
     margin: 0 0 2px 0;
   }
-   .single-product .product .woocommerce-tabs .tabs li a {
+  .single-product .product .woocommerce-tabs .tabs li a {
     color: var(--nero-color);
   }
   .single-product .resp-tabs-container {
@@ -4404,6 +4507,59 @@ a.remove {
     height: 46px;
   }
 
+  /* about salts page */
+  .about-salts-page .text {
+    font-size: 16px;
+  }
+  .about-salts-page .frame .list {
+    padding: 0 0 0 20px;
+  }
+  .about-salts-page .image {
+    width: 200px;
+  }
+  .about-salts-page .image-right,
+  .about-salts-page .image-left {
+    margin: 0 0 15px 0;
+    float: none;
+  }
+  .about-salts-page .photo-section .photo {
+    width: 150px;
+  }
+  .about-salts-page .photo-section .livetime {
+    font-size: 16px;
+  }
+  .about-salts-page .salts-section .flex-row .number {
+    width: 25px;
+  }
+  .about-salts-page .salts-section .flex-row .title {
+    width: 250px;
+    padding: 0 10px 0 0;
+  }
+  .about-salts-page .section-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+  }
+  .about-salts-page .darkburgundy-bg {
+    height: 30px;
+  }
+  .about-salts-page .use-section .white-frame {
+    height: auto;
+    margin: 0 0 10px 0;
+  }
+  .about-salts-page .flex-container {
+    display: block;
+  }
+  .about-salts-page .rule-section .text-medium {
+    font-size: 26px;
+  }
+  .about-salts-page .list-item::marker {
+    font-size: 20px;
+  }
+  .about-salts-page .reaction-section .list-item {
+    font-size: 16px;
+  }
+  
+
   /* we use cookie */
   .we-use-cookie {
     right: 20%;
@@ -4576,6 +4732,17 @@ a.remove {
   .checkout-page .woocommerce-checkout-review-order-table th {
     font-size: 20px;
   }
+
+  /* about salts page */
+  .about-salts-page .salts-section .flex-row {
+    font-size: 16px;
+  }
+  .about-salts-page .section-title {
+    font-size: 18px;
+  }
+   .about-salts-page .use-section .white-frame-title {
+    font-size: 24px;
+  }
 }
 
 @media only screen and (max-width : 480px) {
@@ -4704,6 +4871,24 @@ a.remove {
     font-size: 15px;
   }
 
+  /* about salts page */
+  .about-salts-page .image {
+    width: 150px;
+    border-radius: 20px;
+  }
+  .about-salts-page .photo-section .flex-container {
+    display: block;
+  }
+  .about-salts-page .salts-section .flex-row {
+    flex-wrap: wrap;
+  }
+  .about-salts-page .salts-section .flex-row .function {
+    padding: 0 0 0 25px;
+  }
+  .about-salts-page .use-section .white-frame {
+    font-size: 16px;
+  }
+
   /* we use cookie */
   .we-use-cookie {
     right: 30%;
@@ -4789,6 +4974,11 @@ a.remove {
   .expert-system-page .buy-section .buy-btn {
     width: 190px;
     height: 40px;
+  }
+
+  /* about salts page */
+  .about-salts-page .rule-section .text-medium {
+    font-size: 24px;
   }
 }
 
@@ -5261,6 +5451,7 @@ a.remove {
 */
 
 /*r.kolobaev*/
+/*
 .main_menu {
   padding: 12px 0;
   box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
@@ -5339,7 +5530,7 @@ a.remove {
   grid-template-columns: 25% 50% 25%;
 }
 
-
+*/
 
 
 a.white {
