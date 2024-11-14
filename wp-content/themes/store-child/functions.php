@@ -313,6 +313,63 @@ function render__catalog($id_gr) {
     return $html;
 }
 
+// Вывод записей по буквам на странице Болезни от А до Я
+function get_letters() {
+
+  $content = "";
+  $content1 = "";
+
+  $query = new WP_Query(array(
+
+    'cat' => 425,
+    'posts_per_page' => -1,
+
+  ));
+
+  if ( $query->have_posts() ) { 
+    $letters_array = [];
+
+    while ($query->have_posts()) { 
+      global $prev_letter;
+
+      $query->the_post();
+      /*
+      $letter = mb_substr(get_the_title(), 0, 1);
+      $content2 = "";
+      if (in_array($letter, $letters_array)) {
+        $content2 .= "<div class=\"letter\">";
+        // $content2 .= $prev_letter;
+        // $content2 .= $letter;
+
+        switch ($letter) {
+          case 'А':
+            $content2 .= "А";
+            break;
+          case 'В':
+            $content2 .= "В";
+            break;
+          case 'И':
+            $content2 .= "И";
+            break;
+
+        }
+        $content2 .= "</div>";
+      }
+
+      $content1 = "<div class=\"posts-per-month\">";
+      $content1 .= "<a href=\"" . get_permalink() . "\">";
+      $content1 .= esc_html( get_the_title() );
+      $content1 .= "</a>";
+      $content1 .= "</div>";
+      $content .= $content2 . $content1;
+      $letters_array[] = $letter;
+      */
+
+    }
+  }
+  return $content;
+}
+
 // обертка для категорий
 add_action('woocommerce_before_main_content', 'add_wrapper_to_product', 30);
 add_action('woocommerce_after_main_content', 'add_close_wrapper_to_product', 20);
