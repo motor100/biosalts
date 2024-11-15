@@ -1049,6 +1049,7 @@ function get_subcat_products() {
         'post_type'      => 'product',
         'post_status'    => 'publish',
         'posts_per_page' => '-1',
+        'order' => 'ASC',
         'tax_query' => array( array (
                 'taxonomy' => 'product_cat',
                 'field'    => 'term_id',

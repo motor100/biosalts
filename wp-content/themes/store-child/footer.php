@@ -158,7 +158,7 @@
 
 <?php wp_footer(); ?>
 
-<script type="text/javascript">
+<script>
 ! function() {
   var t = document.createElement("script");
   t.type = "text/javascript", t.async = !0, t.src = 'https://vk.com/js/api/openapi.js?169', t.onload = function() {
