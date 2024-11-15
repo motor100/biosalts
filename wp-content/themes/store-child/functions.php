@@ -313,61 +313,53 @@ function render__catalog($id_gr) {
     return $html;
 }
 
-// Вывод записей по буквам на странице Болезни от А до Я
-function get_letters() {
+/**
+ * Вывод записей по буквам на странице Болезни от А до Я
+ *
+ * @param
+ * @return string
+ */
+function get_posts_per_letter() {
 
-  $content = "";
-  $content1 = "";
+    $html = "";
 
-  $query = new WP_Query(array(
+    $query = new WP_Query(array(
+        'cat' => 425, // ID категории Болезни от А до Я
+        'orderby' => 'title', // Сортировка по названию 
+        'order' => 'ASC', // Сортировка в алфавитном порядке
+        'posts_per_page' => -1, // Вывод всех постов
+    ));
 
-    'cat' => 425,
-    'posts_per_page' => -1,
+    if ( $query->have_posts() ) { 
+        $prev_letter = ''; // Первая буква предыдущего заголовка поста
 
-  ));
+        while ($query->have_posts()) { 
+          global $prev_letter;
 
-  if ( $query->have_posts() ) { 
-    $letters_array = [];
+          $query->the_post();
+          $content1 = "";
+          $first_letter = mb_substr(get_the_title(), 0, 1); // Получение первой буквы заголовка поста
 
-    while ($query->have_posts()) { 
-      global $prev_letter;
-
-      $query->the_post();
-      /*
-      $letter = mb_substr(get_the_title(), 0, 1);
-      $content2 = "";
-      if (in_array($letter, $letters_array)) {
-        $content2 .= "<div class=\"letter\">";
-        // $content2 .= $prev_letter;
-        // $content2 .= $letter;
-
-        switch ($letter) {
-          case 'А':
-            $content2 .= "А";
-            break;
-          case 'В':
-            $content2 .= "В";
-            break;
-          case 'И':
-            $content2 .= "И";
-            break;
-
+          // Вывод первой буквы заголовка поста
+          if ($prev_letter != $first_letter) {
+            $content1 .= "<div class=\"letter\">" . $first_letter . "</div>";
+          }
+          
+          $content1 .= "<a href=\"" . get_permalink() . "\" class=\"title\">";
+          $content1 .= esc_html( get_the_title() );
+          $content1 .= "</a>";
+          
+          $html .= $content1;
+          $prev_letter = $first_letter;
         }
-        $content2 .= "</div>";
-      }
 
-      $content1 = "<div class=\"posts-per-month\">";
-      $content1 .= "<a href=\"" . get_permalink() . "\">";
-      $content1 .= esc_html( get_the_title() );
-      $content1 .= "</a>";
-      $content1 .= "</div>";
-      $content .= $content2 . $content1;
-      $letters_array[] = $letter;
-      */
+        wp_reset_postdata();
 
+    } else {
+        $content = "Записей нет.";
     }
-  }
-  return $content;
+
+  return $html;
 }
 
 // обертка для категорий
