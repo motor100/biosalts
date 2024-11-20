@@ -24,12 +24,12 @@ while ( have_posts() ) :
 	  get_template_part( 'templates/content', 'blog' );
 	elseif(get_the_ID() == 579):
 	  get_template_part( 'templates/content', 'contacts' );
-	elseif(get_the_ID() == 6):
-    get_template_part( 'templates/content', 'catalog' );
   elseif(get_the_ID() == 7):
 		get_template_part( 'templates/content', 'cart' );
 	elseif(get_the_ID() == 8):
 		get_template_part( 'templates/content', 'checkout' );
+	else:
+    get_template_part( 'templates/content', 'catalog' );
   endif;
 endwhile;
 ?>
