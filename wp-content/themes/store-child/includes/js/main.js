@@ -257,6 +257,39 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  // AJAX обновление количество товара у значка корзины в хэдере и нижнем мобильном меню add to cart
+  jQuery(document).ready(function($) {
+    /**
+     * jquery событие 'added_to_cart' в контексте woocommerce
+     * Все события в /wp-content/plugins/woocommerce/assets/js/frontend
+     * Vanilla javascript нет этого события
+     * Если добавить событие click на кнопку добавления в корзину, то оно сработает раньше. В корзине будут прошлые значения
+     */ 
+    $(document.body).on('added_to_cart', function(){
+
+      fetch(Myscrt.ajaxurl, {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        cache: 'no-cache',
+        body: 'action=set_cart_counters',
+      })
+      .then((response) => response.json())
+      .then((json) => {
+        const headerCartCounter = document.querySelector('.header-cart__counter'); // счетчик товаров для значка корзины в хэдере
+        // const headerCartTotal = document.querySelector('.header-cart__total .number'); // стоимость товаров для значка корзины в хэдере
+        // const fixedBottomMenu = document.querySelector('.fixed-bottom-menu .badge-counter'); // счетчик товаров для значка корзины в нижнем меню
+        headerCartCounter.innerText = json.count;
+        // headerCartTotal.innerText = json.total;
+        // fixedBottomMenu.innerText = json.count
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+    });
+  });
+
+
   const callbackForm = document.getElementById('callback-modal-form');
   const callbackSubmitBtn = document.getElementById('callback-modal-btn');
 

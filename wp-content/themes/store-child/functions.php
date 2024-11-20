@@ -930,6 +930,21 @@ add_action('wp_ajax_start_payment', 'start_payment');
 add_action('wp_ajax_nopriv_start_payment', 'start_payment');
 
 
+// AJAX обновление количество товара у значка корзины в хэдере и нижнем мобильном меню
+add_action( 'wp_ajax_set_cart_counters', 'set_counters' ); // хук wp_ajax
+add_action( 'wp_ajax_nopriv_set_cart_counters', 'set_counters' ); // хук wp_ajax для незалогиненных пользователей
+
+function set_counters() {
+
+    echo json_encode([
+        'count' => WC()->cart->get_cart_contents_count(),
+        'total' => WC()->cart->get_cart_contents_total()
+    ]);
+    
+    wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего (0), только то что возвращает функция
+}
+
+
 // Работа с купонами из woo_commerce
 function create_discount_coupon($user_email) {
     $coupon_code = 'DISCOUNT_' . strtoupper(wp_generate_password(8, false)); // Уникальный код купона
