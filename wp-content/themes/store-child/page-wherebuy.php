@@ -36,7 +36,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="moskva">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-almaatinskaya.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/moskow.jpg" alt="">
             </div>
             <div class="addresses-item__title">Москва, Алма-Атинская</div>
             <div class="addresses-item__description">
@@ -50,7 +50,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="moskva">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-borovskoe.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/moskow.jpg" alt="">
             </div>
             <div class="addresses-item__title">Москва, Боровское шоссе</div>
             <div class="addresses-item__description">
@@ -66,7 +66,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="bryansk">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-borovskoe.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/bryansk.jpg" alt="">
             </div>
             <div class="addresses-item__title">Брянск, Литейная</div>
             <div class="addresses-item__description">
@@ -98,7 +98,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="sochi">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-borovskoe.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/sochi.jpg" alt="">
             </div>
             <div class="addresses-item__title">Сочи, Курортный</div>
             <div class="addresses-item__description">
@@ -114,7 +114,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="cheboksary">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-borovskoe.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/cheboksary.jpg" alt="">
             </div>
             <div class="addresses-item__title">Чебоксары, Мира</div>
             <div class="addresses-item__description">
@@ -130,7 +130,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 js-a-item" data-name="kazan">
           <div class="addresses-item">
             <div class="addresses-item__image">
-              <img src="/wp-content/themes/store-child/includes/images/moskva-borovskoe.jpg" alt="">
+              <img src="/wp-content/themes/store-child/includes/images/kazan.jpg" alt="">
             </div>
             <div class="addresses-item__title">Казань, Победы</div>
             <div class="addresses-item__description">

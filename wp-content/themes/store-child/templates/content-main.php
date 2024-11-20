@@ -4,7 +4,7 @@
       <div class="main-section-about">
         <div class="title-wrapper">
           <div class="title">СОЛИ ШЮССЛЕРА</div>
-          <div class="subtitle">Тканевая биохимическая терапия</div>
+          <!-- <div class="subtitle">Тканевая биохимическая терапия</div> -->
           <div class="subtitle">Since 1873</div>
         </div>
         <div class="about-bg">

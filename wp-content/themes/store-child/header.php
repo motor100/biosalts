@@ -41,15 +41,15 @@
                 <span class="address-text">Московская область, совхоз им Ленина, Техцентр | Пн-Пт: 10:00 до 20:00, Сб-Вс: выходной</span>
               </div>
               <div class="socials-icons">
-                <a href="https://t.me/naturaproff" class="social-icons__link" rel="nofollow noopener" target="_blank">
+                <a href="https://t.me/biosalts" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
                 </a>
-                <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
+                <!-- <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-vk.svg" class="social-icons__image social-icons__vk" alt="вконтакте">
-                </a>
+                </a> -->
               </div>
               <div class="phone-wrapper">
-                <a href="#" class="social-icons__link" rel="nofollow noopener" target="_blank">
+                <a href="https://wa.me/79629880861" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-wa.svg" class="social-icons__image social-icons__wa" alt="ватсап">
                 </a>
                 <a href="tel:+74959274928" class="social-icons__link" rel="nofollow noopener" target="_blank">
