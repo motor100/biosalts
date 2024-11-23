@@ -118,7 +118,7 @@
           <div class="category-item__title">
             <span class="text">Детские соли</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/detskie-soli/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
@@ -129,7 +129,7 @@
           <div class="category-item__title">
             <span class="text">Спреи</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/sprei/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
@@ -140,7 +140,7 @@
           <div class="category-item__title">
             <span class="text">Космецевтика</span>
           </div>
-          <a href="#" class="full-link"></a>
+          <a href="/catalog/product-category/kosmeczevtika" class="full-link"></a>
         </div>
       </div>
     </div>
@@ -162,8 +162,8 @@
       </div>
       <div class="col-md-6">
         <div class="select-item select-item-burgundy">
-          <div class="select-item__text">Текст про персональный подбор</div>
-          <a href="/wp-content/themes/store-child/includes/pdf/razreshenie-ooo-zdorove-2.pdf" class="example-btn" target="_blank">Посмотреть пример заключения</a>
+          <div class="select-item__text">Экспертная система подбора солей Шюсслера для тканевой биохимической терапии. Медицинский ассистент  для диагностики дефицитов минералов в организме человека, подбора персонифицированной комбинации  с проверкой совместимости и указанием оптимального времени приема для проведения тканевой биохимической терапии солями Шюсслера.</div>
+          <a href="/wp-content/themes/store-child/includes/pdf/test.pdf" class="example-btn" target="_blank">Посмотреть пример заключения</a>
         </div>
       </div>
     </div>
@@ -183,7 +183,7 @@
           <div class="title-wrapper">
             <img src="/wp-content/themes/store-child/includes/images/ball-blue.png" class="image" alt="">
             <div class="number">151</div>
-            <div class="text">год сканевой<br>биохимической<br>терапии</div>
+            <div class="text">год тканевой<br>биохимической<br>терапии</div>
           </div>
           <div class="description">
             <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>

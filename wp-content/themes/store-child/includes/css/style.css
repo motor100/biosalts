@@ -242,20 +242,6 @@ iframe {
   border: 1px solid #b50043 !important;
   color: #fafafa !important;
 }
-/*
-.sec-title {
-  color: #184e66;
-  font-family: Uni, sans-serif;
-  font-size: 36px;
-  line-height: 49px;
-}
-@media (max-width: 575.98px) {
-  .sec-title {
-    font-size: 24px;
-    text-align: center;
-  }
-}
-*/
 
 /* header */
 .header .underlogo-text {
@@ -580,7 +566,6 @@ iframe {
   content: '';
 }
 
-
 /* category section */
 .category-section {
   padding: 80px 0;
@@ -664,7 +649,7 @@ iframe {
   background-color: var(--burgundy-color);
 }
 .personal-select-section .select-item-burgundy .select-item__text {
-  font-size: 20px;
+  font-size: 17px;
 }
 .personal-select-section .select-item-burgundy .example-btn {
   position: absolute;
@@ -691,7 +676,8 @@ iframe {
 .description-section {
   margin: 0 0 80px 0;
   padding: 50px 0;
-  background-color: var(--darkblue-color);
+  background: url(../images/darkblue-bg.jpg) center no-repeat;
+  background-size: cover;
   color: var(--nero-color);
 }
 .description-section .description-image {
@@ -750,9 +736,9 @@ iframe {
 }
 .manufacture-section .manufacture-title .subtitle {
   font-family: 'Roboto-Light';
-  font-size: 42px;
+  font-size: 38px;
   line-height: 1.1;
-  text-transform: uppercase;
+  font-style: italic;
 }
 .manufacture-section .manufacture-content {
   padding: 40px 0;
@@ -892,7 +878,8 @@ iframe {
 .footer {
   margin: 80px 0 0 0;
   padding: 60px 0 80px 0;
-  background-color: var(--darkblue-color);
+  background: url(../images/darkblue-bg.jpg) center no-repeat;
+  background-size: cover;
   color: var(--nero-color);
 }
 .footer .menu {
@@ -1113,7 +1100,6 @@ iframe {
 /* subcategories */
 .subcategories {
   display: flex;
-/*  margin: 30px 0 0 0;*/
   flex-wrap: wrap;
 }
 .subcategories .subcategories-item {
@@ -1545,9 +1531,6 @@ ul.products li.product .added_to_cart:hover {
   .storefront-product-pagination a[rel=next] img {
     margin-right: 1.41575em;
   }
-  /*.storefront-product-pagination a[rel=next] .storefront-product-pagination__title {
-    margin-left: auto;
-  }*/
 }
 
 /* have contraindications полоса имеются противопоказания */
@@ -1880,9 +1863,6 @@ ul.products li.product .added_to_cart:hover {
   text-decoration: underline;
 }
 
-/* Страница Заказ принят */
-
-
 
 /* to top */
 .to-top {
@@ -2074,17 +2054,6 @@ ul.products li.product .added_to_cart:hover {
   font-weight: bold;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* we use cookie */
@@ -3161,7 +3130,7 @@ a.remove {
     font-size: 54px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 40px;
+    font-size: 36px;
   }
   .manufacture-section .manufacture-content .video {
     width: 420px;
@@ -3398,6 +3367,9 @@ a.remove {
   .personal-select-section .select-item-darkblue .select-item__image {
     width: 182px;
   }
+  .personal-select-section .select-item-burgundy .select-item__text {
+    font-size: 16px;
+  }
   .personal-select-section .select-item-burgundy .example-btn {
     left: 30px;
     bottom: 30px;
@@ -3426,7 +3398,7 @@ a.remove {
     font-size: 50px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 36px;
+    font-size: 34px;
   }
 
   /* manufacture section */
@@ -3837,6 +3809,9 @@ a.remove {
   .personal-select-section .select-item-darkblue .select-item__image {
     width: 142px;
   }
+  .personal-select-section .select-item-burgundy .select-item__text {
+    font-size: 15px;
+  }
   .personal-select-section .select-item-burgundy .example-btn {
     left: 20px;
     bottom: 20px;
@@ -3874,7 +3849,7 @@ a.remove {
     font-size: 46px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 32px;
+    font-size: 30px;
   }
   .manufacture-section .manufacture-content .video {
     width: 250px;
@@ -4334,6 +4309,7 @@ a.remove {
   }
   .description-section .description-image {
     width: 80%;
+    height: auto;
     margin: 0 auto 20px auto;
   }
   .description-section .title-wrapper {
@@ -4349,7 +4325,7 @@ a.remove {
     font-size: 42px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 28px;
+    font-size: 26px;
   }
   .manufacture-section .manufacture-content .flex-container {
     display: block;
@@ -4912,7 +4888,7 @@ a.remove {
     font-size: 38px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   /* products card ul.products */
@@ -5050,7 +5026,7 @@ a.remove {
     font-size: 32px;
   }
   .manufacture-section .manufacture-title .subtitle {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   /* club section */
@@ -5118,11 +5094,6 @@ a.remove {
     font-size: 24px;
   }
 }
-
-
-
-
-
 
 
 .storefront-sorting,
@@ -6429,20 +6400,6 @@ table.shop_table_responsive tr td::after {
     border-right: 0;
     border-radius: 0;
   }
-  /*
-  .catalog_inside.cart {
-    height: auto;
-  }
-  */
-  /*
-  .woocommerce-cart .mycart .woocommerce {
-    margin-top: 10px;
-  }
-  .woocommerce-cart .cart-collaterals {
-    margin-left: 0;
-    flex: 0;
-  }
-  */
   table.wpr-shop-table {
     margin-bottom: 0;
   }
@@ -6467,50 +6424,3 @@ table.cart .product-quantity .minus {
 }
 /*end r.kolobaev*/
 
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-/*.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: +999;
-  background: #fff;
-}*/
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-/*.sticky+.site-content {
-  padding-top: 224px;
-}
-*/
-
-/*.elementor-widget-image-carousel .swiper-slide{
-  text-align: -webkit-center !important;
-}*/
-
-
-/*
-.logo-footer {
-    margin-left: 60px;
-	height: 100px !important;
-}
-
-
-.footer-responsibility {
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #294060;
-}
-.footer-responsibility .footer-responsibility-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 20px;
-    color:  #294060;
-    font-weight: 600;
-    background-color: #819C84;
-    max-width: 800px;
-    border-radius: 20px;
-}
-*/
