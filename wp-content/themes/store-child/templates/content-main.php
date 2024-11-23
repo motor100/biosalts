@@ -207,8 +207,12 @@
     <div class="container">
       <div class="flex-container">
         <div class="video">
-          <img src="/wp-content/themes/store-child/includes/images/video-test.jpg" alt="">
+          <video controls>
+            <source src="/wp-content/themes/store-child/includes/video/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает встроенные видео.
+          </video>
         </div>
+
         <div class="content">
           <div class="description">
             <p class="text">Тканевая биохимическая терапия разработана доктором Шюсслером в середине 19 века.</p>
@@ -225,16 +229,16 @@
   <div class="container">
     <div class="grid-container">
       <div class="image">
-        <img src="/wp-content/themes/store-child/includes/images/hz-1.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/image1.jpg" alt="">
       </div>
       <div class="image">
-        <img src="/wp-content/themes/store-child/includes/images/hz-2.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/image2.jpg" alt="">
       </div>
       <div class="image">
-        <img src="/wp-content/themes/store-child/includes/images/hz-3.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/image3.jpg" alt="">
       </div>
       <div class="image">
-        <img src="/wp-content/themes/store-child/includes/images/hz-4.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/image4.jpg" alt="">
       </div>
     </div>
   </div>

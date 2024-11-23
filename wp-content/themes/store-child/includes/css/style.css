@@ -752,10 +752,8 @@ iframe {
   margin: 0 40px 0 0;
   flex-shrink: 0;
 }
-.manufacture-section .manufacture-content .video img {
+.manufacture-section .manufacture-content .video video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .manufacture-section .manufacture-content .content {
   display: flex;
