@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
-// 	console.log(window.location)
 	
-	if (window.location.pathname === '/salts_questionnaire/') {
+	if (window.location.pathname === '/salts_questionnaire/' || 
+		window.location.pathname === '/expert-system/') {
 		// Если возникают вопросы по работе с анкетой - писать в тг @dmalfed
 		// (Я понимаю, что писать все в общий модуль - плохо, sorry.
 		// Но более адекватного пути реализации данного функционала в WP я не нашел)
@@ -63,7 +63,10 @@ jQuery(document).ready(function($) {
 			window.history.replaceState({}, '', url.toString());
 
 			// Отображаем кнопку-триггер модалки оплаты
-			$('#start-payment-btn').attr('style', 'display: block')
+			// $('#start-payment-btn').attr('style', 'display: block')
+
+			// Отображаем wrapper для кнопки-триггер модалки оплаты
+			$('#start-payment-btns-wrapper').attr('style', 'display: block')
 		}
 
 		if (paymentIdStore.getPaymentId()) {
@@ -139,20 +142,21 @@ jQuery(document).ready(function($) {
 			});
 		}
 
-		const handleSendEmailWithDiscount = (data) => {
+		const handleSendEmailWithDiscount = (paymentId, data) => {
 			$.ajax({
 				url: my_ajax_obj.ajaxurl,
 				type: 'POST',
 				data: {
 					action: 'handle_questionnaire_completion',
 					user_email: data.form.email,
+					payment_id: paymentId,
 					results: JSON.stringify(data.results),
 				},
 				success: function(response) {
 // 					console.log('Письмо со скидкой успешно отправлено');
 				},
 				error: function(xhr, status, error) {
-// 					console.error('Ошибка при отправке письма:', status, error);
+					console.error('Ошибка при отправке письма:', status, error);
 				}
 			})
 		}
@@ -191,7 +195,7 @@ jQuery(document).ready(function($) {
 
 						changeQuestionnaireCompletion(paymentIdStore.getPaymentId(), true)
 
-						handleSendEmailWithDiscount(event.data.content)
+						handleSendEmailWithDiscount(paymentIdStore.getPaymentId(), event.data.content)
 					}
 
 					// NEW_QUESTIONNAIRE
@@ -209,16 +213,17 @@ jQuery(document).ready(function($) {
 			window.removeEventListener('message', windowMessageListener)
 		}
 
-		// Обработчик кнопки оплаты - открываем модалку, показываем в ней платежную форму
+		// Обработчик кнопок оплаты - открываем модалку, показываем в ней платежную форму
 		// Перед этим генерируем сам платеж
-		$('#start-payment-btn').on('click', function() {
+		$(".js-start-payment-btn").on('click', function() {
 			$('#payment-modal').attr('style', 'display: block')
 
 			$.ajax({
 				url: my_ajax_obj.ajaxurl,
 				type: 'POST',
 				data: {
-					action: 'start_payment'
+					action: 'start_payment',
+					summ: $(this).attr('data-summ')
 				},
 				success: function(response) {				
 					if (response.success) {
@@ -235,7 +240,8 @@ jQuery(document).ready(function($) {
 
 						checkout.on('complete', (data) => {
 							if (data.status === 'success') {
-								$('#start-payment-btn').attr('style', 'display: none')
+								// $('#start-payment-btn-1200').attr('style', 'display: none')
+								$('#start-payment-btns-wrapper').attr('style', 'display: none')
 
 								localStorageWrapper.setItem('payment_id', response.data.data.id)
 
@@ -245,23 +251,25 @@ jQuery(document).ready(function($) {
 
 								$('#payment-modal').attr('style', 'display: none')
 								$('#questionnaire-description').attr('style', 'display: none')
+								window.scrollTo(0, 0)
 								$('#salts_questionnaire').attr('style', 'display: block')
 							}
 
 							checkout.destroy();
 						});
 
-						//Отображение платежной формы в контейнере
+						// Отображение платежной формы в контейнере
 						checkout.render('payment-form')
 					} else {
-// 						alert('Ошибка при создании платежа.');
+ 						alert('Ошибка при создании платежа.');
 					}
 				},
 				error: function() {
-// 					alert('Ошибка при соединении с сервером.');
+ 					alert('Ошибка при соединении с сервером.');
 				}
 			});
-		});
+		})
+
 	}
 });
 

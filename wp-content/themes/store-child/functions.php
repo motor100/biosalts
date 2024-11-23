@@ -59,6 +59,7 @@ function add_scripts() {
     wp_enqueue_script( 'imask', get_stylesheet_directory_uri() . '/includes/js/imask.min.js' );
     wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/includes/js/main.js','',$ver);
 	
+    // Подключение скрипта для страницы Анкета по подбору солей Шюсслера
 	wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/includes/js/_custom.js');
 
     // включение файла admin-ajax.php для front
@@ -129,16 +130,16 @@ function custom_nav_menu($start = 0, $end = NULL) {
 
 
 // Удалить атрибут type у scripts
-add_filter('script_loader_tag', 'clean_script_tag');
 function clean_script_tag($src) {
   return str_replace("type='text/javascript'", '', $src);
 }
+add_filter('script_loader_tag', 'clean_script_tag');
 
 // Удалить атрибут type у style
-add_filter('style_loader_tag', 'clean_css_tag', 10, 2);
 function clean_css_tag($tag, $handle) {
   return preg_replace( "/type=['\"]text\/(css)['\"]/", '', $tag );
 }
+add_filter('style_loader_tag', 'clean_css_tag', 10, 2);
 
 // Disable the emoji's
 function disable_emojis() {
@@ -363,15 +364,15 @@ function get_posts_per_letter() {
 }
 
 // обертка для категорий
-add_action('woocommerce_before_main_content', 'add_wrapper_to_product', 30);
-add_action('woocommerce_after_main_content', 'add_close_wrapper_to_product', 20);
+// add_action('woocommerce_before_main_content', 'add_wrapper_to_product', 30);
+// add_action('woocommerce_after_main_content', 'add_close_wrapper_to_product', 20);
 
-function add_wrapper_to_product() {
+// function add_wrapper_to_product() {
 
-}
-function add_close_wrapper_to_product() {
+// }
+// function add_close_wrapper_to_product() {
 
-}
+// }
 
 // Добавление post_type post в результаты поска 
 add_filter( 'dgwt/wcas/search_query/args', function ( $args ) {
@@ -505,8 +506,8 @@ function rk_remove_product_tabs( $tabs ) {
 add_filter( 'woocommerce_product_tabs', 'ql_reorder_product_tabs', 98 );
 
 function ql_reorder_product_tabs( $tabs ) {
-$tabs['description']['priority'] = 0; // Description first
-return $tabs;
+    $tabs['description']['priority'] = 0; // Description first
+    return $tabs;
 }
 
 
@@ -523,7 +524,7 @@ function rk_new_product_tab( $tabs ) {
 	return $tabs;
 }
 function rk_new_tab_content($tab_name, $tab) {
-        echo $tab['content'];
+    echo $tab['content'];
 }
 
 add_filter('woocommerce_product_tabs', 'rk_new_product_tab_2', 2);
@@ -538,8 +539,9 @@ function rk_new_product_tab_2( $tabs ) {
 	} else unset( $tabs['pokazakia_tab'] );
 	return $tabs;
 }
+
 function rk_new_tab_content_2($tab_name, $tab) {
-        echo $tab['content'];
+    echo $tab['content'];
 }
 
 add_filter('woocommerce_product_tabs', 'rk_new_product_tab_4', 4);
@@ -567,6 +569,7 @@ function rk_new_product_tab_5( $tabs ) {
 	);
 	return $tabs;
 }
+
 function rk_new_tab_content_5() {
 	if(get_field('dozirovanie')) { 
 		echo '<div class="">';
@@ -587,18 +590,16 @@ function rk_new_product_tab_6( $tabs ) {
 	} else unset( $tabs['pok_tab'] );
 	return $tabs;
 }
+
 function rk_new_tab_content_6($tab_name, $tab) {
-        echo $tab['content'];
+    echo $tab['content'];
 }
 
 add_action( 'woocommerce_before_quantity_input_field', 'truemisha_quantity_plus', 25 );
 add_action( 'woocommerce_after_quantity_input_field', 'truemisha_quantity_minus', 25 );
-
-
  
 function truemisha_quantity_plus() {
 	echo '<button type="button" class="minus">-</button>';
-	
 }
  
 function truemisha_quantity_minus() {
@@ -686,7 +687,7 @@ function wc_products_from_cat_dropdown( $atts ) {
                 'terms'    => wp_get_post_terms( $product_id, 'product_cat', array( 'fields' => 'ids' ) ) ,
         ) ),
     ) );
-//print_r($query);
+
     if ( $query->have_posts() ) :
 
     echo '<div class="products-dropdown"><select name="products-select" id="products-select">
@@ -723,10 +724,10 @@ function wc_products_from_cat_dropdown( $atts ) {
 }
 
 function change_relatedproducts_text($new_text, $related_text, $source) {
-     if ($related_text === 'Related products' && $source === 'woocommerce') {
-         $new_text = esc_html__('Дополнительные препараты', $source);
-     }
-     return $new_text;
+    if ($related_text === 'Related products' && $source === 'woocommerce') {
+        $new_text = esc_html__('Дополнительные препараты', $source);
+    }
+    return $new_text;
 }
 add_filter('gettext', 'change_relatedproducts_text', 10, 3);
 
@@ -744,6 +745,7 @@ function create_custom_payment_table() {
             id mediumint(9) NOT NULL AUTO_INCREMENT,
             payment_id varchar(255) NOT NULL,
             completion boolean DEFAULT false NOT NULL,
+            summ varchar(255) NOT NULL,
             PRIMARY KEY (id)
         ) $charset_collate;";
 
@@ -767,7 +769,7 @@ function create_custom_payment_table() {
 
 
 /*
- * Ниже описаны функции для взаимодейтсвия с таблицей custom_payments,
+ * Ниже описаны функции для взаимодействия с таблицей custom_payments,
  * отвечающей за хранение данных, которые необходимы для фиксации оплат
  * за прохождение анкет и для получения статуса прохождения данных анкет
  * Если возникнет необходимость что-то уточнить - тг @dmalfed
@@ -862,51 +864,93 @@ function check_payment_record() {
 add_action('wp_ajax_check_payment_record', 'check_payment_record');
 add_action('wp_ajax_nopriv_check_payment_record', 'check_payment_record');
 
+// Функция получает запись из таблицы custom_payments по полю payment_id
+function get_payment_record($payment_id) {
+    global $wpdb;
+
+    // Название таблицы
+    $table_name = $wpdb->prefix . 'custom_payments';
+
+    // Если нет payment_id, то вывожу ошибку
+    if (!$payment_id) {
+        return ['message' => 'Payment ID is required.'];
+    }
+
+    // Выполняем запрос для получения данных
+    $result = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE payment_id = %s", $payment_id), ARRAY_A);
+
+    // Проверяем результат и отправляем ответ
+    if ($result) {
+        return $result;
+    } else {
+        return ['message' => 'No record found for this Payment ID.'];
+    }
+}
+
 
 // Генерация платежа yooKassa
 function start_payment() {
     global $wpdb;
-    
-    // Файл с ключами 
-    include_once 'yookassa-config.php';
 
-    // $shopIdTest = '';
-    // $secretKeyTest = '';
+    // Получение суммы из запроса
+    $summ = ! empty( $_POST['summ'] ) ? esc_attr( $_POST['summ'] ) : 0;
     
-    // $shopId = '';
-    // $secretKey = '';
+    // Подключение файла с ключами
+    // Файл добавлен в .gitignore
+    include_once 'yookassa-config.php';
     
     $url = 'https://api.yookassa.ru/v3/payments';
     $data = array(
         'amount' => array(
-            'value' => '1', // FIXME
+            'value' => $summ,
             'currency' => 'RUB'
         ),
         'confirmation' => array(
             'type' => 'embedded'
         ),
-        'description' => 'Оплата за доступ к анкете - TEST'
+        'description' => 'Оплата за доступ к анкете',
+        'receipt' => array(
+            'customer' => array(
+                'email' => 'info@naturapharma.ru',
+            ),
+            'items' => array(
+                array(
+                    'description' => 'Оплата за доступ к анкете',
+                    'quantity' => '1.00',
+                    'amount' => array(
+                        'value' => $summ,
+                        'currency' => 'RUB'
+                    ),
+                    'tax_system_code' => '1',
+                    'vat_code' => '1',
+                    'payment_mode' => 'full_payment',
+                    'payment_subject' => 'service'
+                )
+            )
+        )
     );
-	
-	$idempotenceKey = uniqid('', true);
+    
+    $idempotenceKey = uniqid('', true);
 
     $response = wp_remote_post($url, array(
         'method' => 'POST',
         'body' => json_encode($data),
         'headers' => array(
             'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
+            // Тестовый режим
+            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
             'Content-Type' => 'application/json',
-			'Idempotence-Key' => $idempotenceKey
+            'Idempotence-Key' => $idempotenceKey
         )
     ));
 
     if (is_wp_error($response)) {
-		wp_send_json_error(array('message' => 'Ошибка при создании платежа'));
-	}
-	
-	if (isset($response->data) && isset($response->data['type']) && $response->data['type'] === 'error') {
-		wp_send_json_error(array('data' => $response_data));
-	}
+        wp_send_json_error(array('message' => 'Ошибка при создании платежа'));
+    }
+    
+    if (isset($response->data) && isset($response->data['type']) && $response->data['type'] === 'error') {
+        wp_send_json_error(array('data' => $response_data));
+    }
 
 
     $response_data = json_decode(wp_remote_retrieve_body($response), true);
@@ -919,23 +963,25 @@ function start_payment() {
         $table_name,
         array(
             'payment_id' => $payment_id,
-            'completion' => 0
+            'completion' => 0,
+            'summ' => $summ
         ),
         array('%s', '%d')
     );
-	
+    
     wp_send_json_success(array('data' => $response_data));
 }
+
 add_action('wp_ajax_start_payment', 'start_payment');
 add_action('wp_ajax_nopriv_start_payment', 'start_payment');
 
 
-// AJAX обновление количество товара у значка корзины в хэдере и нижнем мобильном меню
+// AJAX обновление количество товара у значка корзины в хэдере и нижнем мобильном меню add to cart
 add_action( 'wp_ajax_set_cart_counters', 'set_counters' ); // хук wp_ajax
 add_action( 'wp_ajax_nopriv_set_cart_counters', 'set_counters' ); // хук wp_ajax для незалогиненных пользователей
 
+// Функция получения данных из корзины
 function set_counters() {
-
     echo json_encode([
         'count' => WC()->cart->get_cart_contents_count(),
         'total' => WC()->cart->get_cart_contents_total()
@@ -975,9 +1021,22 @@ function create_discount_coupon($user_email) {
 }
 
 
-// Функция для отправки письма с купоном // FIXME Дослать результаты прохождения анкеты
+// Функция для отправки письма с купоном
 function send_coupon_email($user_email, $coupon_code, $results) {
     $to = $user_email;
+    $admin_email = 'info@naturapharma.ru';
+
+    // Преобразование массива с результатами
+    $str = '';
+    foreach($results as $value) {
+        $tmp = '<p>';
+        foreach($value['items'][0] as $item) {
+            $tmp .= $item . '<br>';
+        }
+        $tmp .= '</p>';
+        $str .= $tmp;
+    }
+
     $subject = 'Ваш купон на скидку';
     $message = '
         <html>
@@ -989,7 +1048,36 @@ function send_coupon_email($user_email, $coupon_code, $results) {
             <p>Спасибо за ваш запрос. Мы рады предоставить вам одноразовый купон на скидку 10% на любой заказ в нашем магазине. Используйте код купона при оформлении заказа:</p>
             <p><strong>' . $coupon_code . '</strong></p>
             <p>Купон действует в течение 1 месяца.</p>
-            <p>С уважением,<br> Ваша команда</p>
+            <p>Результаты</p>' . $str . '
+            <p>С уважением,<br> Соли Шюсслера</p>
+        </body>
+        </html>
+    ';
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    $headers[] = 'Bcc: ' . $admin_email;
+    
+    wp_mail($to, $subject, $message, $headers);
+}
+
+// Отправка письма админу c данными пользователя, результатами теста и суммой платежа
+function send_admin_email($user_email, $payment_id) {
+
+    $custom_payment = get_payment_record($payment_id);
+
+    $summ = isset($custom_payment['summ']) ? $custom_payment['summ'] : 'Summ is error.';
+
+    $to = 'info@naturapharma.ru';
+
+    $subject = 'Оплата анкеты biosalts.ru';
+    $message = '
+        <html>
+        <head>
+            <title>Ваш купон на скидку</title>
+        </head>
+        <body>
+            <p>Здравствуйте!</p>
+            <p>Email ' . $user_email . '</p>
+            <p>Оплата ' . $summ . '</p>
         </body>
         </html>
     ';
@@ -998,16 +1086,23 @@ function send_coupon_email($user_email, $coupon_code, $results) {
     wp_mail($to, $subject, $message, $headers);
 }
 
-
-// Ф-ия, которую дергаем после прохождения анкеты
+// Действия после прохождения анкеты
 function handle_questionnaire_completion() {
 	$user_email = $_POST['user_email'];
+    $payment_id = $_POST['payment_id'];
     $results = json_decode(stripslashes($_POST['results']), true);
 	
     $coupon_code = create_discount_coupon($user_email);
     
+    // Отправка email пользователю
     send_coupon_email($user_email, $coupon_code, $results);
+
+    // Отправка email админу
+    send_admin_email($user_email, $payment_id);
+
+    wp_die();
 }
+
 add_action('wp_ajax_handle_questionnaire_completion', 'handle_questionnaire_completion');
 add_action('wp_ajax_nopriv_handle_questionnaire_completion', 'handle_questionnaire_completion');
 
@@ -1019,7 +1114,9 @@ function woocommerce_change_rub_symbol( $valyuta_symbol, $valyuta_code ) {
     }
     return $valyuta_symbol;
 }
+
 add_filter('woocommerce_currency_symbol', 'woocommerce_change_rub_symbol', 9999, 2);
+
 
 // Ограничение количества выводимых символов в тексте на странице специалисты
 function the_excerpt_max_charlength( $charlength ){
@@ -1083,12 +1180,10 @@ function get_subcat_products() {
         }
 
         wp_reset_postdata();
-
     }
     
     wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего (0), только то что возвращает функция
 }
-
 
 
 // Отключение скриптов и стилей плагина Contact Form 7
