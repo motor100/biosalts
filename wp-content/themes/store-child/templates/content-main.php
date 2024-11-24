@@ -264,6 +264,9 @@
               <div class="title">Скидки</div>
             </div>
             <div class="club-item__text">Участники получают до 20% скидки на предложения недели</div>
+            <div class="ball">
+              <img src="/wp-content/themes/store-child/includes/images/ball-darkblue.png" alt="">
+            </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -275,6 +278,9 @@
               <div class="title">Бесплатные<br>доставки</div>
             </div>
             <div class="club-item__text">Вы получаете бесплатную доставку по России при использовании сервиса подбора или покупке на сумму больше 10 000 руб.</div>
+            <div class="ball">
+              <img src="/wp-content/themes/store-child/includes/images/ball-burgundy.png" alt="">
+            </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -286,6 +292,9 @@
               <div class="title">Бесплатный<br>подбор</div>
             </div>
             <div class="club-item__text">Вы получаете бесплатный подбор персонального курса при покупке набора солей Шюсслера в деревянной коробке по 200 таб.</div>
+            <div class="ball">
+              <img src="/wp-content/themes/store-child/includes/images/ball-yellow.png" alt="">
+            </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -297,9 +306,43 @@
               <div class="title">Скидки на<br>персональные<br>лекарства</div>
             </div>
             <div class="club-item__text">Вы получаете купон на скидку для обслуживания в производственной аптеке NaturaPharma в каждом заказе</div>
+            <div class="ball">
+              <img src="/wp-content/themes/store-child/includes/images/ball-green.png" alt="">
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="club-form">
+    <div class="container">
+      <form id="club-form" class="form" method="post">
+        <div class="flex-container">
+          <div class="form-group">
+            <input type="text" name="name" id="name-club" class="input-field js-required-name" autocomplete="on">
+            <label for="name-club" class="label">имя<span class="terracota-color">*</span></label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="name-club" name="surname" class="input-field js-required-surname" autocomplete="on">
+            <label for="name-club" class="label">фамилия<span class="terracota-color">*</span></label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="name-club" name="phone" class="input-field js-required-phone js-input-phone-mask" autocomplete="on">
+            <label for="name-club" class="label">телефон<span class="terracota-color">*</span></label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="name-club" name="email" class="input-field js-required-email" autocomplete="on">
+            <label for="name-club" class="label">эл. почта<span class="terracota-color">*</span></label>
+          </div>
+          <input type="hidden" name="message" value="Вступить в клуб">
+          <button id="club-submit-btn" type="button" class="club-submit-btn">вступить в клуб</button>
+        </div>
+        <div class="agreement-text">
+          <input type="checkbox" id="club-checkbox" name="checkbox" class="custom-checkbox js-required-checkbox" checked onchange="document.getElementById('club-submit-btn').disabled = !this.checked;">
+          <label for="club-checkbox" class="custom-checkbox-label"></label>
+          <span>Нажимая кнопку вы соглашаетесь с <a href="/politika-v-otnoshenii-obrabotki-personalnyh-dannyh">политикой обработки данных</a></span>
+        </div>
+      </form>
     </div>
   </div>
 </div>

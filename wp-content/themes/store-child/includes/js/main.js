@@ -292,6 +292,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const callbackForm = document.getElementById('callback-modal-form');
   const callbackSubmitBtn = document.getElementById('callback-modal-btn');
+  const clubForm = document.getElementById('club-form');
+  const clubSubmitBtn = document.getElementById('club-submit-btn');
 
   function ajaxCallback(form) {
 
@@ -354,11 +356,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return false;
   }
 
-  // if (lfsSubmitBtn) {
-  //   lfsSubmitBtn.onclick = function() {
-  //     ajaxCallback(lfsForm);
-  //   }
-  // }
+  if (clubSubmitBtn) {
+    clubSubmitBtn.onclick = function() {
+      ajaxCallback(clubForm);
+    }
+  }
 
   if (callbackSubmitBtn) {
     callbackSubmitBtn.onclick = function() {

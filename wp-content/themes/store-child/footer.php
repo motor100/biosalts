@@ -19,8 +19,8 @@
     </div>
     <div class="row">
       <div class="col-lg-4">
-        <div class="company-info">© Общество с ограниченной <br> ответственностью «Здоровье»</div>
-        <div class="company-info company-info-last">ИНН 7724488603</div>
+        <div class="company-info">© ИП Трушкина И.В.</div>
+        <div class="company-info company-info-last">ИНН 701703092246</div>
         <div class="footer-bottom-mobile-menu">
           <?php echo custom_nav_menu(0, 3); ?>
           <?php echo custom_nav_menu(4); ?>
