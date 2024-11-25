@@ -20,7 +20,8 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="company-info">© ИП Трушкина И.В.</div>
-        <div class="company-info company-info-last">ИНН 701703092246</div>
+        <div class="company-info">ИНН 701703092246</div>
+        <div class="company-info company-info-last">ОГРН 318502700032975</div>
         <div class="footer-bottom-mobile-menu">
           <?php echo custom_nav_menu(0, 3); ?>
           <?php echo custom_nav_menu(4); ?>

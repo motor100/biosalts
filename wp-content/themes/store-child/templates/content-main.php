@@ -80,7 +80,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-soli-1-12.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Соли Шюсслера 1-12</span>
@@ -91,7 +91,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-soli-13-27.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Соли Шюсслера 13-27</span>
@@ -102,7 +102,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-complexy.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Комплексы</span>
@@ -113,7 +113,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Детские соли</span>
@@ -124,7 +124,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-sprei.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Спреи</span>
@@ -135,7 +135,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-image-test.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Космецевтика</span>
