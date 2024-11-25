@@ -273,7 +273,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <div class="image">
-            <img src="/wp-content/themes/store-child/includes/images/essence.jpg" alt="">
+            <!-- <img src="/wp-content/themes/store-child/includes/images/essence.jpg" alt=""> -->
           </div>
         </div>
         <div class="col-md-2"></div>

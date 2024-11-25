@@ -116,7 +116,48 @@
       <img src="/wp-content/themes/store-child/includes/images/svg/circle-vk.svg" class="social-icons__image social-icons__vk" alt="вконтакте">
     </a>
   </div>
-  
+</div>
+
+<div class="fixed-bottom-menu hidden-desktop ">
+  <div class="menu-wrapper">
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/wp-content/themes/store-child/includes/images/svg/house.svg" alt="">
+      </div>
+      <div class="menu-item__title">Главная</div>
+      <a href="/" class="full-link"></a>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/wp-content/themes/store-child/includes/images/svg/catalog-lens.svg" alt="">
+      </div>
+      <div class="menu-item__title">Каталог</div>
+      <a href="/catalog" class="full-link"></a>
+    </div>
+    <div class="menu-item cart-menu-item">
+      <div class="menu-item__image">
+        <img src="/wp-content/themes/store-child/includes/images/svg/shopping-cart-white.svg" alt="">
+      </div>
+      <div class="menu-item__title">Корзина</div>
+      <div id="mobile-cart-counter" class="badge-counter"><?php echo WC()->cart->get_cart_contents_count(); ?></div>
+      <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="full-link"></a>
+    </div>
+    <div class="menu-item favourite-menu-item">
+      <div class="menu-item__image">
+        <img src="/wp-content/themes/store-child/includes/images/svg/favourite-heart.svg" alt="">
+      </div>
+      <div class="menu-item__title">Избранное</div>
+      <div id="mobile-favourites-counter" class="badge-counter">0</div>
+      <a href="#" class="full-link"></a>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/wp-content/themes/store-child/includes/images/svg/phone-call-black.svg" alt="">
+      </div>
+      <div class="menu-item__title">Звонок</div>
+      <a href="tel:+74959274928" class="full-link"></a>
+    </div>
+  </div>
 </div>
 
 <div class="have-contraindications">

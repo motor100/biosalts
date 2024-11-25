@@ -297,20 +297,20 @@
       <form id="club-form" class="form" method="post">
         <div class="flex-container">
           <div class="form-group">
-            <input type="text" name="name" id="name-club" class="input-field js-required-name" autocomplete="on">
-            <label for="name-club" class="label">имя<span class="terracota-color">*</span></label>
+            <input type="text" name="name" id="club-name" class="input-field js-required-name" autocomplete="on">
+            <label for="club-name" class="label">имя<span class="terracota-color">*</span></label>
           </div>
           <div class="form-group">
-            <input type="text" id="name-club" name="surname" class="input-field js-required-surname" autocomplete="on">
-            <label for="name-club" class="label">фамилия<span class="terracota-color">*</span></label>
+            <input type="text" id="club-surname" name="surname" class="input-field js-required-surname" autocomplete="on">
+            <label for="club-surname" class="label">фамилия<span class="terracota-color">*</span></label>
           </div>
           <div class="form-group">
-            <input type="text" id="name-club" name="phone" class="input-field js-required-phone js-input-phone-mask" autocomplete="on">
-            <label for="name-club" class="label">телефон<span class="terracota-color">*</span></label>
+            <input type="text" id="club-phone" name="phone" class="input-field js-required-phone js-input-phone-mask" autocomplete="on">
+            <label for="club-phone" class="label">телефон<span class="terracota-color">*</span></label>
           </div>
           <div class="form-group">
-            <input type="email" id="name-club" name="email" class="input-field js-required-email" autocomplete="on">
-            <label for="name-club" class="label">эл. почта<span class="terracota-color">*</span></label>
+            <input type="email" id="club-email" name="email" class="input-field js-required-email" autocomplete="on">
+            <label for="club-email" class="label">эл. почта<span class="terracota-color">*</span></label>
           </div>
           <input type="hidden" name="message" value="Вступить в клуб">
           <button id="club-submit-btn" type="button" class="club-submit-btn">вступить в клуб</button>
