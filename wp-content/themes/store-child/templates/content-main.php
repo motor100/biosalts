@@ -16,28 +16,6 @@
         <div class="main-slider swiper">
           <div class="swiper-wrapper">
 
-            <div class="main-slider-item swiper-slide">
-              <div class="slider-item-image">
-                <a href="#">
-                  <img src="/wp-content/themes/store-child/includes/images/slider1.jpg" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="main-slider-item swiper-slide">
-              <div class="slider-item-image">
-                <a href="#">
-                  <img src="/wp-content/themes/store-child/includes/images/slider1.jpg" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="main-slider-item swiper-slide">
-              <div class="slider-item-image">
-                <a href="#">
-                  <img src="/wp-content/themes/store-child/includes/images/slider1.jpg" alt="">
-                </a>
-              </div>
-            </div>
-
             <?php
             $args = array(
               'post_type' => 'home_page_slider',
@@ -135,7 +113,7 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
+            <img src="/wp-content/themes/store-child/includes/images/category-kosmecevtika.jpg" alt="">
           </div>
           <div class="category-item__title">
             <span class="text">Космецевтика</span>
@@ -207,7 +185,7 @@
     <div class="container">
       <div class="flex-container">
         <div class="video">
-          <video controls>
+          <video controls poster="/wp-content/themes/store-child/includes/video/poster.jpg">
             <source src="/wp-content/themes/store-child/includes/video/video.mp4" type="video/mp4">
             Ваш браузер не поддерживает встроенные видео.
           </video>

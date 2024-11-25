@@ -314,6 +314,100 @@ function render__catalog($id_gr) {
     return $html;
 }
 
+
+// Регистрация нового типа поста home_page_slider для слайдера на главной странице
+function slider_register_cpt() {
+    $args = array(
+        'labels' => array(
+            'menu_name' => 'Слайдер'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-airplane',
+        'publicly_queryable' => false,
+        'supports' => ['title', 'thumbnail', 'custom-fields'],
+    );
+    register_post_type( 'home_page_slider', $args );
+}
+
+add_action( 'init', 'slider_register_cpt' );
+
+// Добавление метабокса product_link на кастомный тип постов home_page_slider
+function home_page_slider_add_metabox() {
+    add_meta_box(
+        'product_link', // ID нашего метабокса
+        'Ссылка на препараты', // заголовок
+        'home_page_slider_metabox_callback', // функция, которая будет выводить поля в мета боксе
+        'home_page_slider', // типы постов, для которых его подключим
+        'normal', // расположение (normal, side, advanced)
+        'default' // приоритет (default, low, high, core)
+    );
+}
+
+add_action( 'add_meta_boxes', 'home_page_slider_add_metabox' );
+ 
+function home_page_slider_metabox_callback( $post ) {
+    // сначала получаем значения этих полей
+    // ссылка на товар
+    $product_link = get_post_meta( $post->ID, 'product_link', true );
+ 
+    // одноразовые числа, кстати тут нет супер-большой необходимости их использовать
+    wp_nonce_field( 'seopostsettingsupdate-' . $post->ID, '_truenonce' );
+ 
+    echo '<table class="form-table">
+        <tbody>
+            <tr>
+                <th><label for="seo_title">Ссылка</label></th>
+                <td><input type="text" id="product_link" name="product_link" value="' . esc_attr( $product_link ) . '" class="regular-text"></td>
+            </tr>
+        </tbody>
+    </table>';
+}
+
+// Сохранение кастомного типа постов home_page_slider
+function home_page_slider_save_metabox( $post_id, $post ) {
+ 
+    // проверка одноразовых полей
+    if ( ! isset( $_POST[ '_truenonce' ] ) || ! wp_verify_nonce( $_POST[ '_truenonce' ], 'seopostsettingsupdate-' . $post->ID ) ) {
+        return $post_id;
+    }
+ 
+    // проверяем, может ли текущий юзер редактировать пост
+    $post_type = get_post_type_object( $post->post_type );
+ 
+    if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
+        return $post_id;
+    }
+ 
+    // ничего не делаем для автосохранений
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+        return $post_id;
+    }
+ 
+    // проверяем тип записи
+    if( 'home_page_slider' !== $post->post_type ) {
+        return $post_id;
+    }
+ 
+    if( isset( $_POST[ 'product_link' ] ) ) {
+
+        // Создание относительной ссылки
+        $link = $_POST[ 'product_link' ];
+        if( strpos($link,'//') === false ) {
+            $link='//'.$link;
+        }
+        $n_link = parse_url($link, PHP_URL_PATH);
+
+        update_post_meta( $post_id, 'product_link', sanitize_text_field( $n_link ) );
+    } else {
+        delete_post_meta( $post_id, 'product_link' );
+    }
+ 
+    return $post_id;
+}
+
+add_action( 'save_post', 'home_page_slider_save_metabox', 10, 2 );
+
+
 /**
  * Вывод записей по буквам на странице Болезни от А до Я
  *
