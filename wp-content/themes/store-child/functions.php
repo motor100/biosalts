@@ -1030,9 +1030,9 @@ function start_payment() {
         'method' => 'POST',
         'body' => json_encode($data),
         'headers' => array(
-            'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
+            // 'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
             // Тестовый режим
-            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
+            'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
             'Content-Type' => 'application/json',
             'Idempotence-Key' => $idempotenceKey
         )
@@ -1199,6 +1199,75 @@ function handle_questionnaire_completion() {
 
 add_action('wp_ajax_handle_questionnaire_completion', 'handle_questionnaire_completion');
 add_action('wp_ajax_nopriv_handle_questionnaire_completion', 'handle_questionnaire_completion');
+
+
+// AJAX получение купона по его названию (coupon code)
+function get_coupon_amount() {
+
+    // Получение кода купона из запроса
+    $coupon_code = ! empty( $_POST['coupon_code'] ) ? sanitize_text_field( $_POST['coupon_code'] ) : false;
+
+    if ( ! $coupon_code ) {
+        return;
+    }
+
+    $coupon_code = esc_sql($coupon_code);
+
+    $args = array(
+        'post_type' => 'shop_coupon',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'title' => $coupon_code
+    );
+
+    $query = new WP_Query($args);
+
+    if ( $query->have_posts() ) { 
+
+        while ($query->have_posts()) {
+            $query->the_post();
+
+            $coupon = new WC_Coupon( get_the_id() );
+
+            if ( ! $coupon ) {
+                return;
+            }
+
+            $usage_count = $coupon->get_usage_count();
+            $usage_limit = $coupon->get_usage_limit();
+            $discount_type = $coupon->get_discount_type();
+            $date_expires = $coupon->get_date_expires();
+
+            // Проверка на количество использований купона
+            if ($usage_limit > 0) {
+                if ($usage_count >= $usage_limit) {
+                    return;
+                }
+            }
+
+            // Проверка на тип скидки купона
+            if ($discount_type != 'percent') {
+                return;
+            }
+
+            // Проверка срока действия купона
+            if ($date_expires < date("Y-m-d\TH:i:sP")) {
+                return;
+            }
+            
+            echo $coupon->get_amount();
+        }
+        wp_reset_postdata();
+    }
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_get_coupon', 'get_coupon_amount' );
+add_action( 'wp_ajax_nopriv_get_coupon', 'get_coupon_amount' );
+
+
+
 
 
 // Замена символа рубля на букву Р

@@ -290,6 +290,66 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  // AJAX получение скидки для купона на странице Подбор солей
+  if (window.location.pathname === '/salts_questionnaire/' || 
+    window.location.pathname === '/expert-system/') {
+
+    const woocommerceFormCoupon = document.querySelector('.woocommerce-form-coupon');
+    const FormCouponSubmitBtn = woocommerceFormCoupon.querySelector('.button');
+    const couponCode = woocommerceFormCoupon.querySelector('#coupon_code');
+
+    FormCouponSubmitBtn.onclick = function(event) {
+      event.preventDefault();
+
+      fetch(Myscrt.ajaxurl, {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        cache: 'no-cache',
+        body: 'action=get_coupon&coupon_code=' + couponCode.value,
+      })
+      .then((response) => response.text())
+      .then((amount) => {
+        // если пришла строка, то пересчет стоимости, иначе сообщение "Этот промокод больше не работает"
+        const couponErrorNotice = document.getElementById('coupon-error-notice');
+
+        function calcPrice(amount) {
+          const priceSumm = document.querySelectorAll('.price-summ');
+          priceSumm.forEach((item) => {
+            let pr = Number(item.innerText);
+            pr = pr - pr * amount/100;
+            item.innerText = pr;
+          });
+        }
+
+        let text = '';
+
+        if (amount != '0') {
+          text = 'Код купона успешно добавлен.';
+          calcPrice(amount);
+        } else {
+          text = 'Этот промокод больше не работает';
+        }
+
+        // Вставка span
+        if (!couponErrorNotice) {
+          let span = document.createElement('span');
+          span.textContent = text;
+          span.classList = 'coupon-error-notice';
+          span.id = 'coupon-error-notice';
+          woocommerceFormCoupon.querySelector('.coupon').append(span);
+        } else {
+          couponErrorNotice.innerText = text;
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+
+  }
+
+
   const callbackForm = document.getElementById('callback-modal-form');
   const callbackSubmitBtn = document.getElementById('callback-modal-btn');
   const clubForm = document.getElementById('club-form');

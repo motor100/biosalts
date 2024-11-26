@@ -114,6 +114,15 @@
         <div class="copyright">Экспертная система подбора солей Шюсслера защищена авторским правом.</div>
       </div>
     </div>
+
+    <div class="coupon-section">
+      <div class="container">
+        <?php wc_get_template( 'checkout/form-coupon.php' );  ?>
+      </div>
+    </div>
+
+    School5
+    anma2812
     
     <div id="buy-section" class="buy-section">
       <div class="container">
@@ -122,13 +131,19 @@
             <div class="btn-wrapper">
               <button type="button" class="buy-btn buy-select-btn js-start-payment-btn" data-summ="1200">Оплатить подбор</button>
               <div class="underbtn-text">
-                <div class="price">1 200 руб.</div>
+                <div class="price">
+                  <span class="price-summ">1200</span>
+                  <span class="price-currency">р.</span>
+                </div>
               </div>
             </div>
             <div class="btn-wrapper">
               <button type="button" class="buy-btn byu-select-and-salt-btn js-start-payment-btn" data-summ="6000">Оплатить подбор + соли</button>
               <div class="underbtn-text">
-                <div class="price">6 000 руб.</div>
+                <div class="price">
+                  <span class="price-summ">6000</span>
+                  <span class="price-currency">р.</span>
+                </div>
                 <div class="discount">скидка 20%<br>+бесплатная доставка</div>
               </div>
             </div>
@@ -136,7 +151,86 @@
         </div>
       </div>
     </div>
+
   </div>
+
+      <p>wp query</p>
+      <?php 
+      $args = array(
+        'post_type' => 'shop_coupon',
+        'post_status' => 'publish',
+        // 'orderby' => 'title',
+        // 'order' => 'ASC',
+        'posts_per_page' => -1,
+        // 'title' => 'School5'
+        // 'title' => 'anma2812'
+        // 'post_title_like' => 'School5'
+        // 'p' => 1504
+      );
+
+      $query = new WP_Query($args);
+
+      if ( $query->have_posts() ) { 
+
+        while ($query->have_posts()) {
+          $query->the_post();
+
+          // echo "<pre>";
+          // print_r($query);
+          // echo "</pre>";
+
+          // echo "<p></p>";
+          // echo get_the_id();
+
+          $coupon = new WC_Coupon( get_the_id() );
+          // echo "<pre>";
+          // print_r($coupon);
+          // echo "</pre>";
+          // $expires = $coupon->get_date_expires();
+          // if ( $expires ) {
+          //     echo ->format( 'd-m-Y H:i:s' );
+          // }
+
+          if ($coupon->get_date_expires() != '') {
+
+            echo '<br>';
+            echo '<br>';
+            echo '<br>';
+            // echo $coupon->get_id() . '<br>';
+            echo get_the_title() . '<br>';
+            // echo $coupon->get_amount() . '<br>';
+            echo $coupon->get_date_expires() . '<br>';
+            // echo $usage_count = $coupon->get_usage_count() . '<br>';
+            // echo $usage_limit = $coupon->get_usage_limit() . '<br>';
+            echo $discount_type = $coupon->get_discount_type() . '<br>';
+
+            // if ($usage_limit > 0) {
+            //   if ($usage_count >= $usage_limit) {
+            //     echo "<p>Количество</p>";
+            //   }
+            // }
+          }
+
+          // $discount_type == percent
+
+          echo date("Y-m-d\TH:i:sP");
+
+          // echo the_title() . '<br>';
+
+        }
+        wp_reset_postdata();
+      }
+    // $coupon_posts = get_posts($args);
+
+    // foreach ( $coupon_posts as $coupon_post ) {
+    //     $coupon = new WC_Coupon( $coupon_post->ID );
+    //     $expires = $coupon->get_date_expires();
+    //     if ( $expires ) {
+    //         echo ->format( 'd-m-Y H:i:s' );
+    //     }
+    // }
+?>
+
 
   <div id="payment-modal" class="modal">
     <div class="modal-content">
