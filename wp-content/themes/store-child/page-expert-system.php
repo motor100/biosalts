@@ -115,14 +115,17 @@
       </div>
     </div>
 
+    <h2 style="text-align: center;">
+      Тестовый режим Юкасса<br>
+      Номер карты 5555 5555 5555 4477<br>
+      Месяц 01, Год 28, cvc 123
+    </h2>
+
     <div class="coupon-section">
       <div class="container">
         <?php wc_get_template( 'checkout/form-coupon.php' );  ?>
       </div>
     </div>
-
-    School5
-    anma2812
     
     <div id="buy-section" class="buy-section">
       <div class="container">
@@ -153,84 +156,6 @@
     </div>
 
   </div>
-
-      <p>wp query</p>
-      <?php 
-      $args = array(
-        'post_type' => 'shop_coupon',
-        'post_status' => 'publish',
-        // 'orderby' => 'title',
-        // 'order' => 'ASC',
-        'posts_per_page' => -1,
-        // 'title' => 'School5'
-        // 'title' => 'anma2812'
-        // 'post_title_like' => 'School5'
-        // 'p' => 1504
-      );
-
-      $query = new WP_Query($args);
-
-      if ( $query->have_posts() ) { 
-
-        while ($query->have_posts()) {
-          $query->the_post();
-
-          // echo "<pre>";
-          // print_r($query);
-          // echo "</pre>";
-
-          // echo "<p></p>";
-          // echo get_the_id();
-
-          $coupon = new WC_Coupon( get_the_id() );
-          // echo "<pre>";
-          // print_r($coupon);
-          // echo "</pre>";
-          // $expires = $coupon->get_date_expires();
-          // if ( $expires ) {
-          //     echo ->format( 'd-m-Y H:i:s' );
-          // }
-
-          if ($coupon->get_date_expires() != '') {
-
-            echo '<br>';
-            echo '<br>';
-            echo '<br>';
-            // echo $coupon->get_id() . '<br>';
-            echo get_the_title() . '<br>';
-            // echo $coupon->get_amount() . '<br>';
-            echo $coupon->get_date_expires() . '<br>';
-            // echo $usage_count = $coupon->get_usage_count() . '<br>';
-            // echo $usage_limit = $coupon->get_usage_limit() . '<br>';
-            echo $discount_type = $coupon->get_discount_type() . '<br>';
-
-            // if ($usage_limit > 0) {
-            //   if ($usage_count >= $usage_limit) {
-            //     echo "<p>Количество</p>";
-            //   }
-            // }
-          }
-
-          // $discount_type == percent
-
-          echo date("Y-m-d\TH:i:sP");
-
-          // echo the_title() . '<br>';
-
-        }
-        wp_reset_postdata();
-      }
-    // $coupon_posts = get_posts($args);
-
-    // foreach ( $coupon_posts as $coupon_post ) {
-    //     $coupon = new WC_Coupon( $coupon_post->ID );
-    //     $expires = $coupon->get_date_expires();
-    //     if ( $expires ) {
-    //         echo ->format( 'd-m-Y H:i:s' );
-    //     }
-    // }
-?>
-
 
   <div id="payment-modal" class="modal">
     <div class="modal-content">
@@ -286,9 +211,9 @@
 
   <script>
     const modal = document.getElementById('payment-modal');
-    const span = document.getElementsByClassName('close')[0];
+    const spanClose = document.getElementsByClassName('close')[0];
 
-    span.onclick = function() {
+    spanClose.onclick = function() {
       modal.style.display = 'none';
     }
   </script>

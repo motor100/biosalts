@@ -313,12 +313,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const couponErrorNotice = document.getElementById('coupon-error-notice');
 
         function calcPrice(amount) {
+          const startPaymentBtn = document.querySelectorAll('.js-start-payment-btn');
           const priceSumm = document.querySelectorAll('.price-summ');
-          priceSumm.forEach((item) => {
-            let pr = Number(item.innerText);
-            pr = pr - pr * amount/100;
-            item.innerText = pr;
-          });
+
+          // Сумма оплаты 1200
+          const calc1200 = 1200 - 1200 * amount/100
+          startPaymentBtn[0].dataset.summ = calc1200;
+          priceSumm[0].innerText = calc1200;
+
+          // Сумма оплаты 6000
+          const calc6000 = 6000 - 6000 * amount/100
+          startPaymentBtn[1].dataset.summ = calc1200;
+          priceSumm[1].innerText = 6000 - 6000 * amount/100;
         }
 
         let text = '';
