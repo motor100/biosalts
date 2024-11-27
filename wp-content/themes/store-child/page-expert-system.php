@@ -19,7 +19,7 @@
   <div id="questionnaire-description">
     <div class="pay-now-section">
       <div class="container">
-        <a href="#buy-section" class="pay-now-btn">Оплатить сейчас</a>
+        <a href="#coupon-section" class="pay-now-btn">Оплатить сейчас</a>
       </div>
     </div>
 
@@ -116,18 +116,21 @@
     </div>
 
     <h2 style="text-align: center;">
-      Тестовый режим Юкасса<br>
+      Включен тестовый режим Юкасса<br>
+      Работает только тестовая карта<br>
       Номер карты 5555 5555 5555 4477<br>
-      Месяц 01, Год 28, cvc 123
+      Месяц 01, Год 28, cvc 123<br>
+      Можно платить любые суммы<br>
+      Реальные карты не работают
     </h2>
 
-    <div class="coupon-section">
+    <div id="coupon-section" class="coupon-section">
       <div class="container">
         <?php wc_get_template( 'checkout/form-coupon.php' );  ?>
       </div>
     </div>
     
-    <div id="buy-section" class="buy-section">
+    <div class="buy-section">
       <div class="container">
         <div id="start-payment-btns-wrapper" style="display: none">
           <div class="flex-container">

@@ -2735,9 +2735,8 @@ a.remove {
 }
 .expert-system-page .buy-section .buy-btn {
   display: block;
-  height: 66px;
   margin: 0 auto 16px auto;
-  padding: 18px 0;
+  padding: 21px 0;
   border: none;
   border-radius: 33px;
   background-color: var(--burgundy-color);
@@ -3791,6 +3790,16 @@ a.remove {
   .expert-system-page .copyright-section {
     margin-bottom: 60px;
   }
+  .expert-system-page .buy-section .buy-btn {
+    padding: 15px 0;
+    font-size: 18px;
+  }
+  .expert-system-page .buy-section .underbtn-text .price {
+    font-size: 38px;
+  }
+  .expert-system-page .buy-section .underbtn-text .discount {
+    font-size: 20px;
+  }
 
   /* about salts page */
   .about-salts-page .section {
@@ -4316,10 +4325,6 @@ a.remove {
   .expert-system-page .copyright-section .copyright {
     font-size: 22px;
   }
-  .expert-system-page .buy-section .buy-btn {
-    width: 230px;
-    height: 56px;
-  }
 
   /* about salts page */
   .about-salts-page .image {
@@ -4771,9 +4776,20 @@ a.remove {
   .expert-system-page .copyright-section .copyright {
     font-size: 20px;
   }
+  .expert-system-page .buy-section .flex-container {
+    display: block;
+  }
+  .expert-system-page .buy-section .btn-wrapper {
+    margin: 0 0 30px 0;
+  }
   .expert-system-page .buy-section .buy-btn {
-    width: 210px;
-    height: 46px;
+    margin: 0 auto 6px auto;
+  }
+  .expert-system-page .buy-section .underbtn-text .price {
+    font-size: 34px;
+  }
+  .expert-system-page .buy-section .underbtn-text .discount {
+    font-size: 16px;
   }
 
   /* about salts page */
@@ -5167,6 +5183,14 @@ a.remove {
     font-size: 16px;
   }
 
+
+  /* expert system */
+  .expert-system-page .coupon .input-text,
+  .expert-system-page .coupon .button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   /* we use cookie */
   .we-use-cookie {
     right: 30%;
@@ -5248,10 +5272,6 @@ a.remove {
   }
   .expert-system-page .copyright-section .copyright {
     font-size: 18px;
-  }
-  .expert-system-page .buy-section .buy-btn {
-    width: 190px;
-    height: 40px;
   }
 
   /* about salts page */

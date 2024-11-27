@@ -144,11 +144,10 @@
     </div>
     <div class="menu-item favourite-menu-item">
       <div class="menu-item__image">
-        <img src="/wp-content/themes/store-child/includes/images/svg/favourite-heart.svg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/svg/select-dark.svg" alt="">
       </div>
-      <div class="menu-item__title">Избранное</div>
-      <div id="mobile-favourites-counter" class="badge-counter">0</div>
-      <a href="#" class="full-link"></a>
+      <div class="menu-item__title">Подбор</div>
+      <a href="/expert-system" class="full-link"></a>
     </div>
     <div class="menu-item">
       <div class="menu-item__image">

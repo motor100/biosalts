@@ -1234,7 +1234,7 @@ function get_coupon_amount() {
                 // Объект купона
                 $coupon = new WC_Coupon( get_the_id() );
 
-                if ( ! $coupon ) {
+                if ( $coupon == '' ) {
                     return;
                 }
 
@@ -1303,6 +1303,8 @@ function get_coupon_amount() {
             $i++;
         }
         wp_reset_postdata();
+    } else {
+        return;
     }
 
     wp_die();
