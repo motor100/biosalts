@@ -58,67 +58,73 @@
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-soli-1-12.jpg" alt="">
+            <a href="/catalog/product-category/soli-schuesslera/salts1_12/" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-soli-1-12.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Соли Шюсслера 1-12</span>
+            <a href="/catalog/product-category/soli-schuesslera/salts1_12/" class="text">Соли Шюсслера 1-12</a>
           </div>
-          <a href="/catalog/product-category/soli-schuesslera/salts1_12/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-soli-13-27.jpg" alt="">
+            <a href="/catalog/product-category/soli-schuesslera/salts13_27/" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-soli-13-27.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Соли Шюсслера 13-27</span>
+            <a href="/catalog/product-category/soli-schuesslera/salts13_27/" class="text">Соли Шюсслера 13-27</a>
           </div>
-          <a href="/catalog/product-category/soli-schuesslera/salts13_27/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-complexy.jpg" alt="">
+            <a href="/catalog/product-category/soli-schuesslera/salts_complexes/" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-complexy.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Комплексы</span>
+            <a href="/catalog/product-category/soli-schuesslera/salts_complexes/" class="text">Комплексы</a>
           </div>
-          <a href="/catalog/product-category/soli-schuesslera/salts_complexes/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
+            <a href="/catalog/product-category/detskie-soli/" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Детские соли</span>
+            <a href="/catalog/product-category/detskie-soli/" class="text">Детские соли</a>
           </div>
-          <a href="/catalog/product-category/detskie-soli/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-sprei.jpg" alt="">
+            <a href="/catalog/product-category/sprei/" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-sprei.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Спреи</span>
+            <a href="/catalog/product-category/sprei/" class="text">Спреи</a>
           </div>
-          <a href="/catalog/product-category/sprei/" class="full-link"></a>
         </div>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <div class="category-item">
           <div class="category-item__image">
-            <img src="/wp-content/themes/store-child/includes/images/category-kosmecevtika.jpg" alt="">
+            <a href="/catalog/product-category/kosmeczevtika" class="category-item__link">
+              <img src="/wp-content/themes/store-child/includes/images/category-kosmecevtika.jpg" alt="">
+            </a>
           </div>
           <div class="category-item__title">
-            <span class="text">Космецевтика</span>
+            <a href="/catalog/product-category/kosmeczevtika" class="text">Космецевтика</a>
           </div>
-          <a href="/catalog/product-category/kosmeczevtika" class="full-link"></a>
         </div>
       </div>
     </div>
@@ -141,7 +147,10 @@
       <div class="col-md-6">
         <div class="select-item select-item-burgundy">
           <div class="select-item__text">Экспертная система подбора солей Шюсслера для тканевой биохимической терапии. Медицинский ассистент  для диагностики дефицитов минералов в организме человека, подбора персонифицированной комбинации  с проверкой совместимости и указанием оптимального времени приема для проведения тканевой биохимической терапии солями Шюсслера.</div>
-          <a href="/wp-content/themes/store-child/includes/pdf/test.pdf" class="example-btn" target="_blank">Посмотреть пример заключения</a>
+          <div class="flex-container">
+            <a href="/wp-content/themes/store-child/includes/pdf/test.pdf" class="select-item-burgundy-btn example-btn" target="_blank">Пример заключения</a>
+            <a href="/expert-system" class="select-item-burgundy-btn view-more-btn">Подробнее</a>
+          </div>
         </div>
       </div>
     </div>

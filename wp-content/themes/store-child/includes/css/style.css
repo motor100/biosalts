@@ -581,39 +581,61 @@ iframe {
 .category-section .category-item {
   position: relative;
   height: 190px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.category-section .category-item__link {
+  display: block;
+  height: 100%;
 }
 .category-section .category-item__image {
-  height: 160px;
+  height: 190px;
   border-radius: 15px 15px 0 0;
   overflow: hidden;
+  transition: border .3s, border-radius .3s;
 }
 .category-section .category-item__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.category-section .category-item:hover .category-item__image {
+  border: 4px solid var(--burgundy-color);
+  border-radius: 98px;
+}
 .category-section .category-item__title {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
   width: 100%;
   height: 84px;
-  padding: 0 10px;
   border: 1px solid var(--darkblue-color);
   border-radius: 15px;
   background-color: var(--nero-color);
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   z-index: 1;
+  transition: border .3s, background-color .3s;
+}
+.category-section .category-item:hover .category-item__title {
+  border: 1px solid var(--burgundy-color);
+  background-color: var(--burgundy-color);
 }
 .category-section .category-item__title .text {
+  display: flex;
+  height: 100%;
+  padding: 0 10px;
   font-family: 'Roboto-Medium';
   font-size: 20px;
   color: var(--darkblue-color);
   line-height: 1.1;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition: color .3s;
+}
+.category-section .category-item:hover .category-item__title .text {
+  color: var(--nero-color);
 }
 
 /* personal select section */
@@ -654,29 +676,39 @@ iframe {
   width: 100%;
 }
 .personal-select-section .select-item-burgundy {
+  display: flex;
   background-color: var(--burgundy-color);
+  flex-direction: column;
+  justify-content: space-between;
 }
 .personal-select-section .select-item-burgundy .select-item__text {
   font-size: 17px;
 }
-.personal-select-section .select-item-burgundy .example-btn {
-  position: absolute;
-  left: 40px;
-  bottom: 40px;
+.personal-select-section .select-item-burgundy .flex-container {
   display: flex;
-  width: 350px;
+  gap: 20px;
+}
+.personal-select-section .select-item-burgundy-btn {
+  display: flex;
   height: 60px;
   padding: 0;
-  border: none;
   border-radius: 12px;
-  background-color: var(--nero-color);
   font-family: 'Roboto-Light';
   font-size: 18px;
-  color: var(--burgundy-color);
   text-align: center;
   cursor: pointer;
   justify-content: center;
   align-items: center;
+}
+.personal-select-section .select-item-burgundy .example-btn {
+  width: 214px;
+  border: 1px solid var(--nero-color);
+  color: var(--nero-color);
+}
+.personal-select-section .select-item-burgundy .view-more-btn {
+  width: 169px;
+  background-color: var(--nero-color);
+  color: var(--burgundy-color);
 }
 
 
@@ -1896,10 +1928,19 @@ ul.products li.product .added_to_cart:hover {
   font-size: 42px;
   color: var(--burgundy-color);
 }
+.bolezni-ot-a-do-ya-page .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 30px;
+}
 .bolezni-ot-a-do-ya-page .title {
-  margin: 0 20px 0 0;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--mine-shaft-color);
+  transition: color .3s;
+}
+.bolezni-ot-a-do-ya-page .title:hover {
+  color: var(--burgundy-color);
+  text-decoration: underline;
 }
 
 /* search page */
@@ -3231,7 +3272,10 @@ a.remove {
 
   /* category section */
   .category-section .category-item__title .text {
-    font-size: 19px;
+    font-size: 18px;
+  }
+  .category-section .category-item__image {
+    height: 166px;
   }
 
   /* personal select section */
@@ -3474,7 +3518,11 @@ a.remove {
     height: 180px;
   }
   .category-section .category-item__title .text {
-    font-size: 16px;
+    padding: 0 5px;
+    font-size: 15px;
+  }
+  .category-section .category-item__image {
+    height: 136px;
   }
 
   /* personal section */
@@ -3496,10 +3544,8 @@ a.remove {
   .personal-select-section .select-item-burgundy .select-item__text {
     font-size: 16px;
   }
-  .personal-select-section .select-item-burgundy .example-btn {
-    left: 30px;
-    bottom: 30px;
-    width: 330px;
+  .personal-select-section .select-item-burgundy .view-more-btn {
+    width: 140px;
   }
 
   /* description section */
@@ -3837,6 +3883,10 @@ a.remove {
     font-size: 30px;
   }
 
+  /* bolezni ot a do ya page */
+  .bolezni-ot-a-do-ya-page .title {
+    font-size: 22px;
+  }
 
   /* we use cookie */
   .we-use-cookie {
@@ -3958,11 +4008,12 @@ a.remove {
   .personal-select-section .select-item-burgundy .select-item__text {
     font-size: 15px;
   }
-  .personal-select-section .select-item-burgundy .example-btn {
-    left: 20px;
-    bottom: 20px;
-    width: 296px;
+  .personal-select-section .select-item-burgundy-btn {
     height: 50px;
+    font-size: 15px;
+  }
+  .personal-select-section .select-item-burgundy .example-btn {
+    width: 250px;
   }
 
   /* description section */
@@ -4843,7 +4894,11 @@ a.remove {
   .about-salts-page .reaction-section .list-item {
     font-size: 16px;
   }
-  
+
+  /* bolezni ot a do ya page */
+  .bolezni-ot-a-do-ya-page .title {
+    font-size: 20px;
+  }  
 
   /* we use cookie */
   .we-use-cookie {
@@ -5037,6 +5092,11 @@ a.remove {
    .about-salts-page .use-section .white-frame-title {
     font-size: 24px;
   }
+
+  /* bolezni ot a do ya page */
+  .bolezni-ot-a-do-ya-page .title {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width : 480px) {
@@ -5050,11 +5110,29 @@ a.remove {
   }
 
   /* personal select section */
-  .personal-select-section .select-item-burgundy .example-btn {
+  /*.personal-select-section .select-item-burgundy .example-btn {
     width: 256px;
     height: 70px;
     margin: 0 auto;
+  }*/
+  .personal-select-section .select-item-darkblue {
+    height: 240px;
   }
+  .personal-select-section .select-item-darkblue .select-item__image {
+    width: 100px;
+  }
+  .personal-select-section .select-item-burgundy {
+    height: auto;
+    gap: 20px;
+  }
+  .personal-select-section .select-item-burgundy-btn {
+    height: 40px;
+  }
+  .personal-select-section .select-item-burgundy .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
 
   /* description section */
   .description-section .title-wrapper .image {
@@ -5183,12 +5261,16 @@ a.remove {
     font-size: 16px;
   }
 
-
   /* expert system */
   .expert-system-page .coupon .input-text,
   .expert-system-page .coupon .button {
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  /* bolezni ot a do ya page */
+  .bolezni-ot-a-do-ya-page .title {
+    font-size: 16px;
   }
 
   /* we use cookie */
@@ -5631,200 +5713,9 @@ a.remove {
   order: 6;
 }
 
-/*
-#shipping_method {
-  padding-left: 0;
-}
-
-#shipping_method li {
-  display: flex;
-  max-width: 240px;
-  align-items: center;
-}
-*/
 .catalog-shop .term-96 {
   display: none;
 }
-
-/*.woocommerce-loop-product__link {
-  text-decoration: none;
-}
-*/
-/*
-.eng-letters {
-  display: grid;
-  grid-template-columns: repeat(27, 1fr);
-  grid-template-rows: 1fr;
-  gap: 0 10px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.eng-letters::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  height: 1px;
-  background: grey;
-  width: 100%;
-}
-
-.filtered-button {
-  display: inline;
-  padding: 0;
-  background: none;
-  font-size: 16px;
-}
-
-.filtered-button:hover,
-.filtered-button.is-checked {
-  color: #c2d279;
-  background: none;
-}
-
-.ru-letters {
-  display: grid;
-  grid-template-columns: repeat(28, 1fr);
-  grid-template-rows: 1fr;
-  gap: 0px 10px;
-  margin-bottom: 50px;
-}
-
-@media screen and (max-width: 992px) {
-  .eng-letters {
-    grid-template-columns: repeat(14, 1fr);
-    gap: 10px;
-  }
-
-  .ru-letters {
-    grid-template-columns: repeat(14, 1fr);
-    gap: 10px;
-  }
-}
-
-.filter-but {
-  margin-top: -50px;
-}
-
-@media screen and (max-width: 768px) {
-  .filter-but {
-    margin-top: 0;
-  }
-
-  .blog .catalog__item {
-    display: block;
-    padding: 0 30px 0 0;
-  }
-
-  .blog .item__image img {
-    margin: 0 auto;
-    width: 130px;
-  }
-
-  .blog .item-desc {
-    width: auto;
-  }
-
-  .blog .catalog__item .item__info {
-    width: auto;
-  }
-}
-
-.termbox-18 {
-  padding: 0;
-  transition-duration: 0.8s;
-}
-
-#termbox-18 .type-product.product {
-  position: relative;
-  margin: 10px 10px 30px 10px;
-  float: none;
-  height: auto;
-}
-*/
-
-/*r.kolobaev*/
-/*
-.main_menu {
-  padding: 12px 0;
-  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-}
-.main_menu a {
-  color: #294060 !important;
-}
-.main-header .bi-star {
-  float: left;
-  color: #fff;
-}
-.main-header .with-links {
-  padding: 0 35px;
-}
-.main-header .circle-blue {
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-}
-.circle-blue.vk {
-  background: #294060 url(../images/svg/vk.svg) 50% 50% no-repeat;
-  background-size: 40px;
-}
-.circle-blue.tg {
-  background: #294060 url(../images/svg/tg.svg) 50% 50% no-repeat;
-  background-size: 40px;
-}
-.circle-blue.phone {
-  background: #294060 url(../images/svg/phone.svg) 50% 50% no-repeat;
-  background-size: 40px;
-}
-.basket {
-  background: #fff url(../images/svg/basket.svg) 50% 50% no-repeat;
-  background-size: 50px;
-  width: 50px;
-  height: 50px;
-}
-
-.main-header .woo-customs i {
-  font-size: 26px;
-}
-.main-header .woo-customs > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 70px;
-  line-height: 70px;
-}
-.main-header .woo-customs .count {
-  position: absolute;
-  top: 2px;
-  right: 10px;
-  padding: 6px;
-  background: #294060;
-  line-height: 1;
-  color: #fff;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-}
-.main-header .woo-customs .bi-cart3 {
-  font-size: 50px;
-  color: #4f424f;
-}
-.main-header .woo-customs .bi-person:before,
-.main-header .woo-customs .bi-heart:before {
-  padding: 8px;
-  background: #e06752;
-  color: #fff;
-  border-radius: 50%;
-}
-.main-header .main-top {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 25% 50% 25%;
-}
-
-*/
-
 
 a.white {
   color: #fff;

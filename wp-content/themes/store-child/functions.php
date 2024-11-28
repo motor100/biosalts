@@ -428,24 +428,31 @@ function get_posts_per_letter() {
     if ( $query->have_posts() ) { 
         $prev_letter = ''; // Первая буква предыдущего заголовка поста
 
+        $index = 0;
         while ($query->have_posts()) { 
-          global $prev_letter;
+            global $prev_letter;
 
-          $query->the_post();
-          $content1 = "";
-          $first_letter = mb_substr(get_the_title(), 0, 1); // Получение первой буквы заголовка поста
+            $query->the_post();
+            $content1 = "";
+            $first_letter = mb_substr(get_the_title(), 0, 1); // Получение первой буквы заголовка поста
 
-          // Вывод первой буквы заголовка поста
-          if ($prev_letter != $first_letter) {
-            $content1 .= "<div class=\"letter\">" . $first_letter . "</div>";
-          }
-          
-          $content1 .= "<a href=\"" . get_permalink() . "\" class=\"title\">";
-          $content1 .= esc_html( get_the_title() );
-          $content1 .= "</a>";
-          
-          $html .= $content1;
-          $prev_letter = $first_letter;
+            // Вывод первой буквы заголовка поста
+            if ($prev_letter != $first_letter) {
+                if ($index > 0) {
+                    $content1 .= "</div>";
+                }
+                $content1 .= "<div class=\"letter\">" . $first_letter . "</div>";
+                $content1 .= "<div class=\"flex-container\">";
+            }
+            
+            $content1 .= "<a href=\"" . get_permalink() . "\" class=\"title\">";
+            $content1 .= esc_html( get_the_title() );
+            $content1 .= "</a>";
+              
+            $html .= $content1;
+            $prev_letter = $first_letter;
+
+            $index++;
         }
 
         wp_reset_postdata();

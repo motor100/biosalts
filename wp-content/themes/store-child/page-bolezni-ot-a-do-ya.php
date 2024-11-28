@@ -19,7 +19,7 @@
 
   <div class="container">
     <?php echo get_posts_per_letter(); ?>
-
+  </div>
 
 </div>
 
