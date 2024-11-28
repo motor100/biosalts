@@ -1030,9 +1030,9 @@ function start_payment() {
         'method' => 'POST',
         'body' => json_encode($data),
         'headers' => array(
-            // 'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
+            'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
             // Тестовый режим
-            'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
+            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
             'Content-Type' => 'application/json',
             'Idempotence-Key' => $idempotenceKey
         )

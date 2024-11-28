@@ -115,15 +115,6 @@
       </div>
     </div>
 
-    <h2 style="text-align: center;">
-      Включен тестовый режим Юкасса<br>
-      Работает только тестовая карта<br>
-      Номер карты 5555 5555 5555 4477<br>
-      Месяц 01, Год 28, cvc 123<br>
-      Можно платить любые суммы<br>
-      Реальные карты не работают
-    </h2>
-
     <div id="coupon-section" class="coupon-section">
       <div class="container">
         <?php wc_get_template( 'checkout/form-coupon.php' );  ?>
