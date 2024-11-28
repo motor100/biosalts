@@ -23,8 +23,31 @@
         <div class="company-info">ИНН 701703092246</div>
         <div class="company-info company-info-last">ОГРН 318502700032975</div>
         <div class="footer-bottom-mobile-menu">
-          <?php echo custom_nav_menu(0, 3); ?>
-          <?php echo custom_nav_menu(4); ?>
+          <div class="menu-header_menu-container">
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="/about-salts">О солях</a>
+              </li>
+              <li class="menu-item">
+                <a href="/servis-podbora">Сервис подбора</a>
+              </li>
+              <li class="menu-item">
+                <a href="https://funmed.ru/soli_doktora_shyusslera" target="_blank">Обучение</a>
+              </li>
+              <li class="menu-item">
+                <a href="/specialisty">Специалисты</a>
+              </li>
+              <li class="menu-item">
+                <a href="/bolezni-ot-a-do-ya">Болезни от А до Я</a>
+              </li>
+              <li class="menu-item">
+                <a href="/wherebuy">Где купить</a>
+              </li>
+              <li class="menu-item">
+                <a href="/servis">Сервис</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="footer-phone footer-pe">
           <img src="/wp-content/themes/store-child/includes/images/svg/circle-call.svg" class="footer-phone-image footer-pe-image" alt="phone call">
@@ -51,8 +74,38 @@
         </div>
 
       </div>
-      <div class="col-lg-2 d-lg-block d-none"><?php echo custom_nav_menu(0, 3); ?></div>
-      <div class="col-lg-3 d-lg-block d-none"><?php echo custom_nav_menu(4); ?></div>
+      <div class="col-lg-2 d-lg-block d-none">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="/about-salts">О солях</a>
+          </li>
+          <li class="menu-item">
+            <a href="/catalog/product-category/soli-schuesslera/">Каталог</a>
+          </li>
+          <li class="menu-item">
+            <a href="/servis-podbora">Сервис подбора</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://funmed.ru/soli_doktora_shyusslera" target="_blank">Обучение</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 d-lg-block d-none">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="/specialisty">Специалисты</a>
+          </li>
+          <li class="menu-item">
+            <a href="/bolezni-ot-a-do-ya">Болезни от А до Я</a>
+          </li>
+          <li class="menu-item">
+            <a href="/wherebuy">Где купить</a>
+          </li>
+          <li class="menu-item">
+            <a href="/servis" target="_blank">Сервис</a>
+          </li>
+        </ul>
+      </div>
       <div class="col-lg-3">
         <div class="flex-container">
           <div class="footer-buttons">
@@ -90,14 +143,31 @@
     <img src="/wp-content/themes/store-child/includes/images/logo_header.png" alt="лого">
   </div>
   <div class="working-time">Пн-Пт: 10:00 до 20:00, Сб-Вс: выходной</div>
-  <?php
-  wp_nav_menu(
-    array(
-      'menu' => 'header_menu',
-      'menu_id' => 'mobile_menu',
-    )
-  );
-  ?>
+  <div class="menu-header_menu-container">
+    <ul id="header_menu" class="menu">
+      <li class="menu-item">
+        <a href="/about-salts">О солях</a>
+      </li>
+      <li class="menu-item">
+        <a href="/servis-podbora">Сервис подбора</a>
+      </li>
+      <li class="menu-item">
+        <a href="https://funmed.ru/soli_doktora_shyusslera" target="_blank">Обучение</a>
+      </li>
+      <li class="menu-item">
+        <a href="/specialisty">Специалисты</a>
+      </li>
+      <li class="menu-item">
+        <a href="/bolezni-ot-a-do-ya">Болезни от А до Я</a>
+      </li>
+      <li class="menu-item">
+        <a href="/wherebuy">Где купить</a>
+      </li>
+      <li class="menu-item">
+        <a href="/servis">Сервис</a>
+      </li>
+    </ul>
+  </div>
   <div class="phone-wrapper">
     <a href="#" class="social-icons__link" rel="nofollow noopener" target="_blank">
       <img src="/wp-content/themes/store-child/includes/images/svg/circle-wa.svg" class="social-icons__image social-icons__wa" alt="ватсап">

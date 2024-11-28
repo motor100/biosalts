@@ -90,14 +90,31 @@
         </div>
         <div class="header-nav">
           <div class="container">
-            <?php
-            wp_nav_menu(
-              array(
-                'menu' => 'header_menu',
-                'menu_id' => 'header_menu',
-              )
-            );
-            ?>
+            <div class="menu-header_menu-container">
+              <ul id="header_menu" class="menu">
+                <li class="menu-item">
+                  <a href="/about-salts">О солях</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/servis-podbora">Сервис подбора</a>
+                </li>
+                <li class="menu-item">
+                  <a href="https://funmed.ru/soli_doktora_shyusslera" target="_blank">Обучение</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/specialisty">Специалисты</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/bolezni-ot-a-do-ya">Болезни от А до Я</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/wherebuy">Где купить</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/servis">Сервис</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="header-horizontal-line">
