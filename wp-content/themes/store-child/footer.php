@@ -205,7 +205,7 @@
         <img src="/wp-content/themes/store-child/includes/images/svg/catalog-lens.svg" alt="">
       </div>
       <div class="menu-item__title">Каталог</div>
-      <a href="/catalog" class="full-link"></a>
+      <a href="/catalog/product-category/soli-schuesslera/" class="full-link"></a>
     </div>
     <div class="menu-item cart-menu-item">
       <div class="menu-item__image">

@@ -93,10 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalWindows = document.querySelectorAll('.modal-window');
   const callbackFormBtns = document.querySelectorAll('.callback-form-btn');
   const callbackModal = document.querySelector('#callback-modal');
-  // const callbackBtns = document.querySelectorAll('.js-callback-btn');
-  // const callbackModal = document.querySelector('#callback-modal');
-  // const testimonialsBtn = document.querySelector('.testimonials-btn');
-  // const testimonialsModal = document.querySelector('#testimonials-modal');
   const modalCloseBtns = document.querySelectorAll('.modal-window .modal-close');
 
   callbackFormBtns.forEach((item) => {
@@ -105,24 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
-  /*
-  callbackBtns.forEach((item) => {
-    item.onclick = function () {
-      modalWindowOpen(callbackModal);
-    }
-  });
-
-  if (testimonialsBtn) {
-    testimonialsBtn.onclick = function () {
-      modalWindowOpen(testimonialsModal);
-    }
-  }
-  */
-  
   function modalWindowOpen(win) {
-    // Закрытие мобильного меню
-    // closeAllMobileMenu();
-
     // Открытие окна
     body.classList.add('overflow-hidden');
     win.classList.add('active');
@@ -257,6 +236,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  // AJAX получение специалистов по городу
+  const cityBtns = document.querySelectorAll('.js-city-btn');
+
+  cityBtns.forEach((item) => {
+    item.onclick = function() {
+
+      // удаление active у всех кнопок
+      const citiesItems = document.querySelectorAll('.cities-item');
+      for (var i = 0; i < citiesItems.length; i++) {
+        citiesItems[i].classList.remove('active');
+      }
+
+      // добавление active у текущей кнопки
+      item.classList.add('active');
+
+      // удаление пагинации
+      const pagination = document.querySelector('.specialisty-page .pagination');
+      if (pagination) {
+        pagination.innerHTML = '';
+      }
+
+      const specialists = document.querySelector('.specialisty-page .js-insert-specialists');
+      
+      // лоадер. селекторы от плагина load more products
+      specialists.innerHTML = '<span class="lmp_products_loading"><i class="fa fa-spinner lmp_rotate"></i></span>';    
+
+      fetch(Myscrt.ajaxurl, {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        cache: 'no-cache',
+        body: 'action=get_specialists&cat_id=' + item.dataset.termId,
+      })
+      // вставка в specialists
+      .then((response) => response.text())
+      .then((html) => {
+        // если пришел html, то вставляю, иначе "Товаров не найдено"
+        specialists.innerHTML = (html ? html : '<div class="no-specialists-text">Специалистов не найдено</div>');
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+  });
+
+
   // AJAX обновление количество товара у значка корзины в хэдере и нижнем мобильном меню add to cart
   jQuery(document).ready(function($) {
     /**
@@ -276,11 +300,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((json) => {
         const headerCartCounter = document.querySelector('.header-cart__counter'); // счетчик товаров для значка корзины в хэдере
-        // const headerCartTotal = document.querySelector('.header-cart__total .number'); // стоимость товаров для значка корзины в хэдере
-        // const fixedBottomMenu = document.querySelector('.fixed-bottom-menu .badge-counter'); // счетчик товаров для значка корзины в нижнем меню
+        const fixedBottomMenu = document.querySelector('.fixed-bottom-menu .badge-counter'); // счетчик товаров для значка корзины в нижнем меню
         headerCartCounter.innerText = json.count;
-        // headerCartTotal.innerText = json.total;
-        // fixedBottomMenu.innerText = json.count
+        fixedBottomMenu.innerText = json.count
       })
       .catch((error) => {
         console.log(error);

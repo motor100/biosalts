@@ -1073,6 +1073,50 @@ function start_payment() {
     wp_send_json_success(array('data' => $response_data));
 }
 
+
+// AJAX получить специалистов по городу на странице Специалисты
+add_action( 'wp_ajax_get_specialists', 'get_specialists_from_city' ); // хук wp_ajax
+add_action( 'wp_ajax_nopriv_get_specialists', 'get_specialists_from_city' ); // хук wp_ajax для незалогиненных пользователей
+
+function get_specialists_from_city() {
+    
+    // Получение id подкатегории из запроса
+    $cat_id = ! empty( $_POST['cat_id'] ) ? esc_attr( $_POST['cat_id'] ) : false;
+    
+    // Получение подкатегории
+    $cat = get_term_by( 'id', $cat_id, 'category' );
+
+    // Если нет категории, то return false
+    if ( ! $cat ) {
+        return false;
+    }
+
+    // Запрос
+    $query = new WP_Query( array (
+        'cat' => $cat_id,
+        'post_status'    => 'publish',
+        'nopaging' => true,
+        'posts_per_page' => '-1',
+    ) );
+
+    // Вывод записей
+    if ( $query->have_posts() ) {
+
+        while ( $query->have_posts() ) {
+            $query->the_post();
+
+            // Подключение шаблона content-specialists
+            require ( get_stylesheet_directory() . '/templates/content-specialists.php' );
+        }
+
+        wp_reset_postdata();
+
+    }
+    
+    wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего (0), только то что возвращает функция
+}
+
+
 add_action('wp_ajax_start_payment', 'start_payment');
 add_action('wp_ajax_nopriv_start_payment', 'start_payment');
 
