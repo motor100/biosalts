@@ -169,7 +169,10 @@
     </ul>
   </div>
   <div class="phone-wrapper">
-    <a href="#" class="social-icons__link" rel="nofollow noopener" target="_blank">
+    <a href="https://t.me/biosalts" class="social-icons__link" rel="nofollow noopener" target="_blank">
+      <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
+    </a>
+    <a href="https://wa.me/79629880861" class="social-icons__link" rel="nofollow noopener" target="_blank">
       <img src="/wp-content/themes/store-child/includes/images/svg/circle-wa.svg" class="social-icons__image social-icons__wa" alt="ватсап">
     </a>
     <a href="tel:+74959274928" class="social-icons__link" rel="nofollow noopener" target="_blank">
@@ -177,7 +180,7 @@
     </a>
     <a href="tel:+74959274928" class="phone-text">+7 (495) 927-4-928</a>
   </div>
-  <div class="feedback-text">Напишите нам</div>
+  <!-- <div class="feedback-text">Напишите нам</div>
   <div class="socials-icons">
     <a href="https://t.me/naturaproff" class="social-icons__link" rel="nofollow noopener" target="_blank">
       <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
@@ -185,7 +188,7 @@
     <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
       <img src="/wp-content/themes/store-child/includes/images/svg/circle-vk.svg" class="social-icons__image social-icons__vk" alt="вконтакте">
     </a>
-  </div>
+  </div> -->
 </div>
 
 <div class="fixed-bottom-menu hidden-desktop ">

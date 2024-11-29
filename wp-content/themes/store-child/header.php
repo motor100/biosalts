@@ -36,19 +36,24 @@
         <div class="header-top">
           <div class="container">
             <div class="flex-container">
-              <div class="header-top__address">
+              <!-- <div class="header-top__address">
                 <img src="/wp-content/themes/store-child/includes/images/svg/geolocation.svg" class="geolocation" alt="геометка">
                 <span class="address-text">Московская область, совхоз им Ленина, Техцентр | Пн-Пт: 10:00 до 20:00, Сб-Вс: выходной</span>
-              </div>
+              </div> -->
+              <!-- 
               <div class="socials-icons">
                 <a href="https://t.me/biosalts" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
                 </a>
-                <!-- <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
+                <a href="https://vk.com/natura.pharma" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-vk.svg" class="social-icons__image social-icons__vk" alt="вконтакте">
-                </a> -->
+                </a>
               </div>
+               -->
               <div class="phone-wrapper">
+                <a href="https://t.me/biosalts" class="social-icons__link" rel="nofollow noopener" target="_blank">
+                  <img src="/wp-content/themes/store-child/includes/images/svg/circle-tg.svg" class="social-icons__image social-icons__tg" alt="телеграм">
+                </a>
                 <a href="https://wa.me/79629880861" class="social-icons__link" rel="nofollow noopener" target="_blank">
                   <img src="/wp-content/themes/store-child/includes/images/svg/circle-wa.svg" class="social-icons__image social-icons__wa" alt="ватсап">
                 </a>
