@@ -148,7 +148,7 @@
         <div class="select-item select-item-burgundy">
           <div class="select-item__text">Экспертная система подбора солей Шюсслера для тканевой биохимической терапии. Медицинский ассистент  для диагностики дефицитов минералов в организме человека, подбора персонифицированной комбинации  с проверкой совместимости и указанием оптимального времени приема для проведения тканевой биохимической терапии солями Шюсслера.</div>
           <div class="flex-container">
-            <a href="/wp-content/themes/store-child/includes/pdf/test.pdf" class="select-item-burgundy-btn example-btn" target="_blank">Пример заключения</a>
+            <a href="/wp-content/themes/store-child/includes/pdf/maket-zaklyucheniya.pdf" class="select-item-burgundy-btn example-btn" target="_blank">Пример заключения</a>
             <a href="/expert-system" class="select-item-burgundy-btn view-more-btn">Подробнее</a>
           </div>
         </div>

@@ -344,9 +344,11 @@ document.addEventListener("DOMContentLoaded", () => {
           priceSumm[0].innerText = calc1200;
 
           // Сумма оплаты 6000
+          /*
           const calc6000 = 6000 - 6000 * amount/100
           startPaymentBtn[1].dataset.summ = calc1200;
           priceSumm[1].innerText = 6000 - 6000 * amount/100;
+          */
         }
 
         let text = '';
