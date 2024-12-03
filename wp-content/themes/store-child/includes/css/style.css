@@ -99,7 +99,7 @@ Text Domain:  storefront
   --pink-color: #E7E6E2;
   --olive-color: #819C84;
   --lightgreen-color: #BADAD5;
-  --whiterock-color: #EDE8D9;
+  --white-rock-color: #EDE8D9;
   --mine-shaft-color: #222222;
   --shark-color: #212529;
   --terracota-color: #E06752;
@@ -1249,7 +1249,7 @@ ul.products li.product .woocommerce-placeholder {
   height: 297px;
   margin: 0 0 20px 0;
   border-radius: 30px;
-  border: 2px solid var(--whiterock-color);
+  border: 2px solid var(--white-rock-color);
   object-fit: contain;
   transition: border .3s;
 }
@@ -1708,7 +1708,7 @@ ul.products li.product .added_to_cart:hover {
 /* specialisty page */
 .specialisty-page .specialists-item {
   margin: 0 0 30px 0;
-  border: 1px solid var(--whiterock-color);
+  border: 1px solid var(--white-rock-color);
   border-radius: 30px;
   overflow: hidden;
 }
@@ -2016,10 +2016,80 @@ ul.products li.product .added_to_cart:hover {
   padding: 0;
   border: none;  
   border-radius: 33px;
-  background-color: var(--wild-willow-color);
+  background-color: var(--darkblue-color);
   font-family: 'roboto-medium';
   font-size: 20px;
 }
+
+/* service page */
+.service-page .desc-section .text-bold {
+  font-family: 'Roboto-Medium';
+  font-size: 24px;
+}
+.service-page .desc-section {
+  margin: 0 0 60px 0;
+}
+.service-page .desc-section .p-last {
+  margin: 0 0 60px 0;
+}
+.service-page .desc-section .sotrudnichestvo-subtitle {
+  margin: 0 0 20px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 42px;
+  color: var(--darkblue-color);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.service-page .desc-section .list {
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+.service-page .desc-section .list-item {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+}
+.service-page .frames-section {
+  margin: 0 0 48px 0;
+}
+.service-page .frames-section .frames-item {
+  height: 146px;
+  margin: 0 0 12px 0;
+  padding: 30px;
+  border: 2px solid var(--white-rock-color);
+  border-radius: 30px;
+}
+.service-page .frames-section .frames-item__title {
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 20px;
+  color: var(--darkblue-color);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.service-page .frames-section .frames-item__text {
+  margin: 15px 0 0 0;
+  font-family: "Roboto-Light";
+}
+.service-page .partnership-section .partnership-text {
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 42px;
+  color: var(--darkblue-color);
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+.service-page .partnership-section .partnership-btn {
+  display: flex;
+  height: 66px;
+  margin: 0 0 13px 0;
+  border-radius: 33px;
+  background-color: var(--darkblue-color);
+  font-family: "Roboto-Medium";
+  font-size: 20px;
+  color: var(--nero-color);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* to top */
 .to-top {
@@ -2148,7 +2218,7 @@ ul.products li.product .added_to_cart:hover {
   height: 50px;
   margin: 0 0 10px 0;
   padding: 15px 20px;
-  border: 1px solid var(--whiterock-color);
+  border: 1px solid var(--white-rock-color);
   border-radius: 25px;
   font-family: inherit;
 }
@@ -2711,7 +2781,7 @@ a.remove {
 }
 
 
-/* expert system */
+/* expert system page */
 .expert-system-page .pay-now-btn {
   display: flex;
   width: 277px;
@@ -2747,7 +2817,7 @@ a.remove {
   height: 159px;
   margin: 0 0 20px 0;
   padding: 30px;
-  border: 2px solid var(--whiterock-color);
+  border: 2px solid var(--white-rock-color);
   border-radius: 30px;
 }
 .expert-system-page .advantages-section .advantages-item__title {
@@ -3481,7 +3551,7 @@ a.remove {
     font-size: 18px;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .pay-now-btn {
     width: 267px;
     height: 70px;
@@ -3504,6 +3574,26 @@ a.remove {
   }
   .expert-system-page .copyright-section {
     margin-bottom: 70px;
+  }
+
+  /* service page */
+  .service-page .desc-section .text-bold {
+    font-size: 22px;
+  }
+  .service-page .desc-section .sotrudnichestvo-subtitle {
+    font-size: 40px;
+  }
+  .service-page .partnership-section .partnership-text {
+    font-size: 40px;
+  }
+  .service-page .frames-section .frames-item {
+    height: 166px;
+  }
+  .service-page .frames-section .frames-item__title {
+    font-size: 19px;
+  }
+  .service-page .partnership-section .partnership-btn {
+    font-size: 18px;
   }
 }
 
@@ -3856,7 +3946,7 @@ a.remove {
     -webkit-box-orient: vertical;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .pay-now-btn {
     width: 257px;
     height: 60px;
@@ -3938,6 +4028,23 @@ a.remove {
   }
   .about-salts-page .rule-section .text-medium {
     font-size: 30px;
+  }
+
+  /* service page */
+  .service-page .partnership-section .partnership-text {
+    font-size: 33px;
+  }
+  .service-page .desc-section {
+    margin: 0 0 40px 0;
+  }
+  .service-page .desc-section .text-bold {
+    font-size: 20px;
+  }
+  .service-page .desc-section .sotrudnichestvo-subtitle {
+    font-size: 36px;
+  }
+  .service-page .desc-section .list-item {
+    font-size: 16px;
   }
 
   /* bolezni ot a do ya page */
@@ -4393,7 +4500,7 @@ a.remove {
     font-size: 16px;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .pay-now-btn {
     width: 247px;
     height: 50px;
@@ -4454,7 +4561,6 @@ a.remove {
   .about-salts-page .list-item {
     margin: 0;
   }
-
   .about-salts-page .photo-section .photo {
     width: 200px;
   }
@@ -4478,6 +4584,20 @@ a.remove {
   }
   .about-salts-page .reaction-section .list-item {
     font-size: 18px;
+  }
+
+  /* service page */
+  .service-page .frames-section .frames-item {
+    height: 186px;
+    padding: 20px;
+  }
+  .service-page .frames-section .frames-item__title {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .service-page .partnership-section .partnership-text {
+    font-size: 24px;
+    line-height: 2.7;
   }
 
   /* catalog section */
@@ -4863,7 +4983,7 @@ a.remove {
     display: block;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .pay-now-btn {
     width: 227px;
     height: 45px;
@@ -4992,6 +5112,33 @@ a.remove {
   }
   .single-page .wc-block-grid .wc-block-grid__product-price {
     font-size: 16px;
+  }
+
+  /* service page */
+  .service-page .desc-section .text-bold {
+    font-size: 18px;
+  }
+  .service-page .desc-section .p-last {
+    margin: 0 0 40px 0;
+  }
+  .service-page .desc-section .sotrudnichestvo-subtitle {
+    font-size: 32px;
+  }
+  .service-page .desc-section .list-item {
+    margin: 0 0 8px 0;
+  }
+  .service-page .frames-section .frames-item {
+    height: auto;
+  }
+  .service-page .frames-section {
+    margin: 0 0 18px 0;
+  }
+  .service-page .partnership-section .partnership-btn {
+    font-size: 16px;
+  }
+  .service-page .partnership-section .partnership-text {
+    font-size: 19px;
+    line-height: 2.2;
   }
 
   /* we use cookie */
@@ -5354,7 +5501,7 @@ a.remove {
     font-size: 16px;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .coupon .input-text,
   .expert-system-page .coupon .button {
     margin-left: 10px;
@@ -5378,6 +5525,14 @@ a.remove {
   }
   .single-page .wc-block-grid .wc-block-grid__product-image {
     width: 100%;
+  }
+
+  /* service page */
+  .service-page .desc-section .text-bold {
+    font-size: 16px;
+  }
+  .service-page .desc-section .sotrudnichestvo-subtitle {
+    font-size: 28px;
   }
 
   /* we use cookie */
@@ -5434,7 +5589,7 @@ a.remove {
     font-size: 22px;
   }
 
-  /* expert system */
+  /* expert system page */
   .expert-system-page .pay-now-btn {
     width: 207px;
   }
@@ -5466,6 +5621,17 @@ a.remove {
   /* about salts page */
   .about-salts-page .rule-section .text-medium {
     font-size: 24px;
+  }
+
+  /* service page */
+  .service-page .frames-section .frames-item__title {
+    font-size: 17px;
+  }
+  .service-page .partnership-section .partnership-text {
+    font-size: 17px;
+  }
+  .service-page .partnership-section .partnership-btn {
+    font-size: 15px;
   }
 }
 

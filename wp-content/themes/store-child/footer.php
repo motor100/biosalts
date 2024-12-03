@@ -44,7 +44,7 @@
                 <a href="/wherebuy">Где купить</a>
               </li>
               <li class="menu-item">
-                <a href="/servis">Сервис</a>
+                <a href="/service">Сервис</a>
               </li>
             </ul>
           </div>
@@ -102,7 +102,7 @@
             <a href="/wherebuy">Где купить</a>
           </li>
           <li class="menu-item">
-            <a href="/servis" target="_blank">Сервис</a>
+            <a href="/service" target="_blank">Сервис</a>
           </li>
         </ul>
       </div>
@@ -164,7 +164,7 @@
         <a href="/wherebuy">Где купить</a>
       </li>
       <li class="menu-item">
-        <a href="/servis">Сервис</a>
+        <a href="/service">Сервис</a>
       </li>
     </ul>
   </div>
