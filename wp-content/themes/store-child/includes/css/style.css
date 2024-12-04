@@ -61,7 +61,7 @@ Text Domain:  storefront
   font-weight: 400;
   src: url(../fonts/RobotoSerif-LightItalic.woff2) format("woff2");
 }
-@font-face {
+/*@font-face {
   font-display: swap;
   font-family: 'Uni';
   font-style: normal;
@@ -73,23 +73,22 @@ Text Domain:  storefront
   font-family: Uni;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/UniNeueLight.woff2);
   src: url(../fonts/UniNeueLight.woff2) format("woff2");
-}
-@font-face {
+}*/
+/*@font-face {
   font-display: fallback;
   font-family: "Akrobat";
   font-style: normal;
   font-weight: 400;
   src: url(../fonts/Akrobat-Black.woff) format("woff");
-}
-@font-face {
+}*/
+/*@font-face {
   font-display: fallback;
   font-family: "Chianti";
   font-style: normal;
   font-weight: 400;
   src: url(../fonts/TT1211C.woff) format("woff");
-}
+}*/
 
 :root {
   --darkblue-color: #294060;
@@ -2089,6 +2088,125 @@ ul.products li.product .added_to_cart:hover {
   align-items: center;
   justify-content: center;
 }
+.service-page .pharmacy-section {
+  padding: 40px 0;
+  background: url(../images/darkblue-bg.jpg) center no-repeat;
+}
+.service-page .sp-section {
+  margin: 0 0 60px 0;
+}
+.service-page .pharmacy-section .pharmacy-section-subtitle {
+  margin: 0 0 20px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 42px;
+  color: var(--nero-color);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.service-page .pharmacy-section .pharmacy-description {
+  margin: 0 0 30px 0;
+  font-size: 24px;
+  color: var(--nero-color);
+}
+.service-page .pharmacy-section .pharmacy-btn {
+  display: block;
+  width: 342px;
+  padding: 19px 0;
+  border-radius: 33px;
+  background-color: var(--burgundy-color);
+  font-family: 'roboto-medium';
+  font-size: 20px;
+  color: var(--nero-color);
+  text-align: center;
+}
+.service-page .pn-title {
+  margin: 0 0 30px 0;
+  font-family: "Roboto-CondensedSemiBold";
+  font-size: 56px;
+  color: var(--darkblue-color);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.service-page .partners-section .flex-container {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+.service-page .news-section .news-item {
+  margin: 0 0 30px 0;
+}
+.service-page .news-section .news-item__image {
+  position: relative;
+  height: 0;
+  margin: 0 0 20px 0;
+  padding: 0 0 72% 0;
+}
+.service-page .news-section .news-item__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-page .news-section .news-item__title {
+  display: block;
+  margin: 0 0 20px 0;
+  font-family: 'roboto-medium';
+  font-size: 24px;
+  color: var(--mine-shaft-color);
+}
+.service-page .news-section .news-item__excerpt {
+  display: -webkit-box;
+  height: 68px;
+  font-size: 18px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.service-page .faq-section .faq-description {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: var(--mine-shaft-color);
+}
+.service-page .faq-section .flex-container {
+  display: flex;
+  height: 240px;
+}
+.service-page .faq-section .faq-item {
+  position: relative;
+  margin: 0 0 30px 0;
+}
+.service-page .faq-section .faq-item__image {
+  width: 32%;
+}
+.service-page .faq-section .faq-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-page .faq-section .faq-item__content {
+  background-color: var(--pink-color);
+  padding: 40px;
+  flex-grow: 1;
+}
+.service-page .faq-section .faq-item__title {
+  margin: 0 0 20px 0;
+  font-family: 'roboto-medium';
+  font-size: 24px;
+  color: var(--burgundy-color);
+}
+.service-page .faq-section .arrow-right {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  margin: auto;
+}
 
 
 /* to top */
@@ -3234,21 +3352,6 @@ a.remove {
 }
 
 
-/*
-.woo-customs {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  text-align: center;
-}
-@media (max-width: 575.98px) {
-  .woo-customs {
-    gap: 20px 0;
-    grid-template-areas: "cart" "search";
-  }
-}
-*/
 
 .menu-cart_menu-container {
   -webkit-box-align: center;
@@ -3261,18 +3364,7 @@ a.remove {
   -ms-grid-column: 3;
   -ms-grid-row: 1;
 }
-/*
-@media (max-width: 575.98px) {
 
-  .menu-cart_menu-container {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -ms-grid-column: 1;
-    -ms-grid-row: 1;
-    justify-content: center;
-  }
-}
-*/
 .menu-cart_menu-container ul {
   list-style: none;
   margin: 0;
@@ -5664,44 +5756,7 @@ a.remove {
 .aside-menu .cat_name:hover {
   color: #1b4b22;
 }
-/*
-.woocommerce-Tabs-panel--description {
-  line-height: 2;
-}
-*/
 
-/*.site-content p:not(:last-child) {
-  margin-bottom: 20px;
-}*/
-/*
-@media (max-width: 767.98px) {
-  .single__prod .col-9 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  .single__prod .col-3 {
-    display: none;
-  }
-}
-*/
-/*
-.m-select {
-  margin-top: 20px;
-}
-@media (max-width: 767.98px) {
-  .m-select {
-    display: block;
-    margin: 30px 0;
-  }
-}
-.m-select select {
-  border: 2px solid #c2d279;
-  padding: 10px;
-  width: 100%;
-}
-*/
 @media (max-width: 767.98px) {
   .products {
     padding: 0;
@@ -5710,257 +5765,8 @@ a.remove {
 .term-description {
   text-align: left;
 }
-/*
-.woocommerce-info {
-  background-color: #d1dfd8;
-  color: #184e66;
-}
-*/
 
-.blog .catalog__item {
-  display: flex;
-}
 
-.blog .tax-wrapper {
-  -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
-  -ms-grid-rows: 1fr 38px 1fr;
-  display: -ms-grid;
-  display: grid;
-  gap: 38px 30px;
-  grid-template-areas:
-    "."
-    ".";
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-}
-
-.blog .item__image {
-  height: auto;
-  padding: 27px 29px;
-}
-
-.blog .item__image img {
-  margin: 0;
-  width: 130px;
-}
-
-.blog .item-desc {
-  width: calc(100% - 159px);
-  text-align: left;
-  padding-left: 30px;
-}
-
-.text-page .blog h2 {
-  margin: 20px 0 10px 0;
-}
-
-.blog .catalog__item .item__info {
-  width: 200px;
-  padding: 0;
-  margin: 15px 0 15px;
-}
-.text-page .blog h2 a {
-  text-decoration: none;
-  color: #222;
-}
-
-.blog .tax-wrapper {
-  margin-top: 0px;
-}
-
-/*
-.text-page {
-  background: #c2d279 url("includes/images/green_leaves.png");
-  min-height: 500px;
-}
-
-.text-page .entry-header {
-  padding-bottom: 0;
-}
-
-.text-page article {
-  padding: 25px;
-  margin-top: 30px;
-  background: #fff;
-  border-radius: 12px;
-}
-.text-page article h4 {
-  text-align: center;
-  background: #294060;
-  color: #fff;
-  width: 45%;
-  margin: 1.5rem auto;
-  padding: 6px;
-  font-family: "Akrobat";
-  font-size: 1.8rem;
-  line-height: 1;
-  border-radius: 25px;
-  text-transform: uppercase;
-}
-
-.text-page .wp-block-pullquote.alignwide.has-text-align-center {
-  margin: 0 -100px !important;
-  padding: 0 !important;
-}
-
-.text-page .wp-block-pullquote blockquote {
-  padding: 67px 111px 69px 308px;
-}
-
-.text-page .wp-block-pullquote blockquote cite {
-  font-family: "Uni" !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
-  font-size: 18px !important;
-  line-height: 30px !important;
-  color: #222222 !important;
-  text-align: left !important;
-  text-transform: none;
-}
-
-.text-page h1 {
-  font-family: "Uni";
-  color: #184e66;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 30px;
-  line-height: 42px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  margin-left: 42pt;
-}
-
-.text-page h2 {
-  font-family: "Uni";
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 35px;
-  color: #184e66;
-}
-
-.text-page .entry-content ol {
-  margin: 0 0 30px 0;
-  padding: 0;
-  list-style-type: none;
-  counter-reset: num;
-}
-
-.text-page .entry-content ol li {
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 30px;
-  color: #222222;
-  position: relative;
-  margin: 0 0 0 0;
-  padding: 0 0 10px 0;
-}
-
-.text-page .entry-content ol li::before {
-  content: counter(num);
-  counter-increment: num;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: -38px;
-  width: 28px;
-  height: 28px;
-  background: rgba(209, 223, 216, 0.5);
-  color: #222222;
-  text-align: center;
-  line-height: 28px;
-  font-size: 18px;
-}
-
-.text-page .entry-content ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.text-page .entry-content ul li {
-  position: relative;
-  margin-bottom: 5px;
-}
-
-.text-page .entry-content ul li::before {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  left: -24px;
-  top: 4px;
-}
-
-.text-page p {
-  font-size: 18px;
-  line-height: 30px;
-  color: #222222;
-  margin-bottom: 0 !important;
-}
-
-.text-page .entry-content .wp-block-quote {
-  background: #f2f5f3 url(../images/quotes.svg) 80px center no-repeat;
-  padding: 70px 111px 70px 306px;
-  margin: 60px -100px;
-  text-align: right;
-  position: relative;
-}
-
-.text-page .entry-content .wp-block-quote.attention {
-  background: #f2f5f3 url(../images/attention.svg) 80px center no-repeat;
-  text-align: left;
-}
-
-.text-page .entry-content .wp-block-quote p {
-  font-family: "Uni";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-  color: #222222;
-  text-align: left;
-}
-
-.text-page .entry-content .wp-block-quote cite {
-  font-family: "Uni";
-  color: #1a4b22;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.text-page .entry-content .wp-block-quote.attention cite {
-  font-family: "Uni";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-  color: #222222;
-  text-align: left;
-}
-
-.text-page .entry-content .wp-block-image {
-  display: block !important;
-  margin: 64px 0;
-}
-
-.text-page .entry-content .wp-block-image figure {
-  margin: 0 !important;
-  width: 100%;
-}
-
-.text-page .entry-content .wp-block-image figure img {
-  width: 100%;
-  height: auto;
-}
-
-.text-page .entry-content .wp-block-preformatted {
-  background: #f2f2f2;
-}
-*/
 .shipping-calculator-form {
   display: flex;
   flex-direction: column;
@@ -6077,9 +5883,9 @@ ul.clear {
   border-right: 4px solid transparent;
   border-bottom: 8px solid #294060;
 }
-.resp-tabs-container a {
+/*.resp-tabs-container a {
   font-family: "Akrobat";
-}
+}*/
 .wpr-shop-table th.product-remove {
   background: transparent !important;
 }

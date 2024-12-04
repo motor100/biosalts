@@ -62,7 +62,7 @@
     </div>
   </div>
   
-  <div class="partnership-section">
+  <div class="partnership-section sp-section">
     <div class="container">
       <div class="row">
         <div class="col-xl-8 col-md-7">
@@ -77,6 +77,97 @@
         <div class="col-xl-4 col-md-5">
           <a href="#" class="partnership-btn">Читать документ по сотрудничеству</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pharmacy-section sp-section">
+    <div class="container">
+      <div class="pharmacy-section-subtitle">Аптека</div>
+      <div class="pharmacy-description">Для Вас работает специализированная натуропатическая производственная аптека. Вы можете купить готовые формы или заказать изготовление персональных лекарств. Мы специализируемся на изготовлении гомеопатии, препаратов для фитотетарпии, цветочных эссенций Эдварда Баха, препаратов для тканевой биохимической терапии, натуральных соков дикорастущих растений, низкодозных препаратов.</div>
+      <a href="https://natura-pharma.ru" class="pharmacy-btn" target="_blank">перейти на сайт аптеки</a>
+    </div>
+  </div>
+
+  <div class="partners-section sp-section">
+    <div class="container">
+      <div class="pn-title">ПАРТНЕРЫ</div>
+      <div class="flex-container">
+        <img src="/wp-content/themes/store-child/includes/images/centr-natalii-radomskoj.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/vala-r.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="news-section sp-section">
+    <div class="container">
+      <div class="pn-title">Новости</div>
+
+      <?php
+      $args = array(
+        'cat' => 105, // блог
+        'posts_per_page' => 6,
+      );
+      ?>
+        
+      <?php $query = new WP_Query( $args ); ?>
+
+      <?php if ( $query->have_posts() ) : ?>
+        <div class="row">
+          <?php while ( $query->have_posts() ) : ?>
+            <?php $query->the_post(); ?>
+      
+            <div class="col-md-4">
+              <div class="news-item">
+                <div class="news-item__image">
+                  <a href="<?php the_permalink(); ?>" class="news-item__link">
+                    <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>" alt="">
+                  </a>
+                </div>
+                <a href="<?php the_permalink(); ?>" class="news-item__title"><?php echo the_text_max_charlength(get_the_title(), 50) ?></a>
+                <div class="news-item__excerpt"><?php echo the_text_max_charlength(get_the_excerpt(), 100); ?></div>
+              </div>
+            </div>
+
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
+        </div>
+      <?php endif; ?>
+
+    </div>
+  </div>
+
+  <div class="faq-section sp-section">
+    <div class="container">
+      <div class="pn-title">Частые вопросы</div>
+      <div class="faq-description">На нашем сайте вы можете найти много информации о гомеопатии и солях Шюслера. Конечно, по этому поводу возникают те или иные вопросы. Возможно, вы уже можете найти ответ в наших разделах часто задаваемых вопросов, также называемых часто задаваемыми вопросами.</div>
+      <div class="faq-item">
+        <div class="flex-container">
+          <div class="faq-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__title">Частые вопросы 1</div>
+            <div class="faq-item__text">Про что...</div>
+          </div>
+        </div>
+        <a href="#" class="arrow-right">
+          <img src="/wp-content/themes/store-child/includes/images/svg/faq-arrow-right.svg" alt="">
+        </a>
+      </div>
+      <div class="faq-item">
+        <div class="flex-container">
+          <div class="faq-item__image">
+            <img src="/wp-content/themes/store-child/includes/images/category-nabory.jpg" alt="">
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__title">Частые вопросы 1</div>
+            <div class="faq-item__text">Про что...</div>
+          </div>
+        </div>
+        <a href="#" class="arrow-right">
+          <img src="/wp-content/themes/store-child/includes/images/svg/faq-arrow-right.svg" alt="">
+        </a>
       </div>
     </div>
   </div>

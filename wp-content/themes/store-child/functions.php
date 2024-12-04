@@ -1376,23 +1376,27 @@ function woocommerce_change_rub_symbol( $valyuta_symbol, $valyuta_code ) {
 add_filter('woocommerce_currency_symbol', 'woocommerce_change_rub_symbol', 9999, 2);
 
 
-// Ограничение количества выводимых символов в тексте на странице специалисты
-function the_excerpt_max_charlength( $charlength ){
-    $excerpt = get_the_excerpt();
+/**
+ * Ограничение количества выводимых символов в тексте
+ * 
+ * @param string $text
+ * @param integer $charlength
+ * @return string
+ */
+function the_text_max_charlength( $text, $charlength ) {
     $charlength++;
 
-    if ( mb_strlen( $excerpt ) > $charlength ) {
-        $subex = mb_substr( $excerpt, 0, $charlength - 5 );
+    if ( mb_strlen( $text ) > $charlength ) {
+        $subex = mb_substr( $text, 0, $charlength - 5 );
         $exwords = explode( ' ', $subex );
         $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
         if ( $excut < 0 ) {
-            return mb_substr( $subex, 0, $excut );
+            return mb_substr( $subex, 0, $excut ) . '...';
         } else {
             return $subex;
         }
-        return '...';
     } else {
-        return $excerpt;
+        return $text;
     }
 }
 
