@@ -1012,20 +1012,20 @@ function start_payment() {
         'description' => 'Оплата за доступ к анкете',
         'receipt' => array(
             'customer' => array(
-                'email' => 'info@naturapharma.ru',
+                'email' => 'info@biosalts.ru',
             ),
             'items' => array(
                 array(
                     'description' => 'Оплата за доступ к анкете',
-                    'quantity' => '1.00',
+                    'quantity' => 1.000,
                     'amount' => array(
                         'value' => $summ,
                         'currency' => 'RUB'
                     ),
-                    'tax_system_code' => '1',
-                    'vat_code' => '1',
+                    // 'tax_system_code' => '1',
+                    'vat_code' => 1,
                     'payment_mode' => 'full_payment',
-                    'payment_subject' => 'service'
+                    'payment_subject' => 'commodity'
                 )
             )
         )
@@ -1037,9 +1037,9 @@ function start_payment() {
         'method' => 'POST',
         'body' => json_encode($data),
         'headers' => array(
-            'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
+            // 'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
             // Тестовый режим
-            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
+            'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
             'Content-Type' => 'application/json',
             'Idempotence-Key' => $idempotenceKey
         )
@@ -1169,7 +1169,8 @@ function create_discount_coupon($user_email) {
 // Функция для отправки письма с купоном
 function send_coupon_email($user_email, $coupon_code, $results) {
     $to = $user_email;
-    $admin_email = 'info@naturapharma.ru';
+    // $admin_email = 'info@naturapharma.ru';
+    $admin_email = 'info@biosalts.ru';
 
     // Преобразование массива с результатами
     $str = '';
@@ -1211,7 +1212,8 @@ function send_admin_email($user_email, $payment_id) {
 
     $summ = isset($custom_payment['summ']) ? $custom_payment['summ'] : 'Summ is error.';
 
-    $to = 'info@naturapharma.ru';
+    // $to = 'info@naturapharma.ru';
+    $to = 'info@biosalts.ru';
 
     $subject = 'Оплата анкеты biosalts.ru';
     $message = '
