@@ -172,6 +172,37 @@
     </div>
   </div>
 
+  <div class="testimonials-section">
+    <div class="container">
+      <div class="title-wrapper">
+        <div class="pn-title">Отзывы</div>
+        <div class="swiper-nav">
+          <div class="swiper-prev">
+            <img src="/wp-content/themes/store-child/includes/images/svg/slider-nav-arrow-left.svg" alt="">
+          </div>
+          <div class="swiper-next">
+            <img src="/wp-content/themes/store-child/includes/images/svg/slider-nav-arrow-right.svg" alt="">
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex-container">
+        <div class="testimonials-item">
+          <div class="testimonials-item__title">Клиент 354</div>
+          <div class="testimonials-item__text">Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.</div>
+        </div>
+        <div class="testimonials-item">
+          <div class="testimonials-item__title">Иван</div>
+          <div class="testimonials-item__text">Но тщательные исследования конкурентов, вне зависимости от их уровня, должны быть функционально разнесены на независимые элементы. Но стремящиеся вытеснить традиционное производство, нанотехнологии являются только методом политического участия и разоблачены. Современные технологии достигли такого уровня, что постоянное информационно-пропагандистское обеспечение нашей деятельности является качественно новой ступенью распределения внутренних резервов и ресурсов.</div>
+        </div>
+        <div class="testimonials-item">
+          <div class="testimonials-item__title">Алена Смирнова</div>
+          <div class="testimonials-item__text">Противоположная точка зрения подразумевает, что многие известные личности, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями. Сложно сказать, почему действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть представлены в исключительно положительном свете. Разнообразный и богатый опыт говорит нам, что высокотехнологичная концепция общественного уклада играет важную роль в формировании новых предложений.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <?php get_footer(); ?>

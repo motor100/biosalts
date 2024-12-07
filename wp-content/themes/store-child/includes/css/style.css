@@ -2207,6 +2207,37 @@ ul.products li.product .added_to_cart:hover {
   height: 32px;
   margin: auto;
 }
+.service-page .testimonials-section .flex-container {
+  display: flex;
+  gap: 24px;
+}
+.service-page .testimonials-section .testimonials-item {
+  width: 30%;
+}
+.service-page .testimonials-section .testimonials-item__title {
+  margin: 0 0 20px 0;
+  font-family: 'roboto-medium';
+  font-size: 24px;
+  color: var(--mine-shaft-color);
+}
+.service-page .testimonials-section .testimonials-item__text {
+  font-family: 'roboto-light';
+  font-size: 18px;
+  color: var(--mine-shaft-color);
+  line-height: 1.2;
+}
+.service-page .testimonials-section .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.service-page .testimonials-section .swiper-nav {
+  display: flex;
+  gap: 30px;
+  cursor: pointer;
+}
+.service-page .testimonials-section .swiper-nav img {
+  width: 32px;
+}
 
 
 /* to top */

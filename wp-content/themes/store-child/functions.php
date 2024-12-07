@@ -1017,15 +1017,15 @@ function start_payment() {
             'items' => array(
                 array(
                     'description' => 'Оплата за доступ к анкете',
-                    'quantity' => 1.000,
+                    'quantity' => '1.00',
                     'amount' => array(
                         'value' => $summ,
                         'currency' => 'RUB'
                     ),
-                    // 'tax_system_code' => '1',
+                    'tax_system_code' => '1',
                     'vat_code' => 1,
                     'payment_mode' => 'full_payment',
-                    'payment_subject' => 'commodity'
+                    'payment_subject' => 'service'
                 )
             )
         )
@@ -1037,9 +1037,9 @@ function start_payment() {
         'method' => 'POST',
         'body' => json_encode($data),
         'headers' => array(
-            // 'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
+            'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
             // Тестовый режим
-            'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
+            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
             'Content-Type' => 'application/json',
             'Idempotence-Key' => $idempotenceKey
         )
