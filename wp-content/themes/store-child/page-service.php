@@ -151,7 +151,7 @@
             <div class="faq-item__text">Про что...</div>
           </div>
         </div>
-        <a href="#" class="arrow-right">
+        <a href="/faq/" class="arrow-right">
           <img src="/wp-content/themes/store-child/includes/images/svg/faq-arrow-right.svg" alt="">
         </a>
       </div>
@@ -165,7 +165,7 @@
             <div class="faq-item__text">Про что...</div>
           </div>
         </div>
-        <a href="#" class="arrow-right">
+        <a href="/faq/" class="arrow-right">
           <img src="/wp-content/themes/store-child/includes/images/svg/faq-arrow-right.svg" alt="">
         </a>
       </div>

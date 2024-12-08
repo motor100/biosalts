@@ -458,4 +458,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  // Аккордеон на странице Частые вопрос faq-page
+  const faqPage = document.querySelector('.faq-page');
+
+  if (faqPage) {
+    const accordeonItems = document.querySelectorAll('.accordeon-item');
+
+    accordeonItems.forEach((item) => {
+      const accordeonItemTitle = item.querySelector('.accordeon-item-title');
+
+      accordeonItemTitle.onclick = function () {
+        item.classList.toggle('active');
+      }
+    });
+  }
+
 });
