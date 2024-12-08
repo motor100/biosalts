@@ -93,19 +93,18 @@
     <div class="container">
       <div class="pn-title">ПАРТНЕРЫ</div>
       <div class="flex-container">
-        <img src="/wp-content/themes/store-child/includes/images/centr-natalii-radomskoj.jpg" alt="">
-        <img src="/wp-content/themes/store-child/includes/images/vala-r.jpg" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/centr-natalii-radomskoj.jpg" class="centr-natalii-radomskoj" alt="">
+        <img src="/wp-content/themes/store-child/includes/images/vala-r.jpg" class="vala-r" alt="">
       </div>
     </div>
   </div>
 
   <div class="news-section sp-section">
     <div class="container">
-      <div class="pn-title">Новости</div>
 
       <?php
       $args = array(
-        'cat' => 105, // блог
+        'cat' => 432, // Новости production id 432
         'posts_per_page' => 6,
       );
       ?>
@@ -113,11 +112,12 @@
       <?php $query = new WP_Query( $args ); ?>
 
       <?php if ( $query->have_posts() ) : ?>
+        <div class="pn-title">Новости</div>
         <div class="row">
           <?php while ( $query->have_posts() ) : ?>
             <?php $query->the_post(); ?>
       
-            <div class="col-md-4">
+            <div class="col-lg-4 col-sm-6">
               <div class="news-item">
                 <div class="news-item__image">
                   <a href="<?php the_permalink(); ?>" class="news-item__link">
@@ -133,7 +133,6 @@
           <?php wp_reset_postdata(); ?>
         </div>
       <?php endif; ?>
-
     </div>
   </div>
 
@@ -191,11 +190,11 @@
           <div class="testimonials-item__title">Клиент 354</div>
           <div class="testimonials-item__text">Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.</div>
         </div>
-        <div class="testimonials-item">
+        <div class="testimonials-item hidden-small">
           <div class="testimonials-item__title">Иван</div>
           <div class="testimonials-item__text">Но тщательные исследования конкурентов, вне зависимости от их уровня, должны быть функционально разнесены на независимые элементы. Но стремящиеся вытеснить традиционное производство, нанотехнологии являются только методом политического участия и разоблачены. Современные технологии достигли такого уровня, что постоянное информационно-пропагандистское обеспечение нашей деятельности является качественно новой ступенью распределения внутренних резервов и ресурсов.</div>
         </div>
-        <div class="testimonials-item">
+        <div class="testimonials-item hidden-mobile">
           <div class="testimonials-item__title">Алена Смирнова</div>
           <div class="testimonials-item__text">Противоположная точка зрения подразумевает, что многие известные личности, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями. Сложно сказать, почему действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть представлены в исключительно положительном свете. Разнообразный и богатый опыт говорит нам, что высокотехнологичная концепция общественного уклада играет важную роль в формировании новых предложений.</div>
         </div>

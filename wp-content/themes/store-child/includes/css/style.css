@@ -2158,7 +2158,7 @@ ul.products li.product .added_to_cart:hover {
 }
 .service-page .news-section .news-item__excerpt {
   display: -webkit-box;
-  height: 68px;
+  height: 44px;
   font-size: 18px;
   line-height: 1.2;
   overflow: hidden;
@@ -2207,6 +2207,9 @@ ul.products li.product .added_to_cart:hover {
   height: 32px;
   margin: auto;
 }
+.service-page .faq-section .arrow-right img {
+  width: 100%;
+}
 .service-page .testimonials-section .flex-container {
   display: flex;
   gap: 24px;
@@ -2235,8 +2238,13 @@ ul.products li.product .added_to_cart:hover {
   gap: 30px;
   cursor: pointer;
 }
-.service-page .testimonials-section .swiper-nav img {
+.service-page .testimonials-section .swiper-prev,
+.service-page .testimonials-section .swiper-next {
   width: 32px;
+  height: 32px;
+}
+.service-page .testimonials-section .swiper-nav img {
+  width: 100%;
 }
 
 /* faq page */
@@ -2283,7 +2291,7 @@ ul.products li.product .added_to_cart:hover {
   padding: 0 0 20px 0;
 }
 .faq-page .accordeon-section .accordeon-item.active .accordeon-text {
-  max-height: 100px;
+  max-height: 300px;
 }
 .faq-page .accordeon-section .accordeon-item .arrow {
   position: absolute;
@@ -2321,6 +2329,14 @@ ul.products li.product .added_to_cart:hover {
   transform: rotate(-45deg);
 }
 
+/* documents page */
+.documents-page .documents-item {
+  margin: 15px 0;
+}
+.documents-page .documents-item a {
+  font-size: 18px;
+  color: var(--text-color);
+}
 
 /* to top */
 .to-top {
@@ -3800,6 +3816,36 @@ a.remove {
   .service-page .partnership-section .partnership-btn {
     font-size: 18px;
   }
+  .service-page .pharmacy-section .pharmacy-description {
+    font-size: 22px;
+  }
+  .service-page .pn-title {
+    font-size: 52px;
+  }
+  .service-page .news-section .news-item__title {
+    font-size: 22px;
+  }
+  .service-page .news-section .news-item__excerpt {
+    height: 39px;
+    font-size: 16px;
+  }
+  .service-page .faq-section .faq-description {
+    font-size: 22px;
+  }
+  .service-page .testimonials-section .testimonials-item__title {
+    font-size: 22px;
+  }
+
+  /* faq page */
+  .faq-page .faq-description {
+    font-size: 22px;
+  }
+  .faq-page .accordeon-section .section-title {
+    font-size: 30px;
+  }
+  .faq-page .accordeon-section .accordeon-item-title {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (max-width : 1200px) {
@@ -4250,6 +4296,46 @@ a.remove {
   }
   .service-page .desc-section .list-item {
     font-size: 16px;
+  }
+  .service-page .pharmacy-section .pharmacy-description {
+    font-size: 20px;
+  }
+  .service-page .pharmacy-section .pharmacy-btn {
+    width: 300px;
+    padding: 12px 0;
+  }
+  .service-page .sp-section {
+    margin: 0 0 40px 0;
+  }
+  .service-page .pn-title {
+    font-size: 48px;
+  }
+  .service-page .partners-section .flex-container {
+    gap: 50px;
+  }
+  .service-page .news-section .news-item__title {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+  }
+  .service-page .faq-section .faq-description {
+    font-size: 20px;
+  }
+  .service-page .testimonials-section .testimonials-item__title {
+    font-size: 20px;
+  }
+  .service-page .testimonials-section .testimonials-item__text {
+    font-size: 16px;
+  }
+
+  /* faq page */
+  .faq-page .faq-description {
+    font-size: 20px;
+  }
+  .faq-page .accordeon-section .section-title {
+    font-size: 28px;
+  }
+  .faq-page .accordeon-section .accordeon-item-title {
+    font-size: 20px;
   }
 
   /* bolezni ot a do ya page */
@@ -4804,6 +4890,48 @@ a.remove {
     font-size: 24px;
     line-height: 2.7;
   }
+  .service-page .pharmacy-section .pharmacy-description {
+    font-size: 18px;
+  }
+  .service-page .partners-section .centr-natalii-radomskoj {
+    width: 300px;
+  }
+  .service-page .partners-section .vala-r {
+    width: 100px;
+  }
+  .service-page .sp-section {
+    margin: 0 0 30px 0;
+  }
+  .service-page .pn-title {
+    font-size: 42px;
+  }
+  .service-page .news-section .news-item__title {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .service-page .faq-section .faq-description {
+    font-size: 18px;
+  }
+  .service-page .faq-section .faq-item__content {
+    padding: 30px;
+  }
+  .service-page .faq-section .arrow-right {
+    right: 30px;
+  }
+  .service-page .faq-section .faq-item__title {
+    font-size: 22px;
+  }
+
+  /* faq page */
+  .faq-page .faq-description {
+    font-size: 18px;
+  }
+  .faq-page .accordeon-section .section-title {
+    font-size: 24px;
+  }
+  .faq-page .accordeon-section .accordeon-item-title {
+    font-size: 18px;
+  }
 
   /* catalog section */
   .catalog-section .catalog-tabs-contents .children__title {
@@ -5345,6 +5473,52 @@ a.remove {
     font-size: 19px;
     line-height: 2.2;
   }
+  .service-page .pharmacy-section .pharmacy-section-subtitle {
+    font-size: 38px;
+  }
+  .service-page .pharmacy-section .pharmacy-description {
+    font-size: 16px;
+  }
+  .service-page .pharmacy-section .pharmacy-btn {
+    font-size: 18px;
+  }
+  .service-page .partners-section .centr-natalii-radomskoj {
+    width: 200px;
+  }
+  .service-page .partners-section .vala-r {
+    width: 80px;
+  }
+  .service-page .sp-section {
+    margin: 0 0 20px 0;
+  }
+  .service-page .pn-title {
+    font-size: 38px;
+  }
+  .service-page .faq-section .faq-description {
+    font-size: 16px;
+  }
+  .service-page .faq-section .flex-container {
+    height: 140px;
+  }
+  .service-page .faq-section .faq-item__content {
+    padding: 20px;
+  }
+  .service-page .testimonials-section .testimonials-item {
+    width: 50%;
+  }
+  .service-page .faq-section .arrow-right {
+    right: 20px;
+    width: 25px;
+    height: 25px;
+  }
+  .service-page .testimonials-section .swiper-prev,
+  .service-page .testimonials-section .swiper-next {
+    width: 25px;
+    height: 25px;
+  }
+  .service-page .faq-section .faq-item__title {
+    font-size: 20px;
+  }
 
   /* we use cookie */
   .we-use-cookie {
@@ -5543,6 +5717,21 @@ a.remove {
   .bolezni-ot-a-do-ya-page .title {
     font-size: 18px;
   }
+
+  /* service page */
+  .service-page .sp-section {
+    margin: 0;
+    padding: 20px 0;
+  }
+  .service-page .pharmacy-section .pharmacy-section-subtitle {
+    font-size: 34px;
+  }
+  .service-page .pn-title {
+    font-size: 34px;
+  }
+  .service-page .faq-section .faq-item__title {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width : 480px) {
@@ -5738,6 +5927,16 @@ a.remove {
   }
   .service-page .desc-section .sotrudnichestvo-subtitle {
     font-size: 28px;
+  }
+  .service-page .testimonials-section .hidden-small {
+    display: none;
+  }
+  .service-page .testimonials-section .testimonials-item {
+    width: 100%;
+  }
+  .service-page .partners-section .flex-container {
+    gap: 20px;
+    flex-direction: column;
   }
 
   /* we use cookie */
