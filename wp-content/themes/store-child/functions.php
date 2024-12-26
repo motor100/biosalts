@@ -857,23 +857,24 @@ function create_custom_payment_table() {
     }
 }
 
-// function delete_all_custom_payment_records() {
-//     global $wpdb;
+/*
+function delete_all_custom_payment_records() {
+    global $wpdb;
 
-//     // Название таблицы
-//     $table_name = $wpdb->prefix . 'custom_payments';
+    // Название таблицы
+    $table_name = $wpdb->prefix . 'custom_payments';
 
-//     // Удаление всех записей из таблицы
-//     $wpdb->query("DELETE FROM $table_name");
-// }
-// delete_all_custom_payment_records();
+    // Удаление всех записей из таблицы
+    $wpdb->query("DELETE FROM $table_name");
+}
+delete_all_custom_payment_records();
+*/
 
 
 /*
  * Ниже описаны функции для взаимодействия с таблицей custom_payments,
  * отвечающей за хранение данных, которые необходимы для фиксации оплат
  * за прохождение анкет и для получения статуса прохождения данных анкет
- * Если возникнет необходимость что-то уточнить - тг @dmalfed
 */
 
 // Вспомогательный код - удалить
@@ -1136,7 +1137,13 @@ function set_counters() {
 }
 
 
-// Работа с купонами из woo_commerce
+/**
+ * Работа с купонами из woo_commerce
+ * Генерация купона
+ * 
+ * @param string $user_email Емайл пользователя
+ * @return string $coupon_code Код купона
+ */
 function create_discount_coupon($user_email) {
     $coupon_code = 'DISCOUNT_' . strtoupper(wp_generate_password(8, false)); // Уникальный код купона
     $discount_amount = '10';
@@ -1239,6 +1246,7 @@ function handle_questionnaire_completion() {
     $payment_id = $_POST['payment_id'];
     $results = json_decode(stripslashes($_POST['results']), true);
 	
+    // Генерация купона
     $coupon_code = create_discount_coupon($user_email);
     
     // Отправка email пользователю
@@ -1597,3 +1605,427 @@ function disable_wp_blocks() {
 }
 
 add_action( 'init', 'disable_wp_blocks', 100 );
+
+
+
+add_filter( 'woocommerce_download_product_filepath', 'woocommerce_download_product_filepath_filter', 10, 5 );
+
+/**
+ * Добавление параметров url в ссылку на анкету
+ * 
+ * Function for `woocommerce_download_product_filepath` filter-hook.
+ * 
+ * @param string               $file_path     File path.
+ * @param string               $email_address Email address.
+ * @param WC_Order|bool        $order         Order object or false.
+ * @param WC_Product           $product       Product object.
+ * @param WC_Customer_Download $download      Download data.
+ *
+ * @return string
+ */
+function woocommerce_download_product_filepath_filter( $file_path, $email_address, $order, $product, $download ){
+    return $file_path . '?d=' . $order->get_id();
+}
+
+
+// Создание уникальной строки длина 30 символов
+function get_random_string() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $string = '';
+    $length = 30;
+
+    for ($i = 0; $i < $length; $i++) {
+        $string .= $characters[mt_rand(0, strlen($characters) - 1)];
+    }
+
+    return $string;
+}
+
+
+// Функция для отправки письма с купоном
+function send_coupon_email_new($user_email, $coupon_code, $results) {
+
+    // Преобразование массива с результатами
+    $str = '<p><b>Ваш результат</b></p>';
+    foreach($results as $value) {
+      $tmp = '<p>';
+      $tmp .= 'Соль: ' . $value['salt'] . '<br>';
+      $tmp .= $value['description'];
+      $tmp .= '</p>';
+      $str .= $tmp;
+    }
+
+    $str .= '<p><b>Как принимать</b></p>';
+    foreach($results as $value) {
+      $tmp = '<p>';
+      $tmp .= $value['prescription_14'];
+      $tmp .= '</p>';
+      $str .= $tmp;
+    }
+
+    $subject = 'Ваш купон на скидку';
+    $message = '
+        <html>
+        <head>
+            <title>Ваш купон на скидку</title>
+        </head>
+        <body>
+            <p>Здравствуйте!</p>
+            <p>Спасибо за ваш запрос. Мы рады предоставить вам одноразовый купон на скидку 10% на любой заказ в нашем магазине. Используйте код купона при оформлении заказа:</p>
+            <p><strong>' . $coupon_code . '</strong></p>
+            <p>Купон действует в течение 1 месяца.</p>'
+            . $str .
+            '<p>С уважением,<br> Соли Шюсслера</p>
+        </body>
+        </html>
+    ';
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    
+    wp_mail($user_email, $subject, $message, $headers);
+}
+
+
+// Cоздание маршрута для проверки заказа
+add_action( 'rest_api_init', function(){
+
+    // Пространство имен
+    $namespace = 'myplugin/v1';
+
+    // Маршрут
+    $route = '/posts/(?P<id>\d+)';
+
+    // Параметры конечной точки (маршрута)
+    $route_params = [
+        'methods'  => 'GET',
+        'callback' => 'check_order',
+    ];
+
+    register_rest_route( $namespace, $route, $route_params );
+
+} );
+
+// Функция обработчик конечной точки (маршрута)
+function check_order( WP_REST_Request $request ) {
+    global $wpdb;
+
+    // Преобразование символов в html сущности
+    $order_id = htmlspecialchars($request['id']);
+
+    // Проверка строки на преобразование в число
+    if ( !is_numeric($order_id) ) {
+        return ['status' => false];
+    }
+
+    // Получение объекта заказа WC_Order
+    $order = wc_get_order( (int) $order_id );
+
+    if ( $order ) {
+
+        /**
+         * Объект загрузок
+         * Документация https://wp-kama.ru/plugin/woocommerce/function/WC_Customer_Download_Data_Store
+         *
+         */
+        $WC_Customer_Download_Data_Store = new WC_Customer_Download_Data_Store();
+
+        /**
+         * @param string $order_id номер заказа
+         * @return array массив с вложенными объектами
+         */
+        $cdds = $WC_Customer_Download_Data_Store->get_downloads( ['order_id' => $order_id] );
+
+        // Если у этого заказа нет скачиваемых товаров
+        if ($cdds == []) {
+            return ['status' => false];
+        }
+
+        // Лимит загрузок
+        // Если лимит загрузок не установлен, то ключа 'downloads_remaining' не будет
+        $downloads_remaining = $cdds[0]['data']['downloads_remaining'];
+
+        // Если лимит загрузок установлен
+        if ($downloads_remaining != '') {
+            
+            // Количество загрузок
+            $download_count = $cdds[0]['data']['download_count']; 
+
+            // Количество загрузок должно быть меньше чем осталось
+            if (intval($download_count) >= intval($downloads_remaining)) {
+                return ['status' => $downloads_remaining];
+            }
+        }
+
+        // Дата окончания действия ссылки в формате WC_DateTime
+        // Если дата окончания не установлена, то будет пустая строка или null
+        $access_expires = $cdds[0]->get_access_expires();
+
+        // Если установлена дата окончания действия
+        if ($access_expires) {
+            // Преобразование даты окончания и текущей даты в форматах 'Ymd' в число и сравнение чисел
+            if (intval(date('Ymd')) > intval($access_expires->format('Ymd'))) {
+                return ['status' => false];
+            }
+        }
+
+        // Вставка записи в таблицу custom_api_tokens
+        $table_name = $wpdb->prefix . 'custom_api_tokens';
+
+        // Генерация токена
+        $token = get_random_string();
+
+        $rezult = $wpdb->insert(
+            $table_name,
+            array(
+                'order_id' => intval($order_id),
+                'token' => $token,
+                'created_at' => date("Y-m-d H:i:s"),
+            ),
+            array('%d', '%s', '%s')
+        );
+
+        // Проверяем результат и отправляем ответ
+        if ($rezult == false) {
+            return ['status' => false];
+        }
+
+        return [
+            'status' => true,
+            'token' => $token
+        ];
+    }
+
+    return ['status' => false];
+}
+
+
+// Cоздание маршрута для сохранения результатов анкеты
+add_action( 'rest_api_init', function(){
+
+    // Пространство имен
+    $namespace = 'myplugin/v1';
+
+    // Маршрут
+    $route = '/authors/(?P<id>\d+)';
+
+    // Параметры конечной точки (маршрута)
+    $route_params = [
+        'methods'  => 'POST',
+        'callback' => 'questionnaire_rezult',
+        'args' => array(
+            'token' => array(
+                'required' => true,  // является ли параметр обязательным. Может быть только true
+            )
+        ),
+    ];
+
+    register_rest_route( $namespace, $route, $route_params );
+
+} );
+
+// Функция сохранения результатов анкеты 
+function questionnaire_rezult( WP_REST_Request $request ) {
+    global $wpdb;
+
+    // Преобразование символов в html сущности
+    $order_id = htmlspecialchars($request['id']);
+
+    // Проверка строки на преобразование в число
+    if ( !is_numeric($order_id) ) {
+        return [
+            'status' => false,
+            'error' => 'order_id is not numeric'
+        ];
+    }
+
+    // Проверка content_type
+    $content_type = $request->get_content_type();
+    if ($content_type['value'] != 'application/json') {
+        return [
+            'status' => false,
+            'error' => 'content type is not application/json'
+        ];
+    }
+
+    // Получение параметра token
+    $token = $request->get_param('token');
+
+    // Проверка параметра token
+    if ( !$token ) {
+        return [
+            'status' => false,
+            'error' => 'token is required'
+        ];
+    }
+
+    // Получение записи из таблицы custom_api_tokens с условиями order_id и token
+    $table_name = $wpdb->prefix . 'custom_api_tokens';
+
+    $result_token = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE order_id = %s AND token = %d", $order_id, $token), ARRAY_A);
+
+    // Проверка результатов
+    if ( !$result_token ) {
+        return [
+            'status' => false,
+            'error' => 'order_id and token not found in db'
+        ];
+    }
+
+    // Удаление записи из таблицы custom_api_tokens с условиями order_id и token
+    $wpdb->delete($table_name, ["order_id" => $order_id], ["%d"]);
+
+    // Получение json из запроса
+    $data = $request->get_json_params();
+
+    // Вставка в таблицу
+    $table_name = $wpdb->prefix . 'questionnaire_rezults';
+
+    $rezult = $wpdb->insert(
+        $table_name,
+        array(
+            'order_id' => $order_id,
+            'firstname' => $data['customer']['firstname'],
+            'secondname' => $data['customer']['secondname'],
+            'lastname' => $data['customer']['lastname'],
+            'email' => $data['customer']['email'],
+            'phone' => $data['customer']['phone'],
+            'checkboxes' => json_encode($data['checkboxes']),
+            'rezults' => json_encode($data['rezults']),
+            'created_at' => date("Y-m-d H:i:s"),
+        ),
+        array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
+    );
+    
+
+    // Проверяем результат и отправляем ответ
+    if ($rezult == false) {
+        return [
+            'status' => false,
+            'error' => 'data not insert to db'
+        ];
+    }
+
+    // Генерация купона
+    $coupon_code = create_discount_coupon($data['customer']['email']);
+    
+    // Отправка email пользователю
+    send_coupon_email_new($data['customer']['email'], $coupon_code, $data['rezults']);
+
+    return ['status' => true];
+}
+
+
+// Добавление нового элемента меню для вывода результатов анкеты
+add_action( 'admin_menu', 'view_questionnaire_rezults', 25 );
+ 
+function view_questionnaire_rezults(){
+
+    add_menu_page(
+        'Результаты анкеты', // тайтл страницы
+        'Анкета', // текст ссылки в меню
+        'manage_options', // права пользователя, необходимые для доступа к странице
+        'questionnaire-rezults', // ярлык страницы
+        'view_questionnaire_rezults_callback', // функция, которая выводит содержимое страницы
+        'dashicons-images-alt2', // иконка, в данном случае из Dashicons
+        98 // позиция в меню
+    );
+}
+
+
+// Вывод html в админке 
+function view_questionnaire_rezults_callback() {
+    // Если есть параметр id, то показываю страницу анкеты по id
+    if (!empty($_REQUEST['id']) && $_REQUEST['id']!='-1') {
+        single_questionnaire_rezults_html($_REQUEST['id']);
+    } else { // Иначе показываю список последних 50 анкет
+        all_questionnaire_rezults_html();
+    }
+}
+
+
+// Функция для вывода html и показа последних 50 анкет в админке 
+function all_questionnaire_rezults_html() {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'questionnaire_rezults';
+
+    // Выполняем запрос для получения данных
+    $results = $wpdb->get_results("SELECT * FROM $table_name ORDER BY id DESC LIMIT 50", ARRAY_A);
+
+    echo '<div class="wrap"><h2>' . get_admin_page_title() . '</h2>';
+    echo '<table class="wp-list-table widefat fixed striped table-view-list">';
+    echo '<thead><tr><td width="40px">№</td><td>Заголовок</td><td>Дата</td></tr></thead>';
+    echo '<tbody>';
+
+    foreach($results as $value) {
+        echo '<tr>';
+        echo '<td>' . $value['id'] . '</td>';
+        echo '<td class="title column-title has-row-actions column-primary page-title">' ;
+        echo '<strong><a href="' . get_admin_url(null, 'admin.php?page=questionnaire-rezults') . '&id=' . $value['id'] . '" class="row-title">' . $value['firstname'] . ' ' . $value['lastname'] . '</a></strong>';
+        echo '</td>';
+        $created_at = strtotime($value['created_at']);
+        echo '<td>' . date("d-m-Y", $created_at) . '</td>';
+        echo '</tr>';
+    }
+
+    echo '</tbody>';
+    echo '</table>';
+    echo '</div>';
+}
+
+// Функция для вывода html и показа одной анкеты по id
+function single_questionnaire_rezults_html($id) {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'questionnaire_rezults';
+
+    // Выполняем запрос для получения данных
+    $results = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %s", $id), ARRAY_A);
+
+    // Преобразование массива с результатами
+    $results_array = json_decode($results['rezults']);
+    $results_html = '';
+    $results_html .= '<p><b>Ваш результат</b></p>';
+    foreach($results_array as $value) {
+        $tmp = '<p>';
+        $tmp .= 'Соль: ' . $value->salt . '<br>';
+        $tmp .= $value->description;
+        $tmp .= '</p>';
+        $results_html .= $tmp;
+    }
+
+    $results_html .= '<p><b>Как принимать</b></p>';
+    foreach($results_array as $value) {
+        $tmp = '<p>';
+        $tmp .= $value->prescription_14;
+        $tmp .= '</p>';
+        $results_html .= $tmp;
+    }
+
+    // Преобразование массива с отмеченными чекбоксами
+    $checkboxes_array = json_decode($results['checkboxes']);
+    $checkboxes_html = '';
+    foreach($checkboxes_array as $value) {
+        $tmp = '<h4>' . $value->title . '</h4>';
+        foreach($value->sections as $section) {
+            $tmp .= '<p>' . $section->title . '</p>';
+            $tmp .= '<ol>';
+            foreach($section->checked as $checbox) {
+                $tmp .= '<li>' . $checbox . '</li>';
+            }
+            $tmp .= '</ol>';
+        }
+        $checkboxes_html .= $tmp;
+    }
+
+    echo '<div class="wrap"><h2>Анкета</h2>';
+    echo '<p>Номер заказа ' . $results['order_id'] . '</p>';
+    echo '<p>Имя ' . $results['firstname'] . '</p>';
+    echo '<p>Отчество ' . $results['secondname'] . '</p>';
+    echo '<p>Фамилия ' . $results['lastname'] . '</p>';
+    echo '<p>Email ' . $results['email'] . '</p>';
+    echo '<p>Телефон ' . $results['phone'] . '</p>';
+    $created_at = strtotime($results['created_at']);
+    echo '<p>Дата ' . date("d-m-Y", $created_at) . '</p>';
+    echo $results_html;
+    echo $checkboxes_html;    
+}

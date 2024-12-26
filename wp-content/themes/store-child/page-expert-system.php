@@ -114,103 +114,49 @@
         <div class="copyright">Экспертная система подбора солей Шюсслера защищена авторским правом.</div>
       </div>
     </div>
-
-    <div id="coupon-section" class="coupon-section">
-      <div class="container">
-        <?php wc_get_template( 'checkout/form-coupon.php' );  ?>
-      </div>
-    </div>
-    
-    <div class="buy-section">
-      <div class="container">
-        <div id="start-payment-btns-wrapper" style="display: none">
-          <div class="flex-container">
-            <div class="btn-wrapper">
-              <button type="button" class="buy-btn buy-select-btn js-start-payment-btn" data-summ="1200">Оплатить подбор</button>
-              <div class="underbtn-text">
-                <div class="price">
-                  <span class="price-summ">1200</span>
-                  <span class="price-currency">р.</span>
-                </div>
-              </div>
-            </div>
-            <div class="btn-wrapper">
-              <button type="button" class="buy-btn byu-select-and-salt-btn js-start-payment-btn" data-summ="6000">Оплатить подбор + соли</button>
-              <div class="underbtn-text">
-                <div class="price">
-                  <span class="price-summ">6000</span>
-                  <span class="price-currency">р.</span>
-                </div>
-                <div class="discount">скидка 20%<br>+бесплатная доставка</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <div id="payment-modal" class="modal">
-    <div class="modal-content">
-        <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
-        <span class="close" id="close-payment-modal-btn">&times;</span>
-      <div id="payment-form"></div>
-    </div>
-  </div>
+  <div class="catalog-section">
+    <div class="container">
+      <div class="cat-wrapper">
 
-  <div class="container">
-    <div id="salts_questionnaire" style="display: none; height: 1000px;"></div>
-    <!-- Iframe будет добавлен сюда динамически --><br />
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const wrapper = document.getElementById('salts_questionnaire');
+        <?php
+        // Запрос
+        $query = new WP_Query( array (
+          'post_type'      => 'product',
+          'post_status'    => 'publish',
+          'posts_per_page' => '-1',
+          'tax_query' => array( array (
+            'taxonomy' => 'product_cat',
+            'field'    => 'term_id',
+            'terms'    => 433, // local 429 prod 433
+          )),
+        ));
 
-        // Функция для создания и вставки iframe
-        function addIframe() {
-          const iframe = document.createElement('iframe');
-          
-          const docSrc = 'https://docs.google.com/spreadsheets/d/1V6u4y2-ctmQ_FdDtL_13nNnEnp6h1Qol/edit?usp=sharing&ouid=113048819080938888826&rtpof=true&sd=true'
-          const appSrc = 'https://schuessler-salts-calc-ovg192ctj-dmitry-fedoseevs-projects.vercel.app'
-          
-          iframe.src = `${appSrc}?source=${docSrc}`;
-          iframe.style.height = "1000px";
-          iframe.style.width = "100%"; // Растягиваем iframe по ширине родительского div
-          wrapper.appendChild(iframe);
+        // Вывод записей
+        if ( $query->have_posts() ) {
+
+          // Подключение шаблона product loop start
+          require ( get_stylesheet_directory() . '/woocommerce/loop/loop-start.php' );
+
+          while ( $query->have_posts() ) {
+            $query->the_post();
+
+            // Подключение шаблона product loop
+            require ( get_stylesheet_directory() . '/woocommerce/content-product.php' );
+          }
+
+          // Подключение шаблона product loop end
+          require ( get_stylesheet_directory() . '/woocommerce/loop/loop-end.php' );
+
+          wp_reset_postdata();
+
         }
+        ?>
 
-        // Создаем Mutation Observer
-        const observer = new MutationObserver((mutationsList, observer) => {
-          mutationsList.forEach(mutation => {
-            if (mutation.attributeName === 'style') {
-              const displayStyle = window.getComputedStyle(wrapper).display;
-              if (displayStyle === 'block') {
-                addIframe();
-                // После добавления iframe больше не нужно следить за изменениями
-                observer.disconnect();
-              }
-            }
-          });
-        });
-
-        // Настраиваем наблюдение за изменениями атрибутов стилей
-        observer.observe(wrapper, { attributes: true });
-      });
-    </script>
-    <!--Весь код в _custom.js в теме--><br />
-    <!-- <button type="button" id="start-payment-btn" style="display: none">Пройти анкету</button><br /> -->
-    <!-- &times;<br /> -->
-    <!--Весь код в _custom.js в теме-->
+      </div>
+    </div>
   </div>
-
-  <script>
-    const modal = document.getElementById('payment-modal');
-    const spanClose = document.getElementsByClassName('close')[0];
-
-    spanClose.onclick = function() {
-      modal.style.display = 'none';
-    }
-  </script>
 
 </div>
 

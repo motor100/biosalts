@@ -1343,10 +1343,15 @@ ul.products li.product .added_to_cart:hover {
 .single-product .product .summary {
   margin-top: 20px;
 }
-.single-product .product .flex-viewport {
+.single-product .product .flex-viewport,
+.single-product .product .woocommerce-product-gallery--without-images {
   height: 100%;
   border: 2px solid var(--darkblue-color);
   border-radius: 30px;
+  overflow: hidden;
+}
+.single-product .product .woocommerce-product-gallery--without-images .woocommerce-product-gallery__wrapper img {
+  width: 100%;
 }
 .single-product .product .product_title {
   margin: 0 0 10px 0;
@@ -1422,6 +1427,9 @@ ul.products li.product .added_to_cart:hover {
   color: var(--nero-color);
   line-height: 1;
   cursor: pointer;
+}
+.single-product .product.virtual .quantity {
+  display: none;
 }
 .single-product .product .flex-control-thumbs {
   list-style: none;

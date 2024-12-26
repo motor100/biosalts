@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
   // Mobile menu
   const body = document.querySelector('body');
   const burgerMenuWrapper = document.querySelector('.burger-menu-wrapper');
@@ -310,74 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
   });
-
-
-  // AJAX получение скидки для купона на странице Подбор солей
-  if (window.location.pathname === '/salts_questionnaire/' || 
-    window.location.pathname === '/expert-system/') {
-
-    const woocommerceFormCoupon = document.querySelector('.woocommerce-form-coupon');
-    const FormCouponSubmitBtn = woocommerceFormCoupon.querySelector('.button');
-    const couponCode = woocommerceFormCoupon.querySelector('#coupon_code');
-
-    FormCouponSubmitBtn.onclick = function(event) {
-      event.preventDefault();
-
-      fetch(Myscrt.ajaxurl, {
-        method: 'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        cache: 'no-cache',
-        body: 'action=get_coupon&coupon_code=' + couponCode.value,
-      })
-      .then((response) => response.text())
-      .then((amount) => {
-        // если пришла строка, то пересчет стоимости, иначе сообщение "Этот промокод больше не работает"
-        const couponErrorNotice = document.getElementById('coupon-error-notice');
-
-        function calcPrice(amount) {
-          const startPaymentBtn = document.querySelectorAll('.js-start-payment-btn');
-          const priceSumm = document.querySelectorAll('.price-summ');
-
-          // Сумма оплаты 1200
-          const calc1200 = 1200 - 1200 * amount/100
-          startPaymentBtn[0].dataset.summ = calc1200;
-          priceSumm[0].innerText = calc1200;
-
-          // Сумма оплаты 6000
-          /*
-          const calc6000 = 6000 - 6000 * amount/100
-          startPaymentBtn[1].dataset.summ = calc1200;
-          priceSumm[1].innerText = 6000 - 6000 * amount/100;
-          */
-        }
-
-        let text = '';
-
-        if (amount != '0') {
-          text = 'Код купона успешно добавлен.';
-          calcPrice(amount);
-        } else {
-          text = 'Этот промокод больше не работает';
-        }
-
-        // Вставка span
-        if (!couponErrorNotice) {
-          let span = document.createElement('span');
-          span.textContent = text;
-          span.classList = 'coupon-error-notice';
-          span.id = 'coupon-error-notice';
-          woocommerceFormCoupon.querySelector('.coupon').append(span);
-        } else {
-          couponErrorNotice.innerText = text;
-        }
-        
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
-
-  }
 
 
   const callbackForm = document.getElementById('callback-modal-form');
