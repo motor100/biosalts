@@ -35,7 +35,7 @@ function my_dequeue_style(){
 * $temp_debug = false добавляется версия wp
 */
 
-$temp_debug = true;
+$temp_debug = false;
 $ver = '';
 if ($temp_debug) {
   $ver = date('dis');
@@ -58,9 +58,6 @@ function add_scripts() {
 
     wp_enqueue_script( 'imask', get_stylesheet_directory_uri() . '/includes/js/imask.min.js' );
     wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/includes/js/main.js','',$ver);
-	
-    // Подключение скрипта для страницы Анкета по подбору солей Шюсслера
-	wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/includes/js/_custom.js');
 
     // включение файла admin-ajax.php для front
     wp_localize_script('custom-script', 'my_ajax_obj', array(
@@ -91,41 +88,6 @@ function add_styles() {
         wp_enqueue_style( 'swiper', get_stylesheet_directory_uri() . '/includes/css/swiper-bundle.min.css' );
     }
     wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/includes/css/style.css','',$ver );
-}
-
-
-// Вывод кастомного нижнего меню. Разделение на части
-function custom_nav_menu($start = 0, $end = NULL) {
-
-    $menu_name = 'secondary'; // поставить галочку Дополнительное меню для footer_menu
-    $locations = get_nav_menu_locations();
-
-    if ( $locations && isset( $locations[ $menu_name ] ) ) {
-
-        // получаю элементы меню
-        $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
-
-        // создаю список
-        $menu_list = '<ul class="menu">';
-
-        if (!$end) {
-          $end = count($menu_items);
-        }
-
-        foreach ( $menu_items as $key => $menu_item ){
-          
-          if ($key >= $start && $key <= $end) {
-            $menu_list .= '<li class="menu-item"><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
-          }
-        }
-
-        $menu_list .= '</ul>';
-    
-    } else {
-        $menu_list = '<p>Меню "' . $menu_name . '" не определено.</p>';
-    }
-
-    return $menu_list;
 }
 
 
@@ -163,109 +125,6 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   return $urls;
 }
 
-
-//Каталог продукции
-function render_parents_catalog() {
-  $taxonomy     = 'product_cat';
-  $orderby      = 'ID';
-  $show_count   = 0;
-  $pad_counts   = 0;
-  $hierarchical = 1;
-  $title        = '';
-  $empty        = 0;
-  $args = array(
-    'taxonomy'     => $taxonomy,
-    'orderby'      => $orderby,
-    'show_count'   => $show_count,
-    'pad_counts'   => $pad_counts,
-    'hierarchical' => $hierarchical,
-    'title_li'     => $title,
-    'exclude'      => '15',
-    'hide_empty'   => $empty
-  );
-  $all_categories = get_categories( $args );
-  foreach ($all_categories as $cat) {
-    if($cat->category_parent == 0) { ?>
-      <div class="tax__item term-<?php echo $cat->term_id; ?>">
-        <div class="catalog__item">
-          <?php
-          $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-          $image = wp_get_attachment_url( $thumbnail_id );
-          ?>
-			<div class="item__image">
-				<a href="<?php echo get_term_link($cat->term_id); ?>">
-					<img src="<?php echo $image ?>" alt="catImage">
-				</a>
-			</div>
-			<div class="item__info">
-				<div class="item__border">
-					<a href="<?php echo get_term_link($cat->term_id); ?>" class="item__title"><?php echo $cat->name ?></a>
-				</div>
-			</div>
-        </div>
-      </div>
-    <?php }
-  }
-}
-
-//Каталог подкатегорий
-function render_catalog() {
-  $taxonomy     = 'product_cat';
-  $orderby      = 'ID';
-  $show_count   = 0;
-  $pad_counts   = 0;
-  $hierarchical = 1;
-  $title        = '';
-  $empty        = 0;
-  $args = array(
-    'taxonomy'     => $taxonomy,
-    'orderby'      => $orderby,
-    'show_count'   => $show_count,
-    'pad_counts'   => $pad_counts,
-    'hierarchical' => $hierarchical,
-    'title_li'     => $title,
-    'exclude'      => '15',
-    'hide_empty'   => $empty
-  );
-  $all_categories = get_categories( $args );
-    
-  foreach ($all_categories as $cat) {
-    if($cat->category_parent == 0) {
-      $category_id = $cat->term_id;
-      
-      $args2 = array(
-        'taxonomy'     => $taxonomy,
-        'child_of'     => 0,
-        'parent'       => $category_id,
-        'order'      => 'DESC',
-        'orderby'      => 'ID',
-        'show_count'   => $show_count,
-        'pad_counts'   => $pad_counts,
-        'hierarchical' => $hierarchical,
-        'title_li'     => $title,
-        'hide_empty'   => $empty
-      );
-      $sub_cats = get_categories( $args2 );
-      if($sub_cats) {
-        foreach($sub_cats as $sub_category) { ?>
-          <?php
-          $thumbnail_id = get_term_meta($sub_category->term_id, 'thumbnail_id', true);
-          $image = wp_get_attachment_url($thumbnail_id);
-          ?>
-            <div class="children__item">
-                <div class="children__image">
-                    <a href="<?php echo get_term_link($sub_category); ?>">
-                        <img src="<?php echo $image ?>" alt="catImage">
-                    </a>
-                </div>
-                <a class="subcat__link" href="<?php echo get_term_link($sub_category); ?>"><?php echo $sub_category->name ?></a>
-            </div>
-
-        <?php }
-      } ?>
-    <?php }
-  }
-}
 
 // Каталог продукции
 function render__catalog($id_gr) {
@@ -464,16 +323,6 @@ function get_posts_per_letter() {
   return $html;
 }
 
-// обертка для категорий
-// add_action('woocommerce_before_main_content', 'add_wrapper_to_product', 30);
-// add_action('woocommerce_after_main_content', 'add_close_wrapper_to_product', 20);
-
-// function add_wrapper_to_product() {
-
-// }
-// function add_close_wrapper_to_product() {
-
-// }
 
 // Добавление post_type post в результаты поска 
 add_filter( 'dgwt/wcas/search_query/args', function ( $args ) {
@@ -833,248 +682,6 @@ function change_relatedproducts_text($new_text, $related_text, $source) {
 add_filter('gettext', 'change_relatedproducts_text', 10, 3);
 
 
-// Таблица для хранения данных о прохождениях анкет
-function create_custom_payment_table() {
-    global $wpdb;
-
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
-        $charset_collate = $wpdb->get_charset_collate();
-
-        $sql = "CREATE TABLE $table_name (
-            id mediumint(9) NOT NULL AUTO_INCREMENT,
-            payment_id varchar(255) NOT NULL,
-            completion boolean DEFAULT false NOT NULL,
-            summ varchar(255) NOT NULL,
-            PRIMARY KEY (id)
-        ) $charset_collate;";
-
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql);
-
-        add_option('custom_payment_table_created', true);
-    }
-}
-
-/*
-function delete_all_custom_payment_records() {
-    global $wpdb;
-
-    // Название таблицы
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    // Удаление всех записей из таблицы
-    $wpdb->query("DELETE FROM $table_name");
-}
-delete_all_custom_payment_records();
-*/
-
-
-/*
- * Ниже описаны функции для взаимодействия с таблицей custom_payments,
- * отвечающей за хранение данных, которые необходимы для фиксации оплат
- * за прохождение анкет и для получения статуса прохождения данных анкет
-*/
-
-// Вспомогательный код - удалить
-function check_table_exists() {
-    global $wpdb;
-
-    // Название таблицы
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    // Проверяем, существует ли таблица
-    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
-        wp_send_json_error(array('message' => 'Таблица не существует.'));
-        return;
-    }
-
-    // Выполняем запрос для получения данных
-    $results = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
-
-    // Возвращаем данные в формате JSON
-    wp_send_json_success($results);
-}
-add_action('wp_ajax_check_table_exists', 'check_table_exists');
-add_action('wp_ajax_nopriv_check_table_exists', 'check_table_exists');
-
-
-// Обработчик AJAX-запроса для обновления значения completion в требуемой записи
-function update_completion_flag() {
-    global $wpdb;
-
-    // Название таблицы
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    // Получаем значения из AJAX-запроса
-    $payment_id = isset($_POST['payment_id']) ? sanitize_text_field($_POST['payment_id']) : '';
-    $completion = isset($_POST['completion']) ? intval($_POST['completion']) : null;
-
-    // Проверяем, что payment_id не пустой и completion передан
-    if (empty($payment_id) || is_null($completion)) {
-        wp_send_json_error(array('message' => 'Payment ID and completion value are required.'));
-        return;
-    }
-
-    // Обновляем запись в таблице
-    $result = $wpdb->update(
-        $table_name,
-        array('completion' => $completion), // Новое значение completion
-        array('payment_id' => $payment_id), // Условие для обновления
-        array('%d'), // Формат для completion
-        array('%s')  // Формат для payment_id
-    );
-
-    // Проверяем результат и отправляем ответ
-    if ($result !== false) {
-        wp_send_json_success(array('message' => 'Completion flag updated successfully.'));
-    } else {
-        wp_send_json_error(array('message' => 'Error updating completion flag.'));
-    }
-}
-add_action('wp_ajax_update_completion_flag', 'update_completion_flag');
-add_action('wp_ajax_nopriv_update_completion_flag', 'update_completion_flag');
-
-
-// Обработчик AJAX-запроса для проверки наличия записи
-function check_payment_record() {
-    global $wpdb;
-
-    // Название таблицы
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    // Получаем значение payment_id из AJAX-запроса
-    $payment_id = isset($_POST['payment_id']) ? sanitize_text_field($_POST['payment_id']) : '';
-
-    // Проверяем, что payment_id не пустой
-    if (empty($payment_id)) {
-        wp_send_json_error(array('message' => 'Payment ID is required.'));
-        return;
-    }
-
-    // Выполняем запрос для получения данных
-    $result = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE payment_id = %s", $payment_id), ARRAY_A);
-
-    // Проверяем результат и отправляем ответ
-    if ($result) {
-        wp_send_json_success($result);
-    } else {
-        wp_send_json_error(array('message' => 'No record found for this Payment ID.'));
-    }
-}
-add_action('wp_ajax_check_payment_record', 'check_payment_record');
-add_action('wp_ajax_nopriv_check_payment_record', 'check_payment_record');
-
-// Функция получает запись из таблицы custom_payments по полю payment_id
-function get_payment_record($payment_id) {
-    global $wpdb;
-
-    // Название таблицы
-    $table_name = $wpdb->prefix . 'custom_payments';
-
-    // Если нет payment_id, то вывожу ошибку
-    if (!$payment_id) {
-        return ['message' => 'Payment ID is required.'];
-    }
-
-    // Выполняем запрос для получения данных
-    $result = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE payment_id = %s", $payment_id), ARRAY_A);
-
-    // Проверяем результат и отправляем ответ
-    if ($result) {
-        return $result;
-    } else {
-        return ['message' => 'No record found for this Payment ID.'];
-    }
-}
-
-
-// Генерация платежа yooKassa
-function start_payment() {
-    global $wpdb;
-
-    // Получение суммы из запроса
-    $summ = ! empty( $_POST['summ'] ) ? esc_attr( $_POST['summ'] ) : 0;
-    
-    // Подключение файла с ключами
-    // Файл добавлен в .gitignore
-    include_once 'yookassa-config.php';
-    
-    $url = 'https://api.yookassa.ru/v3/payments';
-    $data = array(
-        'amount' => array(
-            'value' => $summ,
-            'currency' => 'RUB'
-        ),
-        'confirmation' => array(
-            'type' => 'embedded'
-        ),
-        'description' => 'Оплата за доступ к анкете',
-        'receipt' => array(
-            'customer' => array(
-                'email' => 'info@biosalts.ru',
-            ),
-            'items' => array(
-                array(
-                    'description' => 'Оплата за доступ к анкете',
-                    'quantity' => '1.00',
-                    'amount' => array(
-                        'value' => $summ,
-                        'currency' => 'RUB'
-                    ),
-                    'tax_system_code' => '1',
-                    'vat_code' => 1,
-                    'payment_mode' => 'full_payment',
-                    'payment_subject' => 'service'
-                )
-            )
-        )
-    );
-    
-    $idempotenceKey = uniqid('', true);
-
-    $response = wp_remote_post($url, array(
-        'method' => 'POST',
-        'body' => json_encode($data),
-        'headers' => array(
-            'Authorization' => 'Basic ' . base64_encode($shopId . ':' . $secretKey),
-            // Тестовый режим
-            // 'Authorization' => 'Basic ' . base64_encode($shopIdTest . ':' . $secretKeyTest),
-            'Content-Type' => 'application/json',
-            'Idempotence-Key' => $idempotenceKey
-        )
-    ));
-
-    if (is_wp_error($response)) {
-        wp_send_json_error(array('message' => 'Ошибка при создании платежа'));
-    }
-    
-    if (isset($response->data) && isset($response->data['type']) && $response->data['type'] === 'error') {
-        wp_send_json_error(array('data' => $response_data));
-    }
-
-
-    $response_data = json_decode(wp_remote_retrieve_body($response), true);
-    $payment_id = $response_data['id'];
-    $payment_url = $response_data['confirmation']['confirmation_url'];
-
-    // Сохранение payment_id в базе данных
-    $table_name = $wpdb->prefix . 'custom_payments';
-    $wpdb->insert(
-        $table_name,
-        array(
-            'payment_id' => $payment_id,
-            'completion' => 0,
-            'summ' => $summ
-        ),
-        array('%s', '%d')
-    );
-    
-    wp_send_json_success(array('data' => $response_data));
-}
-
-
 // AJAX получить специалистов по городу на странице Специалисты
 add_action( 'wp_ajax_get_specialists', 'get_specialists_from_city' ); // хук wp_ajax
 add_action( 'wp_ajax_nopriv_get_specialists', 'get_specialists_from_city' ); // хук wp_ajax для незалогиненных пользователей
@@ -1138,7 +745,7 @@ function set_counters() {
 
 
 /**
- * Работа с купонами из woo_commerce
+ * Работа с купонами из woocommerce
  * Генерация купона
  * 
  * @param string $user_email Емайл пользователя
@@ -1172,91 +779,6 @@ function create_discount_coupon($user_email) {
     return $coupon_code;
 }
 
-
-// Функция для отправки письма с купоном
-function send_coupon_email($user_email, $coupon_code, $results) {
-    $to = $user_email;
-    // $admin_email = 'info@naturapharma.ru';
-    $admin_email = 'info@biosalts.ru';
-
-    // Преобразование массива с результатами
-    $str = '';
-    foreach($results as $value) {
-        $tmp = '<p>';
-        foreach($value['items'][0] as $item) {
-            $tmp .= $item . '<br>';
-        }
-        $tmp .= '</p>';
-        $str .= $tmp;
-    }
-
-    $subject = 'Ваш купон на скидку';
-    $message = '
-        <html>
-        <head>
-            <title>Ваш купон на скидку</title>
-        </head>
-        <body>
-            <p>Здравствуйте!</p>
-            <p>Спасибо за ваш запрос. Мы рады предоставить вам одноразовый купон на скидку 10% на любой заказ в нашем магазине. Используйте код купона при оформлении заказа:</p>
-            <p><strong>' . $coupon_code . '</strong></p>
-            <p>Купон действует в течение 1 месяца.</p>
-            <p>Результаты</p>' . $str . '
-            <p>С уважением,<br> Соли Шюсслера</p>
-        </body>
-        </html>
-    ';
-    $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    $headers[] = 'Bcc: ' . $admin_email;
-    
-    wp_mail($to, $subject, $message, $headers);
-}
-
-// Отправка письма админу c данными пользователя, результатами теста и суммой платежа
-function send_admin_email($user_email, $payment_id) {
-
-    $custom_payment = get_payment_record($payment_id);
-
-    $summ = isset($custom_payment['summ']) ? $custom_payment['summ'] : 'Summ is error.';
-
-    // $to = 'info@naturapharma.ru';
-    $to = 'info@biosalts.ru';
-
-    $subject = 'Оплата анкеты biosalts.ru';
-    $message = '
-        <html>
-        <head>
-            <title>Ваш купон на скидку</title>
-        </head>
-        <body>
-            <p>Здравствуйте!</p>
-            <p>Email ' . $user_email . '</p>
-            <p>Оплата ' . $summ . '</p>
-        </body>
-        </html>
-    ';
-    $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    
-    wp_mail($to, $subject, $message, $headers);
-}
-
-// Действия после прохождения анкеты
-function handle_questionnaire_completion() {
-	$user_email = $_POST['user_email'];
-    $payment_id = $_POST['payment_id'];
-    $results = json_decode(stripslashes($_POST['results']), true);
-	
-    // Генерация купона
-    $coupon_code = create_discount_coupon($user_email);
-    
-    // Отправка email пользователю
-    send_coupon_email($user_email, $coupon_code, $results);
-
-    // Отправка email админу
-    send_admin_email($user_email, $payment_id);
-
-    wp_die();
-}
 
 add_action('wp_ajax_handle_questionnaire_completion', 'handle_questionnaire_completion');
 add_action('wp_ajax_nopriv_handle_questionnaire_completion', 'handle_questionnaire_completion');
@@ -1606,12 +1128,11 @@ function disable_wp_blocks() {
 
 add_action( 'init', 'disable_wp_blocks', 100 );
 
-
-
+// Добавление параметров url в ссылку на анкету
 add_filter( 'woocommerce_download_product_filepath', 'woocommerce_download_product_filepath_filter', 10, 5 );
 
 /**
- * Добавление параметров url в ссылку на анкету
+ * Функция добавление параметров url в ссылку на анкету
  * 
  * Function for `woocommerce_download_product_filepath` filter-hook.
  * 
@@ -1643,7 +1164,7 @@ function get_random_string() {
 
 
 // Функция для отправки письма с купоном
-function send_coupon_email_new($user_email, $coupon_code, $results) {
+function send_coupon_email($user_email, $coupon_code, $results) {
 
     // Преобразование массива с результатами
     $str = '<p><b>Ваш результат</b></p>';
@@ -1687,7 +1208,6 @@ function send_coupon_email_new($user_email, $coupon_code, $results) {
 
 // Cоздание маршрута для проверки заказа
 add_action( 'rest_api_init', function(){
-
     // Пространство имен
     $namespace = 'myplugin/v1';
 
@@ -1701,7 +1221,6 @@ add_action( 'rest_api_init', function(){
     ];
 
     register_rest_route( $namespace, $route, $route_params );
-
 } );
 
 // Функция обработчик конечной точки (маршрута)
@@ -1800,7 +1319,6 @@ function check_order( WP_REST_Request $request ) {
 
 // Cоздание маршрута для сохранения результатов анкеты
 add_action( 'rest_api_init', function(){
-
     // Пространство имен
     $namespace = 'myplugin/v1';
 
@@ -1819,7 +1337,6 @@ add_action( 'rest_api_init', function(){
     ];
 
     register_rest_route( $namespace, $route, $route_params );
-
 } );
 
 // Функция сохранения результатов анкеты 
@@ -1908,15 +1425,13 @@ function questionnaire_rezult( WP_REST_Request $request ) {
     $coupon_code = create_discount_coupon($data['customer']['email']);
     
     // Отправка email пользователю
-    send_coupon_email_new($data['customer']['email'], $coupon_code, $data['rezults']);
+    send_coupon_email($data['customer']['email'], $coupon_code, $data['rezults']);
 
     return ['status' => true];
 }
 
 
 // Добавление нового элемента меню для вывода результатов анкеты
-add_action( 'admin_menu', 'view_questionnaire_rezults', 25 );
- 
 function view_questionnaire_rezults(){
 
     add_menu_page(
@@ -1929,6 +1444,8 @@ function view_questionnaire_rezults(){
         98 // позиция в меню
     );
 }
+
+add_action( 'admin_menu', 'view_questionnaire_rezults', 25 );
 
 
 // Вывод html в админке 

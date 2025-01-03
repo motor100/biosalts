@@ -16,7 +16,7 @@
     <div class="page-title">Экспертная система подбора солей Шюсслера для тканевой биохимической терапии</div>
   </div>
 
-  <div id="questionnaire-description">
+  <div class="questionnaire-description">
     <div class="pay-now-section">
       <div class="container">
         <a href="#coupon-section" class="pay-now-btn">Оплатить сейчас</a>

@@ -2737,7 +2737,6 @@ a.remove {
   justify-content: center;
 }
 
-
 /* custom radio */
 .custom-radio-page .woocommerce ul {
   margin: 0;
@@ -2954,6 +2953,10 @@ a.remove {
 }
 .checkout-page .woocommerce-table--order-details td a {
   color: var(--text-color);
+  text-decoration: underline;
+}
+.checkout-page .woocommerce-table--order-details td a:hover {
+  color: var(--terracota-color);
 }
 .checkout-page .woocommerce-table--order-details tfoot th {
   text-align: left;
@@ -2969,6 +2972,21 @@ a.remove {
   font-size: 20px;
   color: var(--nero-color);
   text-align: center;
+}
+.checkout-page .woocommerce-table--order-downloads {
+  border-collapse: collapse;
+}
+.checkout-page .woocommerce-table--order-downloads th,
+.checkout-page .woocommerce-table--order-downloads td {
+  padding: 5px 10px;
+  border: 1px solid var(--text-color);
+}
+.checkout-page .woocommerce-table--order-downloads td a {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+.checkout-page .woocommerce-table--order-downloads td a:hover {
+  color: var(--terracota-color);
 }
 
 
@@ -5878,6 +5896,21 @@ a.remove {
   }
   .checkout-page .woocommerce-checkout-review-order-table th {
     font-size: 18px;
+  }
+  .checkout-page .woocommerce-table--order-downloads {
+    font-size: 14px;
+  }
+  .checkout-page .woocommerce-table--order-details {
+    font-size: 14px;
+  }
+  .checkout-page .woocommerce-table--order-downloads th,
+  .checkout-page .woocommerce-table--order-downloads td {
+    padding: 5px;
+  }
+  .checkout-page .woocommerce-thankyou-order-received,
+  .checkout-page .woocommerce-order-details__title,
+  .checkout-page .woocommerce-column__title {
+    font-size: 22px;
   }
 
   /* sw page города страницы специалисты и где купить */
