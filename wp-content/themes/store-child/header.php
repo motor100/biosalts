@@ -101,7 +101,7 @@
                   <a href="/about-salts">О солях</a>
                 </li>
                 <li class="menu-item">
-                  <a href="/servis-podbora">Сервис подбора</a>
+                  <a href="/expert-system">Сервис подбора</a>
                 </li>
                 <li class="menu-item">
                   <a href="https://funmed.ru/soli_doktora_shyusslera" target="_blank">Обучение</a>

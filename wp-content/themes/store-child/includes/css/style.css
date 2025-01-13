@@ -2988,6 +2988,15 @@ a.remove {
 .checkout-page .woocommerce-table--order-downloads td a:hover {
   color: var(--terracota-color);
 }
+.checkout-page .woocommerce-table--order-downloads td.download-file a {
+  font-size: 24px;
+  color: var(--terracota-color);
+  font-weight: bold;
+  transition: color .3s;
+}
+.checkout-page .woocommerce-table--order-downloads td.download-file a:hover {
+  color: var(--burgundy-color);
+}
 
 
 /* agreement text галочка соглашения */

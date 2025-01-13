@@ -17,11 +17,6 @@
   </div>
 
   <div class="questionnaire-description">
-    <div class="pay-now-section">
-      <div class="container">
-        <a href="#coupon-section" class="pay-now-btn">Оплатить сейчас</a>
-      </div>
-    </div>
 
     <div class="about-expert-system-section">
       <div class="container">
@@ -129,7 +124,7 @@
           'tax_query' => array( array (
             'taxonomy' => 'product_cat',
             'field'    => 'term_id',
-            'terms'    => 433, // local 429 prod 433
+            'terms'    => 429, // local 429 prod 433
           )),
         ));
 

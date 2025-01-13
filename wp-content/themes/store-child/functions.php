@@ -1232,7 +1232,10 @@ function check_order( WP_REST_Request $request ) {
 
     // Проверка строки на преобразование в число
     if ( !is_numeric($order_id) ) {
-        return ['status' => false];
+        return [
+            'status' => false,
+            'error' => 'order_id is not numeric'
+        ];
     }
 
     // Получение объекта заказа WC_Order
@@ -1255,11 +1258,14 @@ function check_order( WP_REST_Request $request ) {
 
         // Если у этого заказа нет скачиваемых товаров
         if ($cdds == []) {
-            return ['status' => false];
+            return [
+                'status' => false,
+                'error' => 'order have no downloable product'
+            ];
         }
 
         // Лимит загрузок
-        // Если лимит загрузок не установлен, то ключа 'downloads_remaining' не будет
+        // Если лимит загрузок не установлен, то ключа 'download_remaining' не будет
         $downloads_remaining = $cdds[0]['data']['downloads_remaining'];
 
         // Если лимит загрузок установлен
@@ -1268,9 +1274,13 @@ function check_order( WP_REST_Request $request ) {
             // Количество загрузок
             $download_count = $cdds[0]['data']['download_count']; 
 
-            // Количество загрузок должно быть меньше чем осталось
+            // Количество загрузок должно быть меньше или равно чем лимит
             if (intval($download_count) >= intval($downloads_remaining)) {
-                return ['status' => $downloads_remaining];
+                return [
+                    'status' => false,
+                    'download_count' => 'download count ' . $download_count,
+                    'downloads_remaining' => 'downloads remaining ' . $downloads_remaining
+                ];
             }
         }
 
@@ -1282,7 +1292,10 @@ function check_order( WP_REST_Request $request ) {
         if ($access_expires) {
             // Преобразование даты окончания и текущей даты в форматах 'Ymd' в число и сравнение чисел
             if (intval(date('Ymd')) > intval($access_expires->format('Ymd'))) {
-                return ['status' => false];
+                return [
+                    'status' => false,
+                    'error' => 'expires date'
+                ];
             }
         }
 
@@ -1304,7 +1317,10 @@ function check_order( WP_REST_Request $request ) {
 
         // Проверяем результат и отправляем ответ
         if ($rezult == false) {
-            return ['status' => false];
+            return [
+                'status' => false,
+                'error' => 'have no results'
+            ];
         }
 
         return [
@@ -1313,7 +1329,10 @@ function check_order( WP_REST_Request $request ) {
         ];
     }
 
-    return ['status' => false];
+    return [
+        'status' => false,
+        'arror' => 'another error'
+    ];
 }
 
 
@@ -1432,7 +1451,7 @@ function questionnaire_rezult( WP_REST_Request $request ) {
 
 
 // Добавление нового элемента меню для вывода результатов анкеты
-function view_questionnaire_rezults(){
+function view_questionnaire_rezults() {
 
     add_menu_page(
         'Результаты анкеты', // тайтл страницы
@@ -1470,12 +1489,12 @@ function all_questionnaire_rezults_html() {
 
     echo '<div class="wrap"><h2>' . get_admin_page_title() . '</h2>';
     echo '<table class="wp-list-table widefat fixed striped table-view-list">';
-    echo '<thead><tr><td width="40px">№</td><td>Заголовок</td><td>Дата</td></tr></thead>';
+    echo '<thead><tr><td width="80px">№</td><td>Заголовок</td><td>Дата</td></tr></thead>';
     echo '<tbody>';
 
     foreach($results as $value) {
         echo '<tr>';
-        echo '<td>' . $value['id'] . '</td>';
+        echo '<td>' . $value['order_id'] . '</td>';
         echo '<td class="title column-title has-row-actions column-primary page-title">' ;
         echo '<strong><a href="' . get_admin_url(null, 'admin.php?page=questionnaire-rezults') . '&id=' . $value['id'] . '" class="row-title">' . $value['firstname'] . ' ' . $value['lastname'] . '</a></strong>';
         echo '</td>';
@@ -1545,4 +1564,14 @@ function single_questionnaire_rezults_html($id) {
     echo '<p>Дата ' . date("d-m-Y", $created_at) . '</p>';
     echo $results_html;
     echo $checkboxes_html;    
+}
+
+
+// Изменение заголовка на странице оформления заказа
+add_filter( 'woocommerce_endpoint_order-received_title', 'title_custom_order_received_h1', 25 );
+ 
+function title_custom_order_received_h1( $title ) {
+ 
+    return "Спасибо за заказ! :)";
+ 
 }
