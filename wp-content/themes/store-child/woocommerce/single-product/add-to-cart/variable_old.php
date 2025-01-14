@@ -35,8 +35,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			<tbody>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
 					<tr>
-						<th class="label">
-							<label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>" class="lbl">Выберите параметры</label>
+						<th class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label>							
 						</th>
 						<td class="value">
 							<?php
@@ -45,16 +44,29 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 										'options'   => $options,
 										'attribute' => $attribute_name,
 										'product'   => $product,
-										'class'     => 'variations-select',
 									)
 								);
-								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
+							?>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<?php
+							/**
+							 * Filters the reset variation button.
+							 *
+							 * @since 2.5.0
+							 *
+							 * @param string  $button The reset variation button HTML.
+							 */
+							echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<button class="reset_variations"  aria-label="' . esc_html__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</button>' ) ) : '';
 							?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+		<div class="reset_variations_alert screen-reader-text" role="alert" aria-live="polite" aria-relevant="all"></div>
 		<?php do_action( 'woocommerce_after_variations_table' ); ?>
 
 		<div class="single_variation_wrap">

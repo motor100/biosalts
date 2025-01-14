@@ -1340,9 +1340,9 @@ ul.products li.product .added_to_cart:hover {
   height: 42px;
   background: url(../images/magnifying-glass-plus.jpg) center no-repeat;
 }
-.single-product .product .summary {
+/*.single-product .product .summary {
   margin-top: 20px;
-}
+}*/
 .single-product .product .flex-viewport,
 .single-product .product .woocommerce-product-gallery--without-images {
   height: 100%;
@@ -1391,7 +1391,7 @@ ul.products li.product .added_to_cart:hover {
   font-size: 24px;
   color: var(--text-color);
 }
-.single-product .product .lbl {
+.single-product .product th.label label {
   font-size: 18px;
 }
 .single-product .product .variations th,
@@ -1402,10 +1402,14 @@ ul.products li.product .added_to_cart:hover {
   list-style: none;
   background-color: rgba(0, 0, 0, 0);
 }
-.single-product .product .variations-select {
+.single-product .product td.value select {
   margin: 0 30px 10px 0;
 }
 .single-product .product .reset_variations {
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  font-size: 14px;
   color: var(--shark-color);
   text-decoration: underline;
 }
@@ -5869,7 +5873,7 @@ a.remove {
   .single-product .product .product_meta .meta-subtitle {
     font-size: 18px;
   }
-  .single-product .product .lbl {
+  .single-product .product th.label label {
     font-size: 16px;
   }
   .single-product .related .related-products-title {

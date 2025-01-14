@@ -1576,3 +1576,14 @@ function title_custom_order_received_h1( $title ) {
     return "Спасибо за заказ! :)";
  
 }
+
+
+// Изменение текста label для select вариации на странице Карточка товара
+// Было "Таблетки по" стало "Выберите параметры"
+// plugins/woocommerce/templates/single-product/add-to-cart/variable.php строка 38
+// Документация https://wp-kama.ru/plugin/woocommerce/hook/woocommerce_attribute_label
+function custom_attribute_label( $label, $name, $product ) {
+    $label = __('Выберите параметры', 'woocommerce');
+    return $label;
+}
+add_filter( 'woocommerce_attribute_label', 'custom_attribute_label', 10, 3 );
