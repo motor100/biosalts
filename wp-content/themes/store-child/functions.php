@@ -1264,22 +1264,23 @@ function check_order( WP_REST_Request $request ) {
             ];
         }
 
-        // Лимит загрузок
-        // Если лимит загрузок не установлен, то ключа 'download_remaining' не будет
+        // Счетчик Загрузок осталось
+        // Если счетчик Загрузок осталось не установлен, то значение ключа download_remaining будет пустая строка
+        // С каждой загрузкой счетчик количества загрузок увеличивается на 1, счетчик Загрузок осталось уменьшается на 1
         $downloads_remaining = $cdds[0]['data']['downloads_remaining'];
 
-        // Если лимит загрузок установлен
+        // Если счетчик Загрузок осталось установлен, то значение ключа download_remaining будет число
         if ($downloads_remaining != '') {
             
-            // Количество загрузок
-            $download_count = $cdds[0]['data']['download_count']; 
+            // Счетчик количества загрузок
+            $download_count = $cdds[0]['data']['download_count'];
 
-            // Количество загрузок должно быть меньше или равно чем лимит
-            if (intval($download_count) >= intval($downloads_remaining)) {
+            // Если счетчик количества загрузок больше чем счетчик Загрузок осталось, то возвращаю ошибку
+            if (intval($download_count) > intval($downloads_remaining)) {
                 return [
                     'status' => false,
-                    'download_count' => 'download count ' . $download_count,
-                    'downloads_remaining' => 'downloads remaining ' . $downloads_remaining
+                    'download_count' => 'download count: ' . $download_count,
+                    'downloads_remaining' => 'downloads remaining: ' . $downloads_remaining
                 ];
             }
         }
