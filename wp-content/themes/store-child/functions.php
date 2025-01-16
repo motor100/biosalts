@@ -1256,7 +1256,7 @@ function check_order( WP_REST_Request $request ) {
          */
         $cdds = $WC_Customer_Download_Data_Store->get_downloads( ['order_id' => $order_id] );
 
-        // Если у этого заказа нет скачиваемых товаров
+        // Если у этого заказа нет загружаемых товаров
         if ($cdds == []) {
             return [
                 'status' => false,
@@ -1267,6 +1267,8 @@ function check_order( WP_REST_Request $request ) {
         // Счетчик Загрузок осталось
         // Если счетчик Загрузок осталось не установлен, то значение ключа download_remaining будет пустая строка
         // С каждой загрузкой счетчик количества загрузок увеличивается на 1, счетчик Загрузок осталось уменьшается на 1
+        // После прохождения анкеты увеличиваю на 1 счетчик количества загрузок. Функция questionnaire_rezult()
+        // В массиве $cdds ключ [0] - первый и единственный товар в этом заказе
         $downloads_remaining = $cdds[0]['data']['downloads_remaining'];
 
         // Если счетчик Загрузок осталось установлен, то значение ключа download_remaining будет число
@@ -1275,8 +1277,8 @@ function check_order( WP_REST_Request $request ) {
             // Счетчик количества загрузок
             $download_count = $cdds[0]['data']['download_count'];
 
-            // Если счетчик количества загрузок больше чем счетчик Загрузок осталось, то возвращаю ошибку
-            if (intval($download_count) > intval($downloads_remaining)) {
+            // Сравнение счетчик количества загрузок со счетчиком Загрузок осталось + 1, то возвращаю ошибку
+            if (intval($download_count) > intval($downloads_remaining) + 1) {
                 return [
                     'status' => false,
                     'download_count' => 'download count: ' . $download_count,
@@ -1332,7 +1334,7 @@ function check_order( WP_REST_Request $request ) {
 
     return [
         'status' => false,
-        'arror' => 'another error'
+        'error' => 'No order object'
     ];
 }
 
@@ -1431,7 +1433,6 @@ function questionnaire_rezult( WP_REST_Request $request ) {
         ),
         array('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
     );
-    
 
     // Проверяем результат и отправляем ответ
     if ($rezult == false) {
@@ -1440,6 +1441,27 @@ function questionnaire_rezult( WP_REST_Request $request ) {
             'error' => 'data not insert to db'
         ];
     }
+
+    // Обновление счетчика количества загрузок товара. Увеличение на 1
+    // Создание объекта WC_Customer_Download_Data_Store
+    $WC_Customer_Download_Data_Store = new WC_Customer_Download_Data_Store();
+
+    // Получение загрузок
+    $cdds = $WC_Customer_Download_Data_Store->get_downloads( ['order_id' => $order_id] );
+    
+    // В массиве $cdds ключ [0] - первый и единственный товар в этом заказе
+    $download_count = $cdds[0]['data']['download_count'];
+
+    // Название таблицы
+    $table_name = $wpdb->prefix . 'woocommerce_downloadable_product_permissions';
+
+    // Обновление количества загрузок
+    $result = $wpdb->update(
+        $table_name,
+        array('download_count' => intval($download_count) + 1), // Новое значение download_count bigint
+        array('order_id' => $order_id), // Условие where для обновления bigint
+        array('%d'), // Формат для download_count bigint
+    );
 
     // Генерация купона
     $coupon_code = create_discount_coupon($data['customer']['email']);
@@ -1574,9 +1596,10 @@ add_filter( 'woocommerce_endpoint_order-received_title', 'title_custom_order_rec
 function title_custom_order_received_h1( $title ) {
  
     return "Спасибо за заказ! :)";
- 
 }
 
+
+/* Переопределение шаблонов Woocommerce */
 
 // Изменение текста label для select вариации на странице Карточка товара
 // Было "Таблетки по" стало "Выберите параметры"
